@@ -1,10 +1,10 @@
 module.exports = {
-    name: "lol",
+    name: "ping",
     category: "info",
     description: "Returns latency and API lol",
-    usage: "lol",
+    usage: "ping",
     run: async (client, message, args) => {
-       message.channel.send(`**What do you mean?**`);
+       message.channel.send(`**Pong**${client.ws.ping}`);
     }
   
 }
