@@ -6,7 +6,7 @@ module.exports = {
   name: "weather",
   description: "Get the weather of anywhere",
   category: "info",
-  usage: "weather <>",
+  usage: "weathet <>",
   run: (client, message, args) => {
     
     
