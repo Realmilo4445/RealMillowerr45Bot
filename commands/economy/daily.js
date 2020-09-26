@@ -12,7 +12,7 @@ module.exports = {
   run:async(clients, message, args) => {
     let prefix = await db.fetch(`prefix_${message.guild.id}`)
     if (prefix == null) {
-      prefix = config.Default_PREFIX
+      prefix = config.DEFAULT_PREFIX
     }
     
     let amount = 100
@@ -24,13 +24,14 @@ module.exports = {
       let time = ms(timeout - (Date.now() - daily));
       
       let embed = new Discord.MessageEmbed()
-      .setDesciption("You have already claimed your daily coins!/nWait: ${time.hours}hours ${time.minutes}minutes ${time.seconds}seconds")
+      .setDescription("You have already claimed your daily coins!/nWait: ${time.hours}hours ${time.minutes}minutes ${time.seconds}seconds")
       
       message.channel.send(embed)
     } else {
       let embed = new Discord.MessageEmbed()
-      .setDesciption("You have claimed ${amount} coins!")
-      db.add
+      .setDescription("You have claimed ${amount}, coins!")
+      db.add("coins_$(message.author.id)", amount)
+      db.set("daily_$(message.author.id)", Date.now())
     }
     
   }

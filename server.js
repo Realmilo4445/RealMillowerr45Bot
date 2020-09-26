@@ -1,4 +1,4 @@
-const { token, prefix } = require("./config.json");
+const { token, DEFAULT_PREFIX } = require("./config.json");
 const { config } = require("dotenv");
 const discord = require("discord.js") //Gonna use Discord.js Module xD
 const { addexp } = require("./handlers/xp.js");
