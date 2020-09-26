@@ -29,9 +29,10 @@ module.exports = {
       message.channel.send(embed)
     } else {
       let embed = new Discord.MessageEmbed()
-      .setDescription("You have claimed ${amount}, coins!")
+      .setDescription("You have claimed ${amount} coins!")
       db.add("coins_$(message.author.id)", amount)
       db.set("daily_$(message.author.id)", Date.now())
+      
     }
     
   }
