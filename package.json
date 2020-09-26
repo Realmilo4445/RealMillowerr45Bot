@@ -10,7 +10,16 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "fs": "^0.0.2",
+    "ascii-table": "^0.0.9",
+    "quick-db": "^1.0.5",
+    "quick.db": "^7.1.2",
+    "imdb-api": "^4.2.0",
+    "novelcovid": "^1.2.7",
+    "request-promise-native": "^1.0.8"
   },
   "engines": {
     "node": "12.x"
