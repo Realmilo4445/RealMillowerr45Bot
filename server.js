@@ -49,7 +49,8 @@ if(message.author.bot) return;
  
   
     if(is_url(message.content) === true) {
-     
+      message.delete()
+      return message.channel.send("You can not send link here :/")
     }
   
     let confirm = false;
