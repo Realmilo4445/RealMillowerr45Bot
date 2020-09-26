@@ -16,7 +16,7 @@ module.exports = {
     }
     
     let amount = 100
-    let timeout = 8640000
+    let timeout = 86400000
     
     let daily = await db.fetch(`daily_${message.author.id}`)
     
@@ -24,14 +24,14 @@ module.exports = {
       let time = ms(timeout - (Date.now() - daily));
       
       let embed = new Discord.MessageEmbed()
-      .setDescription("You have already claimed your daily coins!/nWait: ${time.hours}hours ${time.minutes}minutes ${time.seconds}seconds")
+      .setDescription(`You have already claimed your daily coins!\nWait: ${time.hours} hours, ${time.minutes} minutes, ${time.seconds} seconds, `)
       
       message.channel.send(embed)
     } else {
       let embed = new Discord.MessageEmbed()
-      .setDescription("You have claimed ${amount} coins!")
-      db.add("coins_$(message.author.id)", amount)
-      db.set("daily_$(message.author.id)", Date.now())
+      .setDescription(`You have claimed ${amount} coins!`)
+      db.add(`coins_${message.author.id}`, amount)
+      db.set(`daily_${message.author.id}`, Date.now())
       
     }
     
