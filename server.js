@@ -1,4 +1,3 @@
-
 const http = require('http');
 const express = require('express');
 const app = express();
@@ -15,8 +14,7 @@ setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
 
-const { DEFAULT_PREFIX } = require("./config.json");
-const { TOKEN } = require("./config.json")
+const { token, DEFAULT_PREFIX } = require("./config.json");
 const { config } = require("dotenv");
 const discord = require("discord.js") //Gonna use Discord.js Module xD
 const { addexp } = require("./handlers/xp.js");
@@ -57,18 +55,15 @@ function is_url(str) {
   
 }
 
-client.snipes = new Map()
-client.on('messageDelete', function(message, channel){
+client.on("message", async message => {
   
-  client.snipes.set(message.channel.id, {
-    content:message.content,
-    author:message.author.tag,
-    image:message.attachments.first() ? message.attachments.first().proxyURL : null
-  })
+  let prefix = await db.fetch(`prefix_${message.guild.id}`)
+   if(prefix == null) {
+    prefix = "a?" 
+  }
   
-})
-
-
+     let blacklist = await db.fetch(`blacklist_${message.author.id}`)
+  
 if(message.author.bot) return;
      //start
   
@@ -99,7 +94,10 @@ if(message.author.bot) return;
   //end
   
   if(!message.guild) return;
+  
   if(!message.content.startsWith(DEFAULT_PREFIX)) return;
+  
+  if (blacklist === "Blacklisted") return message.reply("You are blacklisted from the bot!")
   
   // If message.member is uncached, cache it.
      if (!message.member) message.member = await message.guild.fetchMember(message);
@@ -145,4 +143,4 @@ client.on("guildMemberAdd", (member) => {
 
 
 
-client.login(TOKEN)
+client.login(token)
