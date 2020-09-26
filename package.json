@@ -20,7 +20,9 @@
     "imdb-api": "^4.2.0",
     "novelcovid": "^1.2.7",
     "request-promise-native": "^1.0.8",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "parse-ms": "^2.0.0",
+    "moment": "^2.28.0"
   },
   "engines": {
     "node": "12.x"
