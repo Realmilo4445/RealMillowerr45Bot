@@ -4,7 +4,7 @@ module.exports = {
   name: "mute",
   description: "Change the bot status",
   usage: "mute <@mention> <reason>",
-  category: "owner",
+  category: "moderation",
   run: async (client, message, args) => {
     
      if (!message.member.hasPermission("MANAGE_ROLES")) {

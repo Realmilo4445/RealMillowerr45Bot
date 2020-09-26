@@ -1,37 +1,37 @@
 const discord = require("discord.js");
 
 module.exports = {
-  name: "kick",
+  name: "ban",
   category: "moderation",
-  description: "Kick anyone with one shot xD",
-  usage: "kick <@user> <reason>",
+  description: "ban anyone with one shot xD",
+  usage: "ban <@user> <reason>",
   run: (client, message, args) => {
     
 
-if(!message.member.hasPermission("KICK_MEMBERS")) {
+if(!message.member.hasPermission("BAN_MEMBERS")) {
       return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)
     }
 
-if(!message.guild.me.hasPermission("KICK_MEMBERS")) {
+if(!message.guild.me.hasPermission("BAN_MEMBERS")) {
       return message.channel.send(`**${message.author.username}**, I do not have enough permission to use this command`)
     }
     
      let target = message.mentions.members.first();
     
     if(!target) {
-      return message.channel.send(`**${message.author.username}**, Please mention the person who you want to kick`)
+      return message.channel.send(`**${message.author.username}**, Please mention the person who you want to ban`)
     }
 
 if(target.id === message.author.id) {
-     return message.channel.send(`**${message.author.username}**, You can not kick yourself`)
+     return message.channel.send(`**${message.author.username}**, You can not ban yourself`)
     }
 
  if(!args[1]) {
-    return message.channel.send(`**${message.author.username}**, Please Give Reason to kick`)
+    return message.channel.send(`**${message.author.username}**, Please Give Reason to ban`)
   }
 
 let embed = new discord.MessageEmbed()
-    .setTitle("Action: Kick")
+    .setTitle("Action: Ban")
     .setDescription(`Banned ${target} (${target.id})`)
     .setColor("#ff2050")
     .setFooter(`Banned by ${message.author.username}`);
