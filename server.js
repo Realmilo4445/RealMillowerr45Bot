@@ -1,4 +1,22 @@
-const { token, DEFAULT_PREFIX } = require("./config.json");
+
+const http = require('http');
+const express = require('express');
+const app = express();
+
+var server = require('http').createServer(app);
+app.get("/", (request, response) => {
+  console.log(" Ping Received");
+  response.sendStatus(200);
+});
+const listener = server.listen(process.env.PORT, function() {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 280000);
+
+const { DEFAULT_PREFIX } = require("./config.json");
+const { TOKEN } = require("./config.json")
 const { config } = require("dotenv");
 const discord = require("discord.js") //Gonna use Discord.js Module xD
 const { addexp } = require("./handlers/xp.js");
@@ -39,8 +57,18 @@ function is_url(str) {
   
 }
 
-client.on("message", async message => {
+client.snipes = new Map()
+client.on('messageDelete', function(message, channel){
   
+  client.snipes.set(message.channel.id, {
+    content:message.content,
+    author:message.author.tag,
+    image:message.attachments.first() ? message.attachments.first().proxyURL : null
+  })
+  
+})
+
+
 if(message.author.bot) return;
      //start
   
@@ -117,4 +145,4 @@ client.on("guildMemberAdd", (member) => {
 
 
 
-client.login(token)
+client.login(TOKEN)
