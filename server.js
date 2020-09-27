@@ -20,6 +20,10 @@ const client = new discord.Client({
   disableEveryone: true // what does this disable thing do?
 });
 const db = require("quick.db")
+const setupCMD = "!setreactionrole"
+let initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
+const roles = ["Gamers"];
+const reactions = [":none:"]
 
 // Collections
 client.commands = new discord.Collection();
@@ -35,13 +39,23 @@ client.aliases = new discord.Collection();
 //Load up the bot...
 const Discord = require('discord.js');
 const bot = new Discord.Client();
- 
- 
 
 client.on("ready", () => { //When bot is ready
   console.log("I am Reday to Go")
   client.user.setActivity(db.get(`status`)) //It will set status :)
 })
+
+//If there isn't a reaction for every role, scold the user!
+if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
+ 
+//Function to generate the role messages, based on your settings
+function generateMessages(){
+    var messages = [];
+    messages.push(initialMessage);
+    for (let role of roles) messages.push(`**React below to get the **"${role}"** role!**`); //DONT CHANGE THIS
+    return messages;
+}
+ 
 
 //Url Function -Start
 function is_url(str) {
@@ -53,6 +67,20 @@ function is_url(str) {
   }
   
 }
+
+bot.on("message", message => {
+    if (message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase() == setupCMD){
+        var toSend = generateMessages();
+        let mappedArray = [[toSend[0], false], ...toSend.slice(1).map( (message, idx) => [message, reactions[idx]])];
+        for (let mapObj of mappedArray){
+            message.channel.send(mapObj[0]).then( sent => {
+                if (mapObj[1]){
+                  sent.react(mapObj[1]);  
+                }
+            });
+        }
+    }
+})
 
 client.on("message", async message => {
   
@@ -138,44 +166,7 @@ client.on("guildMemberAdd", (member) => {
   
   client.channels.cache.get(chx).send(wembed)
 })
-const setupCMD = "!setreactionrole"
-let initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
-const roles = ["Gamers"];
-const reactions = [":none:"]
 
-
- 
-bot.once('ready', () => {
-    console.log('Ready!');
-});
- 
-//If there isn't a reaction for every role, scold the user!
-if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
- 
-//Function to generate the role messages, based on your settings
-function generateMessages(){
-    var messages = [];
-    messages.push(initialMessage);
-    for (let role of roles) messages.push(`**React below to get the **"${role}"** role!**`); //DONT CHANGE THIS
-    return messages;
-}
- 
- 
-bot.on("message", message => {
-    if (message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase() == setupCMD){
-        var toSend = generateMessages();
-        let mappedArray = [[toSend[0], false], ...toSend.slice(1).map( (message, idx) => [message, reactions[idx]])];
-        for (let mapObj of mappedArray){
-            message.channel.send(mapObj[0]).then( sent => {
-                if (mapObj[1]){
-                  sent.react(mapObj[1]);  
-                }
-            });
-        }
-    }
-})
- 
- 
 bot.on('raw', event => {
     if (event.t === 'MESSAGE_REACTION_ADD' || event.t == "MESSAGE_REACTION_REMOVE"){
        

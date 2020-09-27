@@ -26,7 +26,15 @@ module.exports = {
       let embed = new Discord.MessageEmbed()
       .setDescription(`You have already to claimed your daily coins!\nWait ${time.hours}hours, ${time.minutes}minutes, ${time.secons}`)
       
-      messa
+      message.channel.send(embed)
+      
+    } else {
+      
+      let embed = new Discord.MessageEmbed()
+      .setDescription(`You have claimed ${amount} coins!`)
+      db.add(`coins_${message.author.id}`, amount)
+      db.set(`coins_${message.author.id}`, amount)
+      
     }
   }
 }
