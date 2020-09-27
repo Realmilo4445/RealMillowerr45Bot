@@ -129,7 +129,7 @@ client.on("guildMemberAdd", (member) => {
   if(chx === null) { //check if var have value or not
     return;
   }
-
+ 
   let wembed = new discord.MessageEmbed()
   .setAuthor(member.user.username, member.user.avatarURL())
   .setColor("#ff2050")
@@ -140,8 +140,8 @@ client.on("guildMemberAdd", (member) => {
 })
 const setupCMD = "!setreactionrole"
 let initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
-const roles = ["Gamer"];
-const reactions = [":tada:"];
+const roles = ["Gamers"];
+const reactions = ["✅"];
 
 
  
