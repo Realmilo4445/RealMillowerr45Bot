@@ -21,7 +21,7 @@ const client = new discord.Client({
 });
 const db = require("quick.db")
 
-const setupCMD = "setreactionrole"
+const setupCMD = "!setreactionrole"
 let initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
 const roles = ["Announcement Ping"];
 const reactions = ["✅"];
@@ -198,5 +198,5 @@ client.on("guildMemberAdd", (member) => {
 })
  
 
-bot.login(token)
+bot.login(process.env.TOKEN);
 client.login(token)
