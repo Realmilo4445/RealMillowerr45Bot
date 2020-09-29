@@ -12,6 +12,7 @@ dependencies:
   quick-db: 1.0.5
   quick.db: 7.1.2
   request-promise-native: 1.0.9
+  snekfetch: 4.0.4
   weather-js: 2.0.0
 packages:
   /@discordjs/collection/0.1.6:
@@ -1965,6 +1966,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-bCR6cP+aTdScaQCnQKbPKtJOKDp/hj9EDLJo3Nw4y1QksqaovlW/bnptB6/c1e+qmNIDHRK+oXFDdEqBT8WzUA==
+  /snekfetch/4.0.4:
+    deprecated: use node-fetch instead
+    dev: false
+    resolution:
+      integrity: sha512-dyycG9fvwtSJqKPfMVOpXt+60qvMGe7vWLwOJDiSJaiAx+hs2EnFChG2bXCWn7ulz+zGzrHdN9/yeEb0YqEPww==
   /spdx-correct/3.1.1:
     dependencies:
       spdx-expression-parse: 3.0.1
@@ -2428,4 +2434,5 @@ specifiers:
   quick-db: ^1.0.5
   quick.db: ^7.1.2
   request-promise-native: ^1.0.8
+  snekfetch: ^4.0.4
   weather-js: ^2.0.0

@@ -23,7 +23,8 @@
     "moment": "^2.28.0",
     "parse-ms": "^2.0.0",
     "weather-js": "^2.0.0",
-    "http": "^0.0.0"
+    "http": "^0.0.0",
+    "snekfetch": "^4.0.4"
   },
   "engines": {
     "node": "12.x"
