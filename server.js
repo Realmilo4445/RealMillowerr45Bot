@@ -21,7 +21,7 @@ app.get("/", (request, response) => {
 })
 app.listen(process.env.PORT);
 setInterval(() => {
-http.get(`https://${process.env.PROJECT_DOMAIN}.glitch.me`);
+http.get(`https://unmarred-equable-sidewalk.glitch.me`);
 }, 280000);
 
 
