@@ -1,14 +1,3 @@
-const http = require('http');
-const express = require('express');
-const app = express();
-app.get("/", (request, response) => {
-  console.log(new Date() + " Ping Received");
-  response.sendStatus(400);
-});
-app.listen(3000);
-setInterval(() => {
-  http.get(`http://unmarred-equable-sidewalk.glitch.me/`);
-}, 280000);
 
 const { token, DEFAULT_PREFIX } = require("./config.json");
 const { config } = require("dotenv");
@@ -20,6 +9,20 @@ const client = new discord.Client({
   disableEveryone: true // what does this disable thing do?
 });
 const db = require("quick.db")
+
+//UPTIME ROBOT (WEB)
+const { get } = require("snekfetch");
+const http = require("http");
+const express = require("express");
+const app = express();
+app.get("/", (request, response) => {
+  console.log("Pinging");
+  response.sendStatus(200);
+})
+app.listen(process.env.PORT);
+setInterval(() => {
+http.get(`https://${process.env.PROJECT_DOMAIN}.glitch.me`);
+}, 280000);
 
 
 // Collections
@@ -60,7 +63,7 @@ client.on("message", async message => {
   
   let prefix = await db.fetch(`prefix_${message.guild.id}`)
    if(prefix == null) {
-    prefix = "a?" 
+    prefix = "!" 
   }
   
      let blacklist = await db.fetch(`blacklist_${message.author.id}`)
