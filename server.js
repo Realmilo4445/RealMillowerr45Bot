@@ -1,34 +1,27 @@
-
 const { token, DEFAULT_PREFIX } = require("./config.json");
+const { badwords } = require("./data.json") 
 const { config } = require("dotenv");
-const discord = require("discord.js") //Gonna use Discord.js Module xD
-const { addexp } = require("./handlers/xp.js");
-const { badwords } = require("./data.json");
-const { Client, Collection } = require("discord.js");
+const discord = require("discord.js"); //Gonna use Discord.js Module xD
 const client = new discord.Client({
   disableEveryone: true // what does this disable thing do?
 });
-const db = require("quick.db")
-
-// Collections
+const db = require("quick.db"); //WE WILL BE USING QUICK.DB
+const { addexp } = require("./handlers/xp.js");
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
 
+const { CanvasSenpai } = require("canvas-senpai")
+const canva = new CanvasSenpai();
 
-
-// Run the command loader
-["command"].forEach(handler => { 
+["command"].forEach(handler => {
   require(`./handlers/${handler}`)(client);
 });
 
-//Load up the bot...
-const Discord = require('discord.js');
-const bot = new Discord.Client();
-
-client.on("ready", () => { //When bot is ready
-  console.log("I am Ready to Go")
-  client.user.setActivity(db.get(`status`)) //It will set status :)
-})
+client.on("ready", () => {
+  //When bot is ready
+  console.log("I am Reday to Go");
+  client.user.setActivity(db.get(`status`)); //It will set status :)
+});
 
 //IS URL FUNCTION - START
 
@@ -49,6 +42,10 @@ function is_url(str) {
 client.on("message", async message => {
   if (message.author.bot) return;  
   //START
+
+
+
+  
   if(!message.member.hasPermission("ADMINISTRATOR")) {
     
     if(is_url(message.content) === true) {
@@ -81,8 +78,8 @@ client.on("message", async message => {
   //END
   if (!message.guild) return;
   let prefix = db.get(`prefix_${message.guild.id}`);
-  if (prefix === null) prefix = DEFAULT_PREFIX;
-  
+  if (prefix === null) prefix = default_prefix;
+
   if (!message.content.startsWith(prefix)) return;
 
   if (!message.member)
@@ -96,10 +93,19 @@ client.on("message", async message => {
 
   if (cmd.length === 0) return;
 
+let cmdx = db.get(`cmd_${message.guild.id}`)
+
+if(cmdx) {
+  let cmdy = cmdx.find(x => x.name === cmd)
+  if(cmdy) message.channel.send(cmdy.responce)
+}
+
   // Get the command
   let command = client.commands.get(cmd);
   // If none is found, try to find it by alias
   if (!command) command = client.commands.get(client.aliases.get(cmd));
+
+
 
   // If a command is finally found, run the command
   if (command) command.run(client, message, args);
@@ -109,20 +115,25 @@ client.on("message", async message => {
 
 //GONNA USE EVENT HERE
 
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", async member => {
   let chx = db.get(`welchannel_${member.guild.id}`);
 
   if (chx === null) {
     return;
   }
 
-  let wembed = new discord.MessageEmbed()
-    .setAuthor(member.user.username, member.user.avatarURL())
-    .setColor("#ff2050")
-    .setThumbnail(member.user.avatarURL())
-    .setDescription(`We are very happy to have you in our server`);
+  
+   let data = await canva.welcome(member, { link: "https://i.pinimg.com/originals/f3/1c/39/f31c39d56512dc8fbf30f9d0fb3ee9d3.jpg" })
+ 
+    const attachment = new discord.MessageAttachment(
+      data,
+      "welcome-image.png"
+    );
+  
+  
 
-  client.channels.cache.get(chx).send(wembed);
+
+  client.channels.cache.get(chx).send("Welcome to our Server " + member.user.username, attachment);
 });
 
 client.login(token);
