@@ -27,7 +27,8 @@
     "google-tts-api": "^0.0.4",
     "parse-ms": "^2.1.0",
     "moment": "^2.28.0",
-    "canvas-senpai": "^0.1.6"
+    "canvas-senpai": "^0.1.6",
+    "something-random-on-discord": "^0.0.1"
   },
   "engines": {
     "node": "12.x"
