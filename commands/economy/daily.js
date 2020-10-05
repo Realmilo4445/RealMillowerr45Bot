@@ -24,7 +24,7 @@ module.exports = {
       let time = ms(timeout - (Date.now() - daily));
       
       let embed = new Discord.MessageEmbed()
-      .setDescription(`You have already to claimed your daily coins!\nWait ${time.hours}hours, ${time.minutes}minutes, ${time.secons}seconds`)
+      .setDescription(`You have already to claimed your daily coins!\nWait ${time.hours}hours, ${time.minutes}minutes, ${time.seconds}seconds`)
       
       message.channel.send(embed)
       
