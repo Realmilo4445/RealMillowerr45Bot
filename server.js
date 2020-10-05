@@ -45,33 +45,12 @@ client.on("ready", () => { //When bot is ready
   client.user.setActivity(db.get(`status`)) //It will set status :)
 })
 
-client.snipes = new Map()
-client.on('messageDelete', function(message, channel){
-  
-  client.snipes.set(message.channel.id, {
-    content:message.content,
-    author:message.author.tag,
-    image:message.attachments.first() ? message.attachments.first().proxyURL : null
-  })
-  
-})
-
-
 client.on("message", async message => {
   
-  let prefix = await db.fetch(`prefix_${message.guild.id}`)
-   if(prefix == null) {
-    prefix = "!" 
-  }
-  
-     let blacklist = await db.fetch(`blacklist_${message.author.id}`)
-  
 if(message.author.bot) return;
-     //start
-  
-  if(!message.member.hasPermission("ADMINISTRATOR")) {
-   
-    let confirm = false;
+ //start
+   if(!message.member.hasPermission("ADMINISTRATOR")) {
+     let confirm = false;
    
     var i;
     for(i = 0;i < badwords.length; i++) {
@@ -80,15 +59,13 @@ if(message.author.bot) return;
         confirm = true;
       
     }
-  
-   if(confirm) {
+       if(confirm) {
       message.delete()
       return message.channel.send("You are not allowed to send badwords here")
     }    
-  }
+ }
   //end
   
-
   
   // If message.member is uncached, cache it.
      if (!message.member) message.member = await message.guild.fetchMember(message);
@@ -106,12 +83,11 @@ if(message.author.bot) return;
     // If a command is finally found, run the command
     if (command) 
         command.run(client, message, args);
-
-    if(message.author.bot) return;
-  if(!message.guild) return;
+  
     return addexp(message)
  
- }); //All codes link in description
+ });
+//All codes link in description
 
 //GONNA USE EVENT HERE
 
