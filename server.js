@@ -45,6 +45,17 @@ client.on("ready", () => { //When bot is ready
   client.user.setActivity(db.get(`status`)) //It will set status :)
 })
 
+client.snipes = new Map()
+client.on('messageDelete', function(message, channel){
+  
+  client.snipes.set(message.channel.id, {
+    content:message.content,
+    author:message.author.tag,
+    image:message.attachments.first() ? message.attachments.first().proxyURL : null
+  })
+  
+})
+
 
 client.on("message", async message => {
   
@@ -77,11 +88,7 @@ if(message.author.bot) return;
   }
   //end
   
-  if(!message.guild) return;
-  
-  if(!message.content.startsWith(DEFAULT_PREFIX)) return;
-  
-  if (blacklist === "Blacklisted") return message.reply("You are blacklisted from the bot!")
+
   
   // If message.member is uncached, cache it.
      if (!message.member) message.member = await message.guild.fetchMember(message);
