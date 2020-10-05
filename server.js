@@ -66,6 +66,7 @@ if(message.author.bot) return;
  }
   //end
   
+  if(!message.guild) return;
   
   // If message.member is uncached, cache it.
      if (!message.member) message.member = await message.guild.fetchMember(message);
