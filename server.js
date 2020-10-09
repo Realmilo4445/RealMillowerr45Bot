@@ -1,5 +1,6 @@
 const { token, DEFAULT_PREFIX } = require("./config.json");
 const { badwords } = require("./data.json") 
+const Captcha = require("@haileybot/captcha-generator")
 const { config } = require("dotenv");
 const discord = require("discord.js"); //Gonna use Discord.js Module xD
 const client = new discord.Client({
@@ -22,6 +23,17 @@ client.on("ready", () => {
   console.log("I am Reday to Go");
   client.user.setActivity(db.get(`status`)); //It will set status :)
 });
+
+client.on("guildMemberAdd", async (member) => {
+  let captcha = new Captcha()
+  
+  const channel = member.guild.channels.cache.find((x) => x.name === "verify")
+  
+  if(!channel) {
+   return console.log(member.guild.name + "Please Create channel with name verify")
+  }
+  
+  })
 
 //IS URL FUNCTION - START
 

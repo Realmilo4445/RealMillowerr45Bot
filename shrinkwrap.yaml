@@ -1,4 +1,5 @@
 dependencies:
+  '@haileybot/captcha-generator': 1.2.3
   anime-scraper: 3.1.1
   ascii-table: 0.0.9
   canvas-senpai: 0.1.6
@@ -39,6 +40,14 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-ZfFsbgEXW71Rw/6EtBdrP5VxBJy4dthyC0tpQKGKmYFImlmmrykO14Za+BiIVduwjte0jXEBlhSKf0MWbFp9Eg==
+  /@haileybot/captcha-generator/1.2.3:
+    dependencies:
+      canvas: 2.6.1
+    dev: false
+    engines:
+      node: '>=12.0.0'
+    resolution:
+      integrity: sha512-tS6JvP9RXJWhWomnrjLgLkVzS+Q0QXGalgmKg7DLtohZ+4KBUJgkhNft0H7FoCqKyXVmb0Vk9Joaja+OH6YWIA==
   /@jimp/bmp/0.14.0/@jimp!custom@0.14.0:
     dependencies:
       '@babel/runtime': 7.11.2
@@ -2630,6 +2639,7 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  '@haileybot/captcha-generator': ^1.2.3
   anime-scraper: ^3.1.1
   ascii-table: ^0.0.9
   canvas-senpai: ^0.1.6
