@@ -138,4 +138,49 @@ client.on("guildMemberAdd", async member => {
   client.channels.cache.get(chx).send("Welcome to our Server " + member.user.username, attachment);
 });
 
+client.on("guildMemberAdd", async (member) => {
+      let captcha = new Captcha();
+
+      let channel = member.guild.channel.cache.find((x) => x.name === "verify")
+
+      if (!channel) {
+          console.log(member.guild.name + "Unable to get verification channel")
+      }
+
+      let vrole = member.guild.roles.cache.find((x) => x.name === "📗KeyCard[3]")
+
+      if (!vrole) {
+          console.log(member.guild.name + " Unable to find verification roles")
+      }
+
+      channel.send("**Please type the given code for verification**",
+      discord.MessageAttachment(Captcha.PNGSTREAM, "captcha.png")
+      )
+
+      let collector = channel.createMessageCollector(
+        m => m.author.id === member.idd
+      )
+
+      collector.on("collect",m => {
+          if(m.content.toUpperCase() === Captcha.value) {
+              m.delete()
+              verifycode.delete()
+              member.roles.add()
+              member.send("NOW YOU ARE A MEMBER :)")
+          }else if(m.content.toUpperCase() !== Captcha.value){
+              m.delete()
+              verifycode.delete()
+
+              member.send("YOUR GAVE WRONG CODE, SO YOU CAN APPLY AGAIN BY JOINING SERVER AGAIN :(")
+
+              setTimeout(function() {
+                  member.kick()
+              }, 3000)
+          }else {
+              verifycode.delete()
+          }
+      })
+
+    })
+
 client.login(token);
