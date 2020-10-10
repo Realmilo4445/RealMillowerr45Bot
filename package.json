@@ -30,6 +30,7 @@
     "canvas-senpai": "^0.1.6",
     "something-random-on-discord": "^0.0.1",
     "@haileybot/captcha-generator": "^1.2.3"
+    "jimp": "^0.10.0"
   },
   "engines": {
     "node": "12.x"
@@ -37,7 +38,7 @@
   "repository": {
     "url": "https://glitch.com/edit/#!/hello-express"
   },
-  "license": "MIT",
+  "license",: "MIT",
   "keywords": [
     "node",
     "glitch",
