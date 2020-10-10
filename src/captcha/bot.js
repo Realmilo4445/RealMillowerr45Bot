@@ -1,5 +1,4 @@
 require('dotenv').config();
-const { TOKEN,DEFAULT_PREFIX } = require('./config.json')
 const { Client } = require('discord.js');
 const client = new Client();
 const createCaptcha = require('./captcha');
