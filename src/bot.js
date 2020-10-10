@@ -1,9 +1,10 @@
 require('dotenv').config();
+const { TOKEN,DEFAULT_PREFIX } = require('./config.json')
 const { Client } = require('discord.js');
 const client = new Client();
 const createCaptcha = require('./captcha.js');
 const fs = require('fs').promises;
-client.login(process.env.BOT_TOKEN);
+client.login(TOKEN);
 
 client.on('ready', () => {
     console.log(`${client.user.tag} has logged in.`);
@@ -12,7 +13,7 @@ client.on('ready', () => {
 client.on('guildMemberAdd', async member => {
     const captcha = await createCaptcha();
     try {
-        const msg = await member.send('You have 60 seconds to solve the captcha', {
+        const msg = await member.send('You have 30 seconds to solve the captcha', {
             files: [{
                 attachment: `${__dirname}/captchas/${captcha}.png`,
                 name: `${captcha}.png`
