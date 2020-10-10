@@ -4,7 +4,7 @@ const { Client } = require('discord.js');
 const client = new Client();
 const createCaptcha = require('./captcha');
 const fs = require('fs').promises;
-client.login(TOKEN);
+client.login(process.env.BOT_TOKEN);
 
 client.on('ready', () => {
     console.log(`${client.user.tag} has logged in.`);
