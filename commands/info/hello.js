@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-const { COLOR } = require("./config.json")
+const { COLOR } = require("../.././config.json")
 
 module.exports = {
     name: "hello",
@@ -9,9 +9,7 @@ module.exports = {
     run: async (client, message, args) => {
       
     let embed = new MessageEmbed()
-  .setTitle("Hi!")
-  .setColor("RED")
-  .setDescription(`Hello`); //Looks Cool
+  
       
     if(!args.length) {
       
