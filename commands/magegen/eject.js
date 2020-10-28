@@ -1,7 +1,7 @@
 const CommandInterface = require('../../CommandInterface.js');
 
 const request = require('request');
-const imagegenAuth = require('../../../../imagegen.json');
+const imagegenAuth = require('../.././token/imagegen.json');
 const rocketEmoji = '🚀';
 
 module.exports = new CommandInterface({
