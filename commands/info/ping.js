@@ -12,7 +12,7 @@ module.exports = {
     .setColor(COLOR)
       
     if(!args.length) {
-      embed.setAuthor(`**Pong**${client.ws.ping}`)
+      embed.setAuthor(`Pong ${client.ws.ping}`)
        message.channel.send(embed)
     }
     }

@@ -12,7 +12,7 @@ module.exports = {
     .setColor(COLOR)
       
     if(!args.length) {
-      embed.setAuthor(`**Your so beautiful, clever and so sweet :)**`)
+      embed.setAuthor(`Your so beautiful, clever and so sweet :)`)
        message.channel.send(embed)
     }
     }
