@@ -9,11 +9,11 @@ module.exports = {
     run: async (client, message, args) => {
       
     let embed = new MessageEmbed()
-  
+    .setColor(COLOR)
       
     if(!args.length) {
-      
-       message.channel.send(`**Hi!**`)
+      embed.setAuthor("Hi!")
+       message.channel.send(embed)
     }
     }
 }
