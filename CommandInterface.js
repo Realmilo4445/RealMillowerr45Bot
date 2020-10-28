@@ -1,4 +1,4 @@
-module.exports = class CommandInterface{
+module.exports = class CommandInterface {
 
 	constructor(args){
 		this.alias = args.alias;
