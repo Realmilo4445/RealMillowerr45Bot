@@ -30,7 +30,8 @@
     "canvas-senpai": "^0.1.6",
     "something-random-on-discord": "^0.0.1",
     "@haileybot/captcha-generator": "^1.2.3",
-    "jimp": "^0.10.0"
+    "jimp": "^0.10.0",
+    "@among-js/sus": "^0.1.3"
   },
   "engines": {
     "node": "12.x"
