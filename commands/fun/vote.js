@@ -1,4 +1,6 @@
 const discord = require("discord.js");
+const { MessageEmbed } = require("discord.js")
+const { COLOR } = require("../.././config.json")
 
 module.exports = {
   name: "Eject",
@@ -7,7 +9,8 @@ module.exports = {
   usage: "Eject <@user>",
   run: (client, message, args) => {
     
-
+    let embed = new MessageEmbed()
+    .setColor(COLOR)
     
   }
 }
