@@ -1,8 +1,10 @@
+const
 const request = require('request');
 const rocketEmoji = '🚀';
 
 module.exports = {
-  alias:["eject", "amongus"],
+
+	alias:["eject", "amongus"],
 
 	args:"@user",
 
@@ -22,11 +24,5 @@ module.exports = {
 	bot:true,
 
 	execute: async function(p){
-   const user = p.getMention(p.args[0]);
-		if (!user) {
-			p.errorMsg(", you must tag a user!", 5000);
-			p.setCooldown(5);
-			return;
-		}
-  }
-}
+			await p.send(`${rocketEmoji} **| ${p.msg.author.username}** decided to vote off ${user.username}`,null,{file:data,name:"eject.gif"});
+}}
