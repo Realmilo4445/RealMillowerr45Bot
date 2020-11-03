@@ -51,7 +51,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
     else if(warnings !== null) {
         db.add(`warnings_${message.guild.id}_${user.id}`, 1)
        user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
-      await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`) //DO NOT FORGET TO USE ASYNC FUNCTION
+      await message.channel.send(`You warned 2 for ${reason}`) //DO NOT FORGET TO USE ASYNC FUNCTION
     }
     
 }
