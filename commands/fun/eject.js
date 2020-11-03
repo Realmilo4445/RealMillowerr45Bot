@@ -4,8 +4,8 @@ const client = new Discord.Client();
 const canva = new CanvasSenpai();
 
 module.exports = {
-    name: "hello",
-    category: "info",
+    name: "eject",
+    category: "fun",
     description: "Returns latency and API hello",
     usage: "eject <@user>",
     run: async (client, message, args) => {
@@ -20,7 +20,7 @@ module.exports = {
     );
 
       
-    message.channel.send(`Welcome to the server, ${member.user.username}!`, attachment)
+    message.channel.send(`${member.user.username}!, Was not an Impostor`, attachment)
       
     })
     }
