@@ -1,5 +1,7 @@
-const
+
+
 const request = require('request');
+const imagegenAuth = require('../../imagegen.json');
 const rocketEmoji = '🚀';
 
 module.exports = {
@@ -23,6 +25,54 @@ module.exports = {
 	six:500,
 	bot:true,
 
-	execute: async function(p){
+	execute: async function(p) {
+	 let user = p.getMention(p.args[0]);
+		if (!user) {
+			p.errorMsg(", you must tag a user!", 5000);
+			p.setCooldown(5);
+			return;
+		}
+
+		try {
+			const uuid = await fetchImage(p, user);
+			const url = `${imagegenAuth.imageGenUrl}/img/${uuid}.gif`
+			const data = await p.DataResolver.urlToBuffer(url);
 			await p.send(`${rocketEmoji} **| ${p.msg.author.username}** decided to vote off ${user.username}`,null,{file:data,name:"eject.gif"});
-}}
+		} catch (err) {
+			console.error(err);
+			p.errorMsg("Failed to generate gif. Try again later.", 3000);
+		}
+	}
+
+}
+
+function fetchImage(p, user) {
+	const info = {
+		username: user.username,
+		avatarLink: user.dynamicAvatarURL("png"),
+		password: imagegenAuth.password
+	}
+
+	return new Promise( (resolve, reject) => {
+		try {
+			let req = request({
+				method:'POST',
+				uri:imagegenAuth.imageApiUri+"/amongus",
+				json:true,
+				body: info,
+			},(error,res,body)=>{
+				if(error){
+					reject();
+					return;
+				}
+				if(res.statusCode==200)
+					resolve(body);
+				else
+					reject();
+			});
+		} catch (err) {
+			reject();
+		}
+	});
+
+}
