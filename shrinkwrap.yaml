@@ -20,6 +20,7 @@ dependencies:
   quick.db: 7.1.2
   request: 2.88.2
   request-promise-native: 1.0.9
+  salvage.db: 1.2.4
   something-random-on-discord: 0.0.1
   weather-js: 2.0.0
 packages:
@@ -2193,6 +2194,34 @@ packages:
       mongoose: '*'
     resolution:
       integrity: sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
+  /mongoose-legacy-pluralize/1.0.2/mongoose@5.10.11:
+    dependencies:
+      mongoose: /mongoose/5.10.11/mongoose@5.10.11
+    dev: false
+    id: registry.npmjs.org/mongoose-legacy-pluralize/1.0.2
+    peerDependencies:
+      mongoose: '*'
+    resolution:
+      integrity: sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
+  /mongoose/5.10.11/mongoose@5.10.11:
+    dependencies:
+      bson: 1.1.5
+      kareem: 2.3.1
+      mongodb: 3.6.2
+      mongoose-legacy-pluralize: /mongoose-legacy-pluralize/1.0.2/mongoose@5.10.11
+      mpath: 0.7.0
+      mquery: 3.2.2
+      ms: 2.1.2
+      regexp-clone: 1.0.0
+      safe-buffer: 5.2.1
+      sift: 7.0.1
+      sliced: 1.0.1
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    id: registry.npmjs.org/mongoose/5.10.11
+    resolution:
+      integrity: sha512-R5BFitKW94/S/Z48w+X+qi/eto66jWBcVEVA8nYVkBoBAPFGq7JSYP/0uso+ZHs+7XjSzTuui+SUllzxIrf9yA==
   /mongoose/5.10.7:
     dependencies:
       bson: 1.1.5
@@ -2726,6 +2755,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+  /salvage.db/1.2.4:
+    dependencies:
+      mongoose: /mongoose/5.10.11/mongoose@5.10.11
+      this.db: 1.0.5
+    dev: false
+    resolution:
+      integrity: sha512-nkchNOSeXdsvhAFfpY0NiRs7GUmkWksK4p2ct5MTETIo/sIb2kHEtYAeA61U2mjZ/wIGxH4Xv9eW0dhkR5jEbg==
   /saslprep/1.0.3:
     dependencies:
       sparse-bitfield: 3.0.3
@@ -2955,6 +2991,10 @@ packages:
       node: '>=4.5'
     resolution:
       integrity: sha512-w2VwSrBoHa5BsSyH+KxEqeQBAllHhccyMFVHtGtdMpF4W7IRWfZjFiQceJPChOeTsSDVUpER2T8FA93pr0L+QA==
+  /this.db/1.0.5:
+    dev: false
+    resolution:
+      integrity: sha512-Ds8rczlC5F17pMmlh3xkok5nlA4hcQo1yhFgIOqGkBW2KIEX9ZNeHfjAEdgCqtKrRQnTagxf4fLdGr5Mom/jxA==
   /timed-out/4.0.1:
     dev: false
     engines:
@@ -3177,5 +3217,6 @@ specifiers:
   quick.db: ^7.1.1
   request: ^2.88.2
   request-promise-native: ^1.0.8
+  salvage.db: ^1.2.4
   something-random-on-discord: ^0.0.1
   weather-js: ^2.0.0
