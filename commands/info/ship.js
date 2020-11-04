@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
     name: "ship",
+    category: "info",
     run: async (bot, message, args) => {
         if (!args[0]) return message.channel.send("You forgot to mention someone!")
         if (!args[1]) return message.channel.send("You need to mention someone else!")
