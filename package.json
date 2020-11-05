@@ -33,7 +33,8 @@
     "jimp": "^0.10.0",
     "@among-js/sus": "^0.1.3",
     "request": "^2.88.2",
-    "salvage.db": "^1.2.4"
+    "salvage.db": "^1.2.4",
+    "node-df": "^0.1.4"
   },
   "engines": {
     "node": "12.x"
