@@ -1,5 +1,8 @@
 {
   "token":"NzczNzYxMzI2ODU4MjQwMDIw.X6N7ZA.Dhokfzuvy1g_hF7nX-Tj_YNT2lw",
   "DEFAULT_PREFIX":"!",
-  "COLOR": "RED"
+  "COLOR": "RED",
+  "inviteURL": "BOT INVITE URL",
+  "YOUTUBE_API_KEY": "YT API",
+  "QUEUE_LIMIT": 0
 }
