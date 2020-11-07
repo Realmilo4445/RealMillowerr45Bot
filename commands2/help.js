@@ -4,7 +4,6 @@ const { COLOR } = require("../../config.json");
 //FIRST TEST HANDLER IS WORKING OR NOT
 module.exports = {
   name: "help",
-  category: "music",
   description: "Pinging the bot",
   execute(client, message, args) {
     

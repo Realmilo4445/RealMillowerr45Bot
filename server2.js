@@ -7,7 +7,6 @@ const { token, DEFAULT_PREFIX } = require("./config.json")
 //CLIENT EVENTS
 client.on("ready", () => {
   console.log('Ready to play song | Bot created by RealMillowerr45')
-  client.user.setActivity(">help or !help | Music and Command Bot")
 })
 
 client.on("warn", info => console.log(info));
@@ -24,7 +23,7 @@ client.vote = new Map();
 const cmdFiles = readdirSync(join(__dirname, "commands2")).filter(file => file.endsWith(".js"))
 for (const file of cmdFiles) {
   const command = require(join(__dirname, "commands2", file))
-  client.commands.set(command.name, command)
+  client.commands2.set(command.name, command)
 } //LOADING DONE
 
 
@@ -38,14 +37,14 @@ client.on("message", message => {
     const args = message.content.slice(DEFAULT_PREFIX.length).trim().split(/ +/) //removing prefix from args
     const command = args.shift().toLowerCase();
     
-    if(!client.commands.has(command)) {
+    if(!client.commands2.has(command)) {
       return;
     } 
     
   try  { //TRY TO GET COMMAND AND EXECUTE
-      client.commands.get(command).execute(client, message, args)
+      client.commands2.get(command).execute(client, message, args)
     //COMMAND LOGS
-    console.log(`${message.guild.name}: ${message.author.tag} Used ${client.commands.get(command).name} in #${message.channel.name}`)
+    console.log(`${message.guild.name}: ${message.author.tag} Used ${client.commands2.get(command).name} in #${message.channel.name}`)
     } catch (err) { //IF IT CATCH ERROR
       console.log(err)
       message.reply("I am getting error on using this command")

@@ -2,7 +2,6 @@ const { MessageEmbed } = require("discord.js");
 const { COLOR } = require("../../config.json");
 module.exports = {
   name: "drop",
-  category: "music",
   description: "Drop The Song From Queue",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
