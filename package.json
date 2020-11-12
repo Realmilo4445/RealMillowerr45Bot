@@ -42,7 +42,8 @@
     "salvage.db": "^1.2.4",
     "node-df": "^0.1.4",
     "mathjs": "^8.0.0",
-    "canvacord": "^5.0.8"
+    "canvacord": "^5.0.8",
+    "youtube-notification": "^1.1.0"
   },
   "engines": {
     "node": "12.x"

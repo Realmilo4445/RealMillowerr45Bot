@@ -1,4 +1,21 @@
-const { token, DEFAULT_PREFIX } = require("./config.json");
+
+const http = require("http");
+const express = require("express");
+const app = express();
+var server = http.createServer(app);
+
+app.get("/", (request, response) => {
+  console.log(`Ping Received.`);
+  response.writeHead(200, { "Content-Type": "text/plain" });
+  response.end("DISCORD BOT YO");
+});
+
+const listener = server.listen(process.env.PORT, function() {
+  console.log(`Your app is listening on port ` + listener.address().port);
+})
+
+const YouTubeNotifier = require('youtube-notification');
+const { token, DEFAULT_PREFIX, SERVER_CHANNEL_ID, CHANNEL_ID } = require("./config.json");
 const { badwords } = require("./data.json");
 const Captcha = require("@haileybot/captcha-generator");
 const { config } = require("dotenv");
@@ -10,6 +27,23 @@ const db = require("quick.db"); //WE WILL BE USING QUICK.DB
 const { addexp } = require("./handlers/xp.js");
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
+
+const notifier = new YouTubeNotifier({
+  hubCallback: 'https://ringed-enthusiastic-culotte.glitch.me/yt',
+  secret: 'JOIN_MY_SERVER_OR_DIE'
+});
+
+
+notifier.on('notified', data => {
+  console.log('New Video');
+  client.channels.cache.get(SERVER_CHANNEL_ID).send(
+    `**${data.channel.name}** just uploaded a new video - **${data.video.link}**`
+  );
+});
+ 
+notifier.subscribe(CHANNEL_ID);
+
+app.use("/yt", notifier.listener());
 
 const { CanvasSenpai } = require("canvas-senpai");
 const canva = new CanvasSenpai();
