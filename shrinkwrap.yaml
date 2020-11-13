@@ -4,6 +4,7 @@ dependencies:
   '@haileybot/captcha-generator': 1.2.3
   anime-scraper: 3.1.1
   ascii-table: 0.0.9
+  axios: 0.21.0
   canvacord: 5.0.8
   canvas-senpai: 0.1.6
   common-tags: 1.8.0
@@ -1087,6 +1088,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  /axios/0.21.0:
+    dependencies:
+      follow-redirects: 1.13.0
+    dev: false
+    resolution:
+      integrity: sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
   /balanced-match/1.0.0:
     dev: false
     resolution:
@@ -1700,6 +1707,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-aAWcW57uxVNrQZqFXjITpW3sIUQmHGG3qSb9mUah9MgMC4NeWhNOlNjXEYq3HjRAvL6arUviZGGJsBg6z0zsWA==
+  /follow-redirects/1.13.0:
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
   /follow-redirects/1.5.10:
     dependencies:
       debug: 3.1.0
@@ -3568,6 +3581,7 @@ specifiers:
   '@haileybot/captcha-generator': ^1.2.3
   anime-scraper: ^3.1.1
   ascii-table: ^0.0.9
+  axios: ^0.21.0
   canvacord: ^5.0.8
   canvas-senpai: ^0.1.6
   common-tags: ^1.8.0
