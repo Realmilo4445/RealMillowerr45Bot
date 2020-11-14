@@ -27,24 +27,6 @@ const db = require("quick.db"); //WE WILL BE USING QUICK.DB
 const { addexp } = require("./handlers/xp.js");
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
-
-const notifier = new YouTubeNotifier({
-  hubCallback: 'https://ringed-enthusiastic-culotte.glitch.me/yt',
-  secret: 'JOIN_MY_SERVER_OR_DIE'
-});
-
-
-notifier.on('notified', data => {
-  console.log('New Video');
-  client.channels.cache.get(SERVER_CHANNEL_ID).send(
-    `**${data.channel.name}** just uploaded a new video - **${data.video.link}**`
-  );
-});
- 
-notifier.subscribe(CHANNEL_ID);
-
-app.use("/yt", notifier.listener());
-
 const { CanvasSenpai } = require("canvas-senpai");
 const canva = new CanvasSenpai();
 
@@ -64,6 +46,7 @@ setInterval(
 client.on("ready", () => {
   //When bot is ready
   console.log("I am Reday to Go");
+  client.user.setUsername('RealMillowerr45'); // sets the bots name
   client.user.setActivity(db.get(`status`)); //It will set status :)
 });
 
