@@ -1,6 +1,6 @@
 const Commando = require('discord.js-commando')
 
-module.exports = class AmongUsCategoryCommand extends Commando.Command {
+module.exports = class amongUsCategoryCommand extends Commando.Command {
   constructor(client) {
     super(client, {
       name: 'aucat',
@@ -10,11 +10,14 @@ module.exports = class AmongUsCategoryCommand extends Commando.Command {
         'ADMINISTRATOR'
       ],
       description: "",
-      run: async(client messah)
-    })
-  }
-  
-    
-    const
-  }
+      run: async(client, message, args) => {
+        
+        const categoryId = args
+        if (!categoryId)
+        message.reply('Please specify a category ID')
+        return
+      }
+      
+    }
+  )}
 }
