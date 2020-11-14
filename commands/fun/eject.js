@@ -1,9 +1,10 @@
 const fs = require('fs')
 const { MessageEmbed } = require('discord.js')
 const db = require('quick.db');
+const { rocketEmoji } = '🚀';
 
 module.exports = {
-  name: "eject",
+  name: "ejectImpostor",
   category: "fun",
   description: "eject <@metion>",
   run: async(client, message, args) => {
@@ -19,9 +20,15 @@ module.exports = {
     }
     
     Embed.setTitle(`${message.mentions.users.first().username} Was not an impostor`)
-    
+    .setColor("RED")
       if(message.mentions.users.first().username) {
       return message.channel.send(Embed)
+        
+    } else {
+      let Embed = new MessageEmbed()
+      .setColor("RED")
+      Embed.setTitle(`${message.mentions.users.first().username} Was an impostor`)
+      message.channel.send(Embed)
     }
 
     

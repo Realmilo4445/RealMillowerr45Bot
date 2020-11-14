@@ -22,7 +22,7 @@ module.exports = {
             return message.channel.send(Embed)
         } else {
             let Embed = new MessageEmbed()
-            .setColor(COLOR )
+            .setColor(COLOR)
             db.add(`money_${message.guild.id}_${user.id}`, amount);
             db.set(`daily_${message.guild.id}_${user.id}`, Date.now());
             Embed.setAuthor(`Successfully added ${amount} coins to your account`)
