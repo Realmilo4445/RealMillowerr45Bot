@@ -44,7 +44,8 @@
     "mathjs": "^8.0.0",
     "canvacord": "^5.0.8",
     "youtube-notification": "^1.1.0",
-    "axios": "^0.21.0"
+    "axios": "^0.21.0",
+    "discord.js-commando": "^0.10.0"
   },
   "engines": {
     "node": "12.x"
