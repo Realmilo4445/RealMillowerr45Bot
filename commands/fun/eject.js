@@ -8,8 +8,6 @@ module.exports = {
   description: "eject",
   run: async(client, message, args) => {
     
-    if(message.mentions)
-    
     const url = "https://lh3.googleusercontent.com/DjukZ3eSbRkBpc_1KX-Q7H0zKQqi1QkaZJtgD0TZnogoYC4QKfIlCc53DT4LH4f228AudTza=w1280"
     
     
