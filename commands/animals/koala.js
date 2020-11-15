@@ -23,7 +23,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle(`Random Koala Image and Fact`)
-            .setColor(`#f3f3f3`)
+            .setColor("GREEN")
             .setDescription(fact.fact)
             .setImage(image.link)
 

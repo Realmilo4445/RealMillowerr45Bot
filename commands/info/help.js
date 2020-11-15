@@ -19,7 +19,7 @@ module.exports = {
         .addField("Description", command.description || "Not Provided :(")
         .addField("Usage", "`" + command.usage + "`" || "Not Provied")
         .setThumbnail(client.user.displayAvatarURL())
-        .setColor("GREEN")
+        .setColor("RED")
         .setFooter(client.user.username, client.user.displayAvatarURL());
 
       return message.channel.send(embed);
@@ -28,7 +28,7 @@ module.exports = {
 
       let emx = new MessageEmbed()
         .setDescription("Join my server or die just kidding :D")
-        .setColor("GREEN")
+        .setColor("RED")
         .setFooter(client.user.username, client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL());
 
