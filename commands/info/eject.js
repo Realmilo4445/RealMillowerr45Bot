@@ -12,6 +12,11 @@ module.exports = {
     Embed.setTitle(` **${message.mentions.users.first().username}** Was not an impostor`)
     message.channel.send(Embed)
     
+     const user = message.mentions.members.first()
+    
+     if(!user) {
+       Embed.setTitle(`**${message.mentions.users.first().username}** Was an impostor`)
+     }
   } 
 }
   
