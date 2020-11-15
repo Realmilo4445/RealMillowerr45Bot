@@ -12,13 +12,6 @@ module.exports = {
     Embed.setTitle(` **${message.mentions.users.first().username}** Was not an impostor`)
     message.channel.send(Embed)
     
-  }
- 
+  } 
+}
   
-   let Embed = new MessageEmbed()
-    .setColor(COLOR)
-    Embed.setTitle(` **${message.mentions.users.first().username}** Was not an impostor`)
-    message.channel.send(Embed)
-
-}
-}
