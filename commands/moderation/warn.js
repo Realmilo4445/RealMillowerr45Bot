@@ -18,17 +18,6 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send("Please Mention the person to who you want to warn - warn @mention <reaosn>")
     }
     
-      if(message.mentions.users.first().bot) {
-      return message.channel.send("You can not warn bots")
-    }
-    
-     if(message.author.id === user.id) {
-      return message.channel.send("You can not warn yourself")
-    }
-    
-        if(message.author.id === message.guild.owner.id) {
-      return message.channel.send("You jerk, how you can warn server owner -_-")
-    }
     
     const reason = args.slice(1).join(" ")
 
