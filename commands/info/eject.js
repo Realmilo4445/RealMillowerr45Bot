@@ -9,15 +9,17 @@ module.exports = {
   run: async(client, message, args) => {
     let Embed = new MessageEmbed()
     .setColor(COLOR)
-    Embed.setTitle(` **${message.mentions.users.first().username}** Was not an impostor`)
-    message.channel.send(Embed)
     
-     const user = message.mentions.members.first()
     
-     if(!user) {
-       Embed.setTitle(`**${message.mentions.users.first().username}** Was an impostor`)
-    else
+    const user = message.mentions.member.first()
+     Embed.setTitle(`**${message.mentions.users.first().username}** Was not an impostor`)
+       
+       if (!user) {
+         Embed.setTitle(`**${message.mentions.users.first().username}** Was not an impostor`)
+       }
+         
+        else if (!user) {
+           Embed.setTitle(`**${message.mentions.users.first().username}** Was an impostor`)  
      }
-  } 
+  }
 }
-  
