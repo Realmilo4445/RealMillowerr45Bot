@@ -16,6 +16,7 @@ module.exports = {
     
      if(!user) {
        Embed.setTitle(`**${message.mentions.users.first().username}** Was an impostor`)
+    else
      }
   } 
 }

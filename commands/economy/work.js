@@ -11,7 +11,7 @@ module.exports = {
         let Embed = new MessageEmbed()
         .setColor(COLOR)
         let user = message.author;
-        let timeout = 600000;
+        let timeout = 600;
         let author = await db.fetch(`worked_${message.guild.id}_${user.id}`);
 
         if(author !== null && timeout - (Date.now() - author) > 0){
