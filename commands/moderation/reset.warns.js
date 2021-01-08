@@ -21,9 +21,6 @@ module.exports = {
       return message.channel.send("Bot are not allowed to have warnings")
     }
     
-    if(message.author.id === user.id) {
-      return message.channel.send("You are not allowed to reset your warnings")
-    }
     
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
     
