@@ -4,6 +4,7 @@ module.exports = {
   name: "eject",
   description: "eject",
   category: "fun",
+  usage: "eject <mention>",
 
   //IntelliSense
   /**
@@ -12,21 +13,20 @@ module.exports = {
    */
 
   run: async (client, message, args) => {
-    
-const answers = [
-  (`**${message.mentions.users.first().username}** Was an impostor`),
-  (`**${message.mentions.users.first().username}** Was not an impostor`),
-  (`**${message.mentions.users.first().username}** Was ejected`),
-];
+    const answers = [
+      `**${message.mentions.users.first().username}** Was an impostor`,
+      `**${message.mentions.users.first().username}** Was not an impostor`,
+      `**${message.mentions.users.first().username}** Was ejected`
+    ];
     //Create an instance of the UtilityEmbeds class;
 
     const question = message.content.slice(7);
 
     if (!question) {
       return message.channel.send(
-          "please select to want eject",
-          `Triggered by ${message.author.tag}`
-      )
+        "please select to want eject",
+        `Triggered by ${message.author.tag}`
+      );
     }
 
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
@@ -35,5 +35,5 @@ const answers = [
     embed.setDescription(chosenAnswer);
 
     message.channel.send(embed);
-  },
+  }
 };
