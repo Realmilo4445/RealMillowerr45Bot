@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: "bal",
   category: "economy",
-    description: "bleh",
+    description: "Your balance",
 
     async run (client, message, args) {
 

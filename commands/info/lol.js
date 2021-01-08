@@ -4,7 +4,7 @@ const { COLOR } = require("../.././config.json")
 module.exports = {
     name: "lol",
     category: "info",
-    description: "Returns latency and API lol",
+    description: "Says lol",
     usage: "lol",
     run: async (client, message, args) => {
       
