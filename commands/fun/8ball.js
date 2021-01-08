@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 const { COLOR } = require("../../config.json")
 
 module.exports = {
@@ -12,12 +12,12 @@ module.exports = {
     let result = Math.floor(Math.random() * replies.length);
     let question = args.slice(1).join(" ");
     
-    let Embed = new Discord.RichEmbed()
-    .setAuthor(message.Author.tag)
+    let ballembed = new MessageEmbed()
+    .setAuthor(message.author.tag)
     .setColor(COLOR)
     .addField("Question", question)
     .addField("Answer", replies[result]);
     
-    message.channel.send(Ballembed)
+    message.channel.send(ballembed)
  }
 }
