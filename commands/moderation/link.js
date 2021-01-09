@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const COLOR = require('../../../../config.json')
+const { COLOR } = require('../../config.json')
 
 module.exports = {
   name: "link",
@@ -7,9 +7,9 @@ module.exports = {
   description: "Send link to invite my bot",
   run : async (client, message, args) => {
     let Embed = new Discord.MessageEmbed()
-    const here = "https://discord.com/api/oauth2/authorize?client_id=773761326858240020&permissions=8&scope=bot"
-    .setColor(COLOR)
-    .setTitle(`You invite my bot ${here}!`)
+    const here = '[invite](https://discord.com/api/oauth2/authorize?client_id=773761326858240020&permissions=8&scope=bot)'
+    Embed.setColor(COLOR)
+    Embed.setDescription('You Can [Invite](https://discord.com/api/oauth2/authorize?client_id=773761326858240020&permissions=8&scope=bot) Bot Here')
     message.channel.send(Embed)
   }
 }
