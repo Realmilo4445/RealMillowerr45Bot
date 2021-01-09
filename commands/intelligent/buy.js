@@ -27,9 +27,8 @@ module.exports = {
         if(purchase === 'lootbox' || 'Lootbox'){
             if(amount < 300) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 300);
-            message.channel.send('Successfully bought one Lootbox')
-            db.push(message.author.id, "Common shirt")
-            message.channel.send('Wow you got Common shirt')
+          db.push(message.author.id, "(👕)Shirt");
+            message.channel.send('Wow you get (👕)Shirt form (🎁)Lootbox')
         }
     }
 }
