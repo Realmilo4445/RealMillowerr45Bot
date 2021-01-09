@@ -10,7 +10,6 @@ module.exports = {
     usage: "beg ",
     async run (client, message, args) {
 let Embed = new Discord.MessageEmbed()
-        let userd = message.users.first().username
         let amount = Math.floor(Math.random() * 80) + 5;
       Embed.setColor(COLOR)
       let user = message.author;
@@ -28,7 +27,7 @@ let Embed = new Discord.MessageEmbed()
             let amount = Math.floor(Math.random() * 80) + 5;
             db.add(`money_${message.guild.id}_${user.id}`, amount)
             db.set(`worked_${message.guild.id}_${user.id}`, Date.now())
-        Embed.setDescription(`**${userd}** gave you **${amount}** Money(s)`)
+        Embed.setDescription(`**** gave you **${amount}** Money(s)`)
       Embed.setFooter(`${message.author.tag}`)
         message.channel.send(Embed)
         }
