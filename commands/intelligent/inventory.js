@@ -12,7 +12,7 @@ module.exports = {
         if(items === null) items = "Nothing"
 
         const Embed = new Discord.MessageEmbed()
-        .addField('Inventory', items)
+        .addField('💼 - Inventory', items)
 
         message.channel.send(Embed);
     }
