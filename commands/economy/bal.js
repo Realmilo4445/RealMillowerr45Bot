@@ -13,7 +13,8 @@ let Embed = new Discord.MessageEmbed()
 
         let bal = await db.fetch(`money_${message.guild.id}_${user.id}`);
         if(bal === null) bal = 0;
-
-        message.channel.send(`${bal} coins`)
+      Embed.setColor(COLOR)
+        Embed.setDescription(`${bal} Moneys`)
+        message.channel.send(Embed)
     }
 }

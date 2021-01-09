@@ -3,10 +3,16 @@ const ms = require('parse-ms');
 const { MessageEmbed } = require('discord.js')
 const { COLOR } = require('../../config.json')
 const work = [
-              "(👩‍🍳)Chef",
-              "(👮‍♂️)Policeman",
-              "(👨‍🌾)Farmer",
-              "(👨‍⚕️)Doctor"
+              (`(👩‍🍳)Chef`),
+              (`(👮‍♂️)Policeman`),
+              (`(👨‍🌾)Farmer`),
+              (`(👨‍⚕️)Doctor`),
+              (`(👨‍💻)Programmer`),
+              (`(👷‍♂️)Builder`),
+              (`(👨‍🏫)Teacher`),
+              (`(👨‍🎨)Artist`),
+              (`(👨‍🚀)Astronaut`),
+              (`()`)
              ]
 
 
@@ -18,7 +24,7 @@ module.exports = {
         let Embed = new MessageEmbed()
         .setColor(COLOR)
         let user = message.author;
-        let timeout = 60000;
+        let timeout = 6001;
         let author = await db.fetch(`worked_${message.guild.id}_${user.id}`);
         
 
@@ -33,7 +39,7 @@ module.exports = {
           let works = work[Math.floor(Math.random() * work.length)];
             db.add(`money_${message.guild.id}_${user.id}`, amount)
             db.set(`worked_${message.guild.id}_${user.id}`, Date.now())
-            Embed.setDescription(`you worked as ${works} earned ${amount} coins`)
+            Embed.setDescription(`you worked as **${works}** earned ${amount} coins`)
             message.channel.send(Embed)
         }
     }

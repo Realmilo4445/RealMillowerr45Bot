@@ -25,7 +25,7 @@ module.exports = {
             .setColor(COLOR)
             db.add(`money_${message.guild.id}_${user.id}`, amount);
             db.set(`daily_${message.guild.id}_${user.id}`, Date.now());
-            Embed.setAuthor(`Successfully added ${amount} coins to your account`)
+            Embed.setAuthor(`Successfully added ${amount} Moneys to your account`)
             message.channel.send(Embed)
         }
     }
