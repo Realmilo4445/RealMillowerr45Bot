@@ -2,8 +2,12 @@ const db = require('quick.db');
 const ms = require('parse-ms');
 const { MessageEmbed } = require('discord.js')
 const { COLOR } = require('../../config.json')
-const work = ["Chef",
-              "Policeman", "Farmer"]
+const work = [
+              "Chef",
+              "Policeman",
+              "Farmer"
+             ]
+
 
 module.exports = {
     name: "work",
@@ -13,7 +17,7 @@ module.exports = {
         let Embed = new MessageEmbed()
         .setColor(COLOR)
         let user = message.author;
-        let timeout = 600;
+        let timeout = 600000;
         let author = await db.fetch(`worked_${message.guild.id}_${user.id}`);
         
 
@@ -25,9 +29,10 @@ module.exports = {
             let Embed = new MessageEmbed()
             .setColor(COLOR)
             let amount = Math.floor(Math.random() * 80) + 1;
+          let works = work[Math.floor(Math.random() * work.length)];
             db.add(`money_${message.guild.id}_${user.id}`, amount)
             db.set(`worked_${message.guild.id}_${user.id}`, Date.now())
-            Embed.setAuthor(`you worked as  earned ${amount} coins`)
+            Embed.setDescription(`you worked as ${works} earned ${amount} coins`)
             message.channel.send(Embed)
         }
     }
