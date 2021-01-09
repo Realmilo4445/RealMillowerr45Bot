@@ -14,7 +14,10 @@ const work = [
               (`(👨‍🚀)Astronaut`),
               (`(👨‍✈️)Pilot`),
               (`(🤵)Waiter`),
-              (`()`)
+              (`(👨‍⚖️)Judgeman`),
+              (`(👨‍🔬)Scientist`),
+              (`(👨‍🏭)Factory Worker`),
+              (`(👨‍🚒)Fire Fighter`)
              ]
 
 
@@ -41,7 +44,7 @@ module.exports = {
           let works = work[Math.floor(Math.random() * work.length)];
             db.add(`money_${message.guild.id}_${user.id}`, amount)
             db.set(`worked_${message.guild.id}_${user.id}`, Date.now())
-            Embed.setDescription(`you worked as **${works}** earned ${amount} Money(s)`)
+            Embed.setDescription(`you worked as **${works}** and earned ${amount} Money(s)`)
             message.channel.send(Embed)
         }
     }
