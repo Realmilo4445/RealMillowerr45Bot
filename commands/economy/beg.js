@@ -4,13 +4,13 @@ const { COLOR } = require('../.././config.json')
 const ms = require('ms')
 
 module.exports = {
-    name: "rob",
+    name: "beg",
   category: "economy",
-    description: "rob everyone",
-    usage: "rob ",
+    description: "",
+    usage: "beg ",
     async run (client, message, args) {
 let Embed = new Discord.MessageEmbed()
-        let userd = message.guild.users.first()
+        let userd = message.guild.members.username()
         let amount = Math.floor(Math.random() * 80) + 5;
       Embed.setColor(COLOR)
       let user = message.author;
