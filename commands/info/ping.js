@@ -1,20 +1,23 @@
-const { MessageEmbed } = require("discord.js")
-const { COLOR } = require("../.././config.json")
-
+const Discord = require("discord.js");
 module.exports = {
-    name: "ping",
-    category: "info",
-    description: "Returns latency and API lol",
-    usage: "ping",
-    run: async (client, message, args) => {
-      
-      let embed = new MessageEmbed()
-    .setColor(COLOR)
-      
-    if(!args.length) {
-      embed.setAuthor(`Pong ${client.ws.ping}`)
-       message.channel.send(embed)
-    }
-    }
-  
-}
+  name: "ping",
+  category: "info",
+
+  description: "Returns latency and API ping",
+  timeout: 10000,
+  run: async (bot, message, args) => {
+    message.channel.send(`🏓 Pinging....`).then((msg) => {
+      const _ = new Discord.MessageEmbed()
+        .setTitle("Pong!")
+        .setDescription(
+          `🏓 Pong!\nLatency is ${Math.floor(
+            msg.createdTimestamp - message.createdTimestamp
+          )}ms\nAPI Latency is ${Math.round(bot.ws.ping)}ms`
+        )
+        .setColor("RANDOM");
+      msg.edit(_);
+      msg.edit("\u200B");
+    });
+  },
+};
+//Pong ping !!!
