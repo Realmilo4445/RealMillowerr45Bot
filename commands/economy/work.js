@@ -3,9 +3,10 @@ const ms = require('parse-ms');
 const { MessageEmbed } = require('discord.js')
 const { COLOR } = require('../../config.json')
 const work = [
-              "Chef",
-              "Policeman",
-              "Farmer"
+              "(👩‍🍳)Chef",
+              "(👮‍♂️)Policeman",
+              "(👨‍🌾)Farmer",
+              "(👨‍⚕️)Doctor"
              ]
 
 
@@ -17,7 +18,7 @@ module.exports = {
         let Embed = new MessageEmbed()
         .setColor(COLOR)
         let user = message.author;
-        let timeout = 600000;
+        let timeout = 60000;
         let author = await db.fetch(`worked_${message.guild.id}_${user.id}`);
         
 
