@@ -11,7 +11,7 @@ module.exports = {
       let Embed = new MessageEmbed()
       .setColor(COLOR)
         let user = message.author;
-        let timeout = 86400;
+        let timeout = 864000;
         let amount = 500;
 
         let daily = await db.fetch(`daily_${message.guild.id}_${user.id}`);
@@ -25,9 +25,9 @@ module.exports = {
             .setColor(COLOR)
             db.add(`money_${message.guild.id}_${user.id}`, amount);
             db.set(`daily_${message.guild.id}_${user.id}`, Date.now());
-            Embed.setAuthor(`Successfully added ${amount} Moneys to your account`)
+            Embed.setAuthor(`Successfully added **${amount}** Moneys to your account`)
           Embed.setFooter(`${message.author.tag}`)
-          Embed.setThumbnail(`${message.author.avatarURL}`)
+
             message.channel.send(Embed)
         }
     }

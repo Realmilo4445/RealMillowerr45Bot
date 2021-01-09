@@ -29,7 +29,7 @@ module.exports = {
         let Embed = new MessageEmbed()
         .setColor(COLOR)
         let user = message.author;
-        let timeout = 6000;
+        let timeout = 60000;
         let author = await db.fetch(`worked_${message.guild.id}_${user.id}`);
         
 
@@ -44,7 +44,7 @@ module.exports = {
           let works = work[Math.floor(Math.random() * work.length)];
             db.add(`money_${message.guild.id}_${user.id}`, amount)
             db.set(`worked_${message.guild.id}_${user.id}`, Date.now())
-            Embed.setDescription(`you worked as **${works}** and earned ${amount} Money(s)`)
+            Embed.setDescription(`you worked as **${works}** and earned **${amount}** Money(s)`)
           Embed.setFooter(`${message.author.tag}`)
             message.channel.send(Embed)
         }
