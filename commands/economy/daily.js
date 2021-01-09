@@ -26,6 +26,8 @@ module.exports = {
             db.add(`money_${message.guild.id}_${user.id}`, amount);
             db.set(`daily_${message.guild.id}_${user.id}`, Date.now());
             Embed.setAuthor(`Successfully added ${amount} Moneys to your account`)
+          Embed.setFooter(`${message.author.tag}`)
+          Embed.setThumbnail(`${message.author.avatarURL}`)
             message.channel.send(Embed)
         }
     }
