@@ -10,7 +10,7 @@ module.exports = {
 
         const embed = new Discord.MessageEmbed()
         .setTitle('Store')
-        .setDescription(`Car - 500 coins \n Watch - 250 coins`)
+        .setDescription(`Car - 500 Moneys \n Watch - 250 Moneys \n Lootbox - 300 Moneys`)
         .setTimestamp();
 
         message.channel.send(embed);
