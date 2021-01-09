@@ -11,7 +11,7 @@ module.exports = {
       let Embed = new MessageEmbed()
       .setColor(COLOR)
         let user = message.author;
-        let timeout = 864000;
+        let timeout = 86400;
         let amount = 500;
 
         let daily = await db.fetch(`daily_${message.guild.id}_${user.id}`);
