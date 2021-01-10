@@ -27,9 +27,9 @@ module.exports = {
             db.set(`daily_${message.guild.id}_${user.id}`, Date.now());
             Embed.setAuthor(`Successfully added **${amount}** Moneys to your account`)
           
-          Embed.setAuthor(`Wow you get (🎁)Lootbox!`)
+          Embed.setDescription(`Wow you get (🎁)Lootbox!`)
           db.push(message.author.id, "(💎)Diamond");
-          Embed.setAuthor(`Wow you get (💎)Diamond from (🎁)Lootbox!`)
+          Embed.setTitle(`Wow you get (💎)Diamond from (🎁)Lootbox!`)
           Embed.setFooter(`${message.author.tag}`)
 
             message.channel.send(Embed)
