@@ -25,9 +25,7 @@ module.exports = {
             .setColor(COLOR)
             db.add(`money_${message.guild.id}_${user.id}`, amount);
             db.set(`daily_${message.guild.id}_${user.id}`, Date.now());
-            Embed.setAuthor(`Successfully added **${amount}** Moneys to your account`)
-          
-          Embed.setDescription(`Wow you get (🎁)Lootbox!`)
+            Embed.setAuthor(`Successfully added ${amount} Moneys to your account | Wow you get (🎁)Lootbox!`)
           db.push(message.author.id, "(💎)Diamond");
           Embed.setTitle(`Wow you get (💎)Diamond from (🎁)Lootbox!`)
           Embed.setFooter(`${message.author.tag}`)
