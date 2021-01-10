@@ -15,6 +15,7 @@ dependencies:
   fs: 0.0.2
   genius-lyrics: 3.0.0
   google-tts-api: 0.0.4
+  image-scraper: 0.2.1
   imdb-api: 4.2.0
   jimp: 0.10.3
   mathjs: 8.0.1
@@ -2005,6 +2006,12 @@ packages:
       node: '>=0.9.0'
     resolution:
       integrity: sha1-/IQJlmRGC5DKhi2TALa/u7+/gFY=
+  /image-scraper/0.2.1:
+    dependencies:
+      cheerio: 0.22.0
+    dev: false
+    resolution:
+      integrity: sha512-xUdmU0TE/Dy0irbfnNcnk0pauW08Vy+AXwe203m6Tz2QrmrZSEehEQxD5t5JS+YWFxDI+79F8qV0oIAHmtzMXA==
   /imdb-api/4.2.0:
     dependencies:
       ky: 0.23.0
@@ -3616,6 +3623,7 @@ specifiers:
   fs: ^0.0.2
   genius-lyrics: ^3.0.0
   google-tts-api: ^0.0.4
+  image-scraper: ^0.2.1
   imdb-api: ^4.0.3
   jimp: ^0.10.0
   mathjs: ^8.0.0
