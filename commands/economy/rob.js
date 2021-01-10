@@ -16,7 +16,6 @@ let Embed = new Discord.MessageEmbed()
       let user = message.author;
         let timeout = 0;
         let author = await db.fetch(`worked_${message.guild.id}_${user.id}`);
-        
 
         if(author !== null && timeout - (Date.now() - author) > 0){
             let time = ms(timeout - (Date.now() - author));
