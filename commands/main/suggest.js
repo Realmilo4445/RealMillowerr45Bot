@@ -23,7 +23,7 @@ module.exports = {
     let embed = new MessageEmbed()
     .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
     .setThumbnail(message.author.avatarURL())
-    .setColor("#ff2050")
+    .setColor("GREEN")
     .setDescription(args.join(" "))
     .setTimestamp()
     

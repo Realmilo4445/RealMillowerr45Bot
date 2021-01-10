@@ -15,7 +15,7 @@ let Embed = new Discord.MessageEmbed()
         if(bal === null) bal = 0;
       Embed.setColor(COLOR)
         Embed.setDescription(`**${bal}** Money(s)`)
-      Embed.setFooter(`${message.author.tag}`)
+      Embed.setFooter(`${message.author.tag} `)
         message.channel.send(Embed)
     }
 }
