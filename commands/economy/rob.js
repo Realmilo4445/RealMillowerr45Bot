@@ -8,10 +8,17 @@ module.exports = {
   category: "economy",
     description: "rob everyone",
     usage: "rob <mention>",
-    async run (client, message, args) {
+    run: async (client, message, args) => {
 let Embed = new Discord.MessageEmbed()
+let embed = new Discord.MessageEmbed()
+const users = message.mentions.members.first()
         let userd = message.mentions.users.first().username
         let amount = Math.floor(Math.random() * 80) + 5;
+      if(message.author.id === users.id) {
+        embed.setColor(COLOR)
+        embed.setTitle(`**You cannot rob yourself**`)
+        return message.channel.send(embed)
+      }
       Embed.setColor(COLOR)
       let user = message.author;
         let timeout = 0;
