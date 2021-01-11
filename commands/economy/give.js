@@ -16,15 +16,17 @@ module.exports = {
         
         if(!mntn) return message.channel.send(`**You need to mention a member to give money to**`)
       
-        const member = profiles.get(`profiles_${mntn.id}`)
+        const mtnmember = profiles.get(`profiles_${mntn.id}`)
         
         const msgmember = profiles.get(`profiles_${message.member.id}`)
         
-        if(!member) return message.channel.send(`**This member doesn't have a profile**`)
+        if(!mtnmember) return message.channel.send(`**This member doesn't have a profile**`)
         
         if(!msgmember) return message.channel.send(`**You don't have a profile**`)
       
-       
+        if(mtnmember.id === message.member.id) return message.channel.send(`**You can't give money to yourself**`)
+      
+        if(!args[1]) return message.channel.send(`****`)
         Embed.setDescription(`Added **$`)
         Embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         message.channel.send(Embed)
