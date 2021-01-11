@@ -14,9 +14,8 @@ let Embed = new Discord.MessageEmbed()
         let bal = await db.fetch(`money_${message.guild.id}_${user.id}`);
         if(bal === null) bal = 0;
       Embed.setColor(COLOR)
-      Embed.setAuthor(message.author.displayAvatarURL({ dynamic : true }))
         Embed.setDescription(`**${bal}** Money(s)`)
-      Embed.setFooter(`${message.author.tag} `)
+        Embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         message.channel.send(Embed)
     }
 }
