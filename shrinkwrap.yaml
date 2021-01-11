@@ -7,6 +7,7 @@ dependencies:
   axios: 0.21.1
   canvacord: 5.0.8
   canvas: 2.6.1
+  canvas-constructor: 4.1.0
   canvas-senpai: 0.1.6
   common-tags: 1.8.0
   discord.js: 12.5.1
@@ -1415,6 +1416,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1/0+p40FHeyc7csAofXuAa0nULBAEnTl+KfN67LarfQFo85hgcEP+y+btJ0h5qSJkD14zZVcugZ/WWZlBX38nA==
+  /canvas-constructor/4.1.0:
+    dev: false
+    engines:
+      node: '>=8.6.0'
+    peerDependencies:
+      canvas: '*'
+    resolution:
+      integrity: sha512-IWZ80DeKIODMnZS1ygaalM7AYaa02KeTnMzMmLhuUK/K1p+pmetMPu6ab9DAT7HsmC9H/xHMn/oSH0K/EnEbYQ==
   /canvas-senpai/0.1.6:
     dependencies:
       canvas: 2.6.1
@@ -4901,6 +4910,7 @@ specifiers:
   axios: ^0.21.0
   canvacord: ^5.0.8
   canvas: ^2.6.1
+  canvas-constructor: ^4.1.0
   canvas-senpai: ^0.1.6
   common-tags: ^1.8.0
   discord.js: ^12.1.1
