@@ -26,7 +26,9 @@ module.exports = {
       
         if(mtnmember.id === message.member.id) return message.channel.send(`**You can't give money to yourself**`)
       
-        if(!args[1]) return message.channel.send(`****`)
+        if(!args[1]) return message.channel.send(`**That is not valid amount of money to give**`)
+      
+        if(args[1] < 0) return message.channel.send(`**You need to give more than 0**`)
         Embed.setDescription(`Added **$`)
         Embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         message.channel.send(Embed)
