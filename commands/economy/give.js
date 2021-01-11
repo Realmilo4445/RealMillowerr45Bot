@@ -10,7 +10,9 @@ module.exports = {
     usage: "rob <mention>",
     run: async (client, message, args) => {
     let Embed = new Discord.MessageEmbed()
-        const profiles= new db,
+        const profiles = new db.table('profiles')
+        
+        const mntn = 
         Embed.setDescription(`Added **$`)
         Embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         message.channel.send(Embed)
