@@ -14,8 +14,7 @@ const listener = server.listen(process.env.PORT, function() {
   console.log(`Your app is listening on port ` + listener.address().port);
 })
 
-const YouTubeNotifier = require('youtube-notification');
-const { token, DEFAULT_PREFIX, SERVER_CHANNEL_ID, CHANNEL_ID } = require("./config.json");
+const { token, DEFAULT_PREFIX, CHANNEL_ID } = require("./config.json");
 const { badwords } = require("./data.json");
 const { config } = require("dotenv");
 const discord = require("discord.js"); //Gonna use Discord.js Module xD
