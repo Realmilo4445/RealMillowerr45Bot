@@ -52,7 +52,9 @@
     "ytdl-core-discord": "https://github.com/CTK-WARRIOR/ytdl-core-discord",
     "canvas": "^2.6.1",
     "canvas-constructor": "^4.1.0",
-    "atob": "^2.1.2"
+    "atob": "^2.1.2",
+    "react-quiz-component": "^0.3.8",
+    "bytee-quiz": "^0.1.8"
   },
   "engines": {
     "node": "12.x"
