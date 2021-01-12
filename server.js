@@ -49,6 +49,23 @@ client.on("ready", () => {
   client.user.setActivity(db.get(`status`)); //It will set status :)
 });
 
+client.on("message", async message => {
+  if(message.content === "!rank") {
+    
+   let data = await canva.rankcard(
+     {
+       link: "https://i.pinimg.com/originals/76/0e/d7/760ed7f52c90870503762ac92db92adc.jpg",
+       name: message.author.username,
+       discriminator: message.author.discriminator,
+       level: 10,
+       rank: 6,
+       currentXP: 679,
+       fullXP: 1000,
+       avatar: message.author.displayAvatarURL({ format: "png"})
+     
+     });
+   };
+
 //IS URL FUNCTION - START
 
 function is_url(str) {
@@ -66,23 +83,6 @@ function is_url(str) {
 client.on("message", async message => {
   if (message.author.bot) return;
   //START
-  
-  client.on("message", async message => {
-  if(message.content === "<rank") {
-    
-   let data = await canva.rankcard(
-     {
-       link: "https://i.pinimg.com/originals/76/0e/d7/760ed7f52c90870503762ac92db92adc.jpg",
-       name: message.author.username,
-       discriminator: message.author.discriminator,
-       level: 10,
-       rank: 6,
-       currentXP: 679,
-       fullXP: 1000,
-       avatar: message.author.displayAvatarURL({ format: "png"})
-     
-     })
-
   if (!message.member.hasPermission("ADMINISTRATOR")) {
     if (is_url(message.content) === true) {
       message.delete();
