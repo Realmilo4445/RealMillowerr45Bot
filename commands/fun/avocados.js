@@ -1,7 +1,7 @@
 const { Message, MessageEmbed } = require("discord.js");
 const db = require('quick.db');
 const ms = require('ms')
-let amount = 500;
+let amount = 150;
 module.exports = {
   name: "avocados",
   description: "This command gives a response from the avocados",
@@ -19,15 +19,18 @@ module.exports = {
     let Mexico = `**Mexico**`
 const answers = [
   `**Mexico**`,
-  db.add(`money_${message.guild.id}_${user.id}`, amount),
-  msg.edit(`Congrats you got **500** Moneys from Mexico!`),
   `**Indian**`,
   `**Indonesian**`,
   `**American**`,
   `**New Zealand**`
 ];
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
-    let msg = await message.channel.send(`Avocados from **${chosenAnswer}**`)
+    let msg = (`Avocados from **${chosenAnswer}**`)
+    db.add(`money_${message.guild.id}_${user.id}`, amount)
+    let time = '5s'
+    setTimeout(function(){
+    msg.edit(`Congrats you got 500 Moneys from **${chosenAnswer}!**`)
+    }, ms (time))
     //Create an instance of the UtilityEmbeds class
     embed.setDescription(msg)
     embed.setFooter(message.author.displayAvatarURL({ dynamic : true }) `${message.author.tag}`);
