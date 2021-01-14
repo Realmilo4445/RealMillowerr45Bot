@@ -1,6 +1,6 @@
 const { Message, MessageEmbed } = require("discord.js");
 const db = require('quick.db');
-
+const ms = require('ms')
 let amount = 500;
 module.exports = {
   name: "avocados",
@@ -14,9 +14,12 @@ module.exports = {
    */
 
   run: async (client, message, args) => {
-    const Embed = new MessageEmbed();
+    const embed = new MessageEmbed();
     let user = message.author;
     let Mexico = `**Mexico**`
+    let msg = embed.description(`Avocados from **${chosenAnswer}**`)
+    let time = '4s';
+     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
 const answers = [
   Mexico,
   `**Indian**`,
@@ -25,17 +28,15 @@ const answers = [
   `**New Zealand**`
 ];
     //Create an instance of the UtilityEmbeds class;
-    if(Mexico) {
+    setTimeout(function(){
+      if(Mexico) {
      db.add(`money_${message.guild.id}_${user.id}`, amount);
-     db.set(`daily_${message.guild.id}_${user.id}`, Date.now());
-      Embed.setAuthor(`Wow you get **500** Moneys from **Mexico**!`)
-      message.channel.send(Embed)
+     db.set(`daily_${message.guild.id}_${user.id}`, Date.now())
+     msg.edit(`Congrats you got **500** Moneys from` `**Mexico!**`)
     }
-    const embed = new MessageEmbed();
-    let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
-    embed.setDescription(`Avocados from ${chosenAnswer}!`);
+    }, ms(time))
+    
     embed.setFooter(message.author.displayAvatarURL({ dynamic : true }) `${message.author.tag}`);
-
     message.channel.send(embed);
   },
 };
