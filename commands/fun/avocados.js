@@ -1,26 +1,7 @@
 const { Message, MessageEmbed } = require("discord.js");
+const db = require('quick.db');
 
-const answers = [
-  "It is certain.",
-  "It is decidely so.",
-  "Without a doubt.",
-  "Yes, definitely.",
-  "You may rely on it.",
-  "As I see it, yes.",
-  "Most likely",
-  "Outlook good.",
-  "Reply hazy, try again.",
-  "Ask again later.",
-  "Never.",
-  "Cannot predict now.",
-  "Concentrate, and ask again.",
-  "Don't count on it.",
-  "No.",
-  "Maybe.",
-  "Outlook not so good.",
-  "Yes.",
-];
-
+let amount = 500;
 module.exports = {
   name: "8ball",
   description: "This command gives a response from the 8ball",
@@ -33,15 +14,20 @@ module.exports = {
    */
 
   run: async (client, message, args) => {
+    let user = message.author;
+    let mexico = `"**`Mexico!**``
+    
+const answers = [
+  mexico,
+];
     //Create an instance of the UtilityEmbeds class;
-
-  
-
+    db.add(`money_${message.guild.id}_${user.id}`, amount);
+db.set(`daily_${message.guild.id}_${user.id}`, Date.now());
+    
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
 
     const embed = new MessageEmbed();
-    embed.setTitle("🎱 8ball 🎱");
-    embed.setDescription(chosenAnswer);
+    embed.setDescription(`Avocados from ${chosenAnswer}`);
     embed.setFooter(`Requested by ${message.author.tag}`);
 
     message.channel.send(embed);
