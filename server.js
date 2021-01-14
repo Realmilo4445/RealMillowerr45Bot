@@ -46,7 +46,13 @@ client.on("ready", () => {
   console.log("I am Reday to Go");
   client.user.setUsername('RealMillowerr45'); // sets the bots name
   let server = client.guilds.cache.size;
-  client.setActivity(`${`)
+  client.user.setPresence({
+    activity: {
+      name: `${server} Servers || ${DEFAULT_PREFIX}help`,
+      type: "WATCHING"
+    },
+    status: "dnd"
+  })
 });
 
 //IS URL FUNCTION - START
