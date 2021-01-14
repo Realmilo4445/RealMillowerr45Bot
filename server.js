@@ -51,7 +51,7 @@ client.on("ready", () => {
       name: `${server} Servers || ${DEFAULT_PREFIX}help`,
       type: "WATCHING"
     },
-    status: "dnd"
+    status: "o"
   })
 });
 
