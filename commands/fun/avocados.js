@@ -17,25 +17,19 @@ module.exports = {
     const embed = new MessageEmbed();
     let user = message.author;
     let Mexico = `**Mexico**`
-    let msg = embed.description(`Avocados from **${chosenAnswer}**`)
-    let time = '4s';
-     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
 const answers = [
-  Mexico,
+  `**Mexico**`,
+  db.add(`money_${message.guild.id}_${user.id}`, amount),
+  msg.edit(`Congrats you got **500** Moneys from Mexico!`),
   `**Indian**`,
   `**Indonesian**`,
   `**American**`,
   `**New Zealand**`
 ];
-    //Create an instance of the UtilityEmbeds class;
-    setTimeout(function(){
-      if(Mexico) {
-     db.add(`money_${message.guild.id}_${user.id}`, amount);
-     db.set(`daily_${message.guild.id}_${user.id}`, Date.now())
-     msg.edit(`Congrats you got **500** Moneys from` `**Mexico!**`)
-    }
-    }, ms(time))
-    
+    let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
+    let msg = await message.channel.send(`Avocados from **${chosenAnswer}**`)
+    //Create an instance of the UtilityEmbeds class
+    embed.setDescription(msg)
     embed.setFooter(message.author.displayAvatarURL({ dynamic : true }) `${message.author.tag}`);
     message.channel.send(embed);
   },
