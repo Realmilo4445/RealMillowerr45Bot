@@ -1,7 +1,7 @@
 const { Message, MessageEmbed } = require("discord.js");
 const db = require('quick.db');
 const ms = require('ms')
-let amount = 150;
+let amount = Math.floor(Math.random() * 80) + 10
 module.exports = {
   name: "avocados",
   description: "This command gives a response from the avocados",
@@ -29,7 +29,7 @@ const answers = [
     let time = '5s'
     setTimeout(function(){
       db.add(`money_${message.guild.id}_${user.id}`, amount)
-    msg.edit(`Congrats you got 500 Moneys from **${chosenAnswer}**!`)
+    msg.edit(`Congrats you got **${amount}** Moneys from **${chosenAnswer}**!`)
     }, ms (time))
     //Create an instance of the UtilityEmbeds class
     embed.setDescription(msg)

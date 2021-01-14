@@ -45,7 +45,8 @@ client.on("ready", () => {
   //When bot is ready
   console.log("I am Reday to Go");
   client.user.setUsername('RealMillowerr45'); // sets the bots name
-  client.user.setActivity(db.get(`status`)); //It will set status :)
+  let server = client.guilds.cache.size;
+  client.setActivity(`${`)
 });
 
 //IS URL FUNCTION - START
