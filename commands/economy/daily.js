@@ -29,7 +29,6 @@ module.exports = {
           db.push(message.author.id, "(💎)Diamond");
           Embed.setTitle(`Wow you get (💎)Diamond from (🎁)Lootbox!`)
           Embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-
             message.channel.send(Embed)
         }
     }

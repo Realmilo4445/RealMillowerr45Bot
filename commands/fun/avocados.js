@@ -25,15 +25,15 @@ const answers = [
   `**New Zealand**`
 ];
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
-    let msg = (`Avocados from **${chosenAnswer}**`)
-    db.add(`money_${message.guild.id}_${user.id}`, amount)
+    let msg = await message.channel.send(`Avocados from **${chosenAnswer}**!`)
     let time = '5s'
     setTimeout(function(){
-    msg.edit(`Congrats you got 500 Moneys from **${chosenAnswer}!**`)
+      db.add(`money_${message.guild.id}_${user.id}`, amount)
+    msg.edit(`Congrats you got 500 Moneys from **${chosenAnswer}**!`)
     }, ms (time))
     //Create an instance of the UtilityEmbeds class
     embed.setDescription(msg)
-    embed.setFooter(message.author.displayAvatarURL({ dynamic : true }) `${message.author.tag}`);
+    embed.setFooter(message.author.displayAvatarURL({ dynamic : true }), message.author.tag);
     message.channel.send(embed);
   },
 };
