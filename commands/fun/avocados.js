@@ -15,6 +15,7 @@ module.exports = {
 
   run: async (client, message, args) => {
     const embed = new MessageEmbed();
+    const Embed = new MessageEmbed();
     let user = message.author;
     let Mexico = `**Mexico**`
 const answers = [
@@ -25,7 +26,8 @@ const answers = [
   `**New Zealand**`
 ];
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
-    let msg = await message.channel.send(`Avocados from **${chosenAnswer}**!`)
+    let msg = await Embed.setDescription(`Avocados from **${chosenAnswer}**!`)
+    
     let time = '5s'
     setTimeout(function(){
       db.add(`money_${message.guild.id}_${user.id}`, amount)
