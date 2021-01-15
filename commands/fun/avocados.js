@@ -27,12 +27,9 @@ const answers = [
       db.add(`money_${message.guild.id}_${user.id}`, amount)
       Embed.setDescription(`Avocados from **${chosenAnswer}**!`)
     const embed = new MessageEmbed()
-    let time = '5s'
-    setTimeout(function(){
     embed.setDescription(`Congrats you got **${amount}** Moneys from **${chosenAnswer}**!`);
     embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }));
-    message.channel.edit(Embed);
-    }, ms (time))
+    message.channel.edit(embed);
     message.channel.send(Embed)
     //Create an instance of the UtilityEmbeds class
   },
