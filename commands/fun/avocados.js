@@ -14,7 +14,6 @@ module.exports = {
    */
 
   run: async (client, message, args) => {
-    const embed = new MessageEmbed();
     const Embed = new MessageEmbed();
     let user = message.author;
     let Mexico = `**Mexico**`
@@ -27,15 +26,15 @@ const answers = [
 ];
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
     let msg = await Embed.setDescription(`Avocados from **${chosenAnswer}**!`)
-    
+    message.channel.send(Embed)
     let time = '5s'
+    const embed = new MessageEmbed();
     setTimeout(function(){
       db.add(`money_${message.guild.id}_${user.id}`, amount)
-    msg.edit(`Congrats you got **${amount}** Moneys from **${chosenAnswer}**!`)
+      embed.setDescription(`Congrats you got **${amount}** Moneys from **${chosenAnswer}**!`)
+      embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }));
+      message.channel.send(embed);
     }, ms (time))
     //Create an instance of the UtilityEmbeds class
-    embed.setDescription(msg)
-    embed.setFooter(message.author.displayAvatarURL({ dynamic : true }), message.author.tag);
-    message.channel.send(embed);
   },
 };
