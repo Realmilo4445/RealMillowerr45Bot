@@ -5,18 +5,27 @@ const { COLOR } = require('../../config.json')
 const works = [
   {
     title: `The Cake needs 100ML Milk you have 25ML, What ML you need?`,
-    options: ["50", "15", "49"],
+    options: ["25", "50", "49"],
     work: `(👨‍🍳)Chef`,
-    correct: 1,
+    correct: 2,
     fail: `You suck at **(👨‍🍳)Chef** and you dont earn Money`,
     amount: 250,
   },
   
   {
-    title: `right <---🏃‍---> left || Where goes Robbery?`,
-    options: ["right", "middle", "left"],
+    title: `right <---🏃‍---> left || Where ways goes Robbery?`,
+    options: ["Robbery goes right ways", "Robbery goes middle ways", "Robbery goes left ways"],
+    correct: 1,
     work: `(👮‍♂️)Policeman`,
     fail: `You suck at **(👮‍♂️)Policeman** Robbery has run`,
+    amount: 150,
+  },
+  
+  {
+    title: `Airplane in middle ways, Airplane goes to Miami, Wheres the right ways goes to Miami? Tips: Miami on left ways`,
+    options: ["right", "middle", "left"],
+    fail: `You suck at **(👨‍✈️)Pilot** and Airplane crashed yo`,
+    correct: 3,
   }
              ]
 
