@@ -2,33 +2,22 @@ const db = require('quick.db');
 const ms = require('parse-ms');
 const { MessageEmbed } = require('discord.js')
 const { COLOR } = require('../../config.json')
-const Chef = [
-  `The Cake needs 100ML Milk you have 25ML, What ML you need?`,
-]
- let quiz = Chef[Math.floor(Math.random() * Chef.length)];
 const works = [
   {
-    title: ``,
+    title: `The Cake needs 100ML Milk you have 25ML, What ML you need?`,
     options: ["50", "15", "49"],
     work: `(👨‍🍳)Chef`,
     correct: 1,
-    fail: `You suck at **Chef** and you dont earn Money`,
+    fail: `You suck at **(👨‍🍳)Chef** and you dont earn Money`,
     amount: 250,
   },
-              (`(👮‍♂️)Policeman`),
-              (`(👨‍🌾)Farmer`),
-              (`(👨‍⚕️)Doctor`),
-              (`(👨‍💻)Programmer`),
-              (`(👷‍♂️)Builder`),
-              (`(👨‍🏫)Teacher`),
-              (`(👨‍🎨)Artist`),
-              (`(👨‍🚀)Astronaut`),
-              (`(👨‍✈️)Pilot`),
-              (`(🤵)Waiter`),
-              (`(👨‍⚖️)Judgeman`),
-              (`(👨‍🔬)Scientist`),
-              (`(👨‍🏭)Factory Worker`),
-              (`(👨‍🚒)Fire Fighter`)
+  
+  {
+    title: `right <---🏃‍---> left || Where goes Robbery?`,
+    options: ["right", "middle", "left"],
+    work: `(👮‍♂️)Policeman`,
+    fail: `You suck at **(👮‍♂️)Policeman** Robbery has run`,
+  }
              ]
 
 
@@ -48,7 +37,7 @@ module.exports = {
           return `${i} - ${opt}\n`;
         })
       )
-      .setColor(`GREEN`)
+      .setColor(`RED`)
       .setFooter(
         `Reply to this message with the correct question number! You have 15 seconds.`
       );
@@ -60,15 +49,22 @@ module.exports = {
       );
       if (parseInt(msgs.first().content) == q.correct) {
         let sembed = new MessageEmbed()
-        return message.channel.send(`You great as **${q.works}** and earn **${q.amount}** Moneys`);
+         db.add(`money_${message.guild.id}_${user.id}`, q.amount)
+        db.set(`worked_${message.guild.id}_${user.id}`, Date.now())
+        .setAuthor(`You great as **${q.works}** and earn **${q.amount}** Moneys`);
+        sembed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         msg.edit(sembed)
       } else {
-        let smbed = new
-        return message.channel.send(`${q.fail}`);
+        let smbed = new MessageEmbed()
+        .SetAuthor(`${q.fail}`);
+        smbed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         msg.edit(smbed)
       }
     } catch (e) {
-      return message.channel.send(`You did not answer!`);
+      let slmbed = new MessageEmbed()
+        .SetAuthor(`${q.fail}`);
+        slmbed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
+        msg.edit(slmbed)
       
     }
   },
