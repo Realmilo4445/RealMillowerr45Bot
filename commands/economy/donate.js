@@ -1,7 +1,7 @@
 const { Message, MessageEmbed } = require("discord.js");
 const db = require('quick.db');
 const ms = require('ms')
-let amount = Math.floor(Math.random() * 80) + 10
+let amount = Math.floor(Math.random() * 80) + 15
 module.exports = {
   name: "donate",
   description: "This command gives a response from the donate",
@@ -20,12 +20,16 @@ const answers = [
   `**Indian**`,
   `**Indonesian**`,
   `**American**`,
-  `**New Zealand**`
+  `**New Zealand**`,
+  `**Brazil**`,
+  `**Brunei**`,
+  `**USA**`
 ];
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
       const Embed = new MessageEmbed();
       const smbed = new MessageEmbed();
       Embed.setDescription(`Send donate to **${chosenAnswer}**!`)
+      Embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }));
       let msg = await message.channel.send(Embed)
       let time = "5s"
       setTimeout(function(){
