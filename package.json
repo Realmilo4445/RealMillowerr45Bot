@@ -54,7 +54,8 @@
     "canvas-constructor": "^4.1.0",
     "atob": "^2.1.2",
     "react-quiz-component": "^0.3.8",
-    "bytee-quiz": "^0.1.8"
+    "bytee-quiz": "^0.1.8",
+    "mongodb": "^3.6.2"
   },
   "engines": {
     "node": "12.x"

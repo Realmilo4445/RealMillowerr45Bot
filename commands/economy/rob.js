@@ -34,6 +34,7 @@ const users = message.mentions.members.first()
             let amount = Math.floor(Math.random() * 80) + 5;
             db.add(`money_${message.guild.id}_${user.id}`, amount)
             db.set(`worked_${message.guild.id}_${user.id}`, Date.now())
+          db.subtract(`money_${message.guild.id}_${userd}`, 50);
         Embed.setDescription(`You robbed **${userd}** and stole **${amount}** Money(s)`)
         Embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         message.channel.send(Embed)

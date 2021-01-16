@@ -25,7 +25,7 @@ const works = [
     title: `Airplane in middle ways, Airplane goes to Miami, Wheres the correct ways goes to Miami? Tips: Miami in left ways`,
     options: ["right", "middle", "left"],
     work: `(👨‍✈️)Pilot`,
-    fail: `You suck at (👨‍✈️)Pilot and Airplane crashed you must pay this!`,
+    fail: `You suck at (👨‍✈️)Pilot and Airplane crashed you must pay for this!`,
     correct: 3,
     amount: 550,
   },

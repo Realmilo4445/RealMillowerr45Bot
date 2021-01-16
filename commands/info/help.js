@@ -27,7 +27,7 @@ module.exports = {
       const commands = await client.commands;
 
       let emx = new MessageEmbed()
-        .setDescription("Join my server or die just kidding :D")
+        .setDescription(`**Prefix = <**`)
         .setColor("RED")
         .setFooter(client.user.username, client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL());
