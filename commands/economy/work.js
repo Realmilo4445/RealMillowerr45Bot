@@ -59,20 +59,17 @@ module.exports = {
         { time: 15000, max: 1, errors: ["time"] }
       );
       if (parseInt(msgs.first().content) == q.correct) {
+        db.add(`money_${message.guild.id}_${user.id}`, q.amount)
         let sembed = new MessageEmbed()
-         db.add(`money_${message.guild.id}_${user.id}`, q.amount)
-        db.set(`worked_${message.guild.id}_${user.id}`, Date.now())
-        .setAuthor(`You great as **${q.works}** and earn **${q.amount}** Moneys`);
+        sembed.setAuthor(`You great as **${q.works}** and earn **${q.amount}** Moneys`);
         sembed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         msg.edit(sembed)
       } else {
-      }
-    } catch (e) {
-      let sembed = new MessageEmbed()
+        let selmbed = new MessageEmbed()
         .setAuthor(`${q.fail}`);
-        sembed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-        msg.edit(sembed)
-      
+        selmbed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
+        msg.edit(selmbed)
+      }
     }
   },
 };
