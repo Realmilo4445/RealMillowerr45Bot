@@ -48,7 +48,7 @@ client.on("ready", () => {
   let server = client.guilds.cache.size;
   client.user.setPresence({
     activity: {
-      name: `${server} Servers || ${DEFAULT_PREFIX}help`,
+      name: `${server} Servers || ${DEFAULT_PREFIX}help or ${DEFAULT_PREFIX}helpmusic`,
       type: "WATCHING"
     },
     status: "o"
