@@ -5014,7 +5014,7 @@ specifiers:
   novelcovid: ^1.2.6
   parse-ms: ^2.1.0
   path: ^0.12.7
-  quick.db: ^7.1.1
+  quick.db: ^7.1.2
   react-quiz-component: ^0.3.8
   reconlx: ^1.0.53
   request: ^2.88.2

@@ -22,7 +22,7 @@ const works = [
   },
   
   {
-    title: `Airplane in middle ways, Airplane goes to Miami, Wheres the correct ways goes to Miami? Tips: Miami on left ways`,
+    title: `Airplane in middle ways, Airplane goes to Miami, Wheres the correct ways goes to Miami? Tips: Miami in left ways`,
     options: ["right", "middle", "left"],
     work: `(👨‍✈️)Pilot`,
     fail: `You suck at (👨‍✈️)Pilot and Airplane crashed you must pay this!`,
@@ -34,9 +34,18 @@ const works = [
     title: `Pilot want to practice fyling the Airplane, Airplane goes to Land and Airplane needs to select right ways! where correct ways for Airplane goes to Land?`,
     options: ["middle", "right", "left"],
     work: `(✈️)Airplane flying practice`,
-    fail: `You suck at Airplane (✈️)flying practice and Almost crushed but your friend help you`,
+    fail: `You suck at (✈️)flying practice and Almost crushed but your friend help you`,
     correct: 2,
     amount: 500,
+  },
+  
+  {
+    title: `What is code : 34404 607`,
+    options: ["BRUH", "LOL BOT", "AI BOT", "ERROR BOT"],
+    work: `(👨‍💻)Progrmmer`,
+    fail: `You suck at (👨‍💻)Progrmmer and you dont get money to hack the bank`,
+    correct: 4,
+    amount: 250,
   }
              ]
 
