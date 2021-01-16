@@ -27,7 +27,7 @@ const answers = [
     const smbed = new MessageEmbed();
       Embed.setDescription(`Send donate to **${chosenAnswer}**!`)
     let users = message.author;
-        let timeout = 86400;
+        let timeout = 8640;
 
         let daily = await db.fetch(`daily_${message.guild.id}_${user.id}`);
 

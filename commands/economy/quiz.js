@@ -1,4 +1,6 @@
 const { MessageEmbed } = require("discord.js");
+let amount = Math.floor(Math.random() * 80) + 10
+const db = require('quick.db');
 let questions = [
   {
     title: "1 + 3 * 5",
@@ -18,6 +20,7 @@ module.exports = {
   run: async (bot, message, args) => {
     let q = questions[Math.floor(Math.random() * questions.length)];
     let i = 0;
+    let user = message.author;
     const Embed = new MessageEmbed()
       .setTitle(q.title)
       .setDescription(
@@ -38,13 +41,16 @@ module.exports = {
       );
       if (parseInt(msgs.first().content) == q.correct) {
         return message.channel.send(`You got it correct!`);
+        let Aembed = new MessageEmbed()
+      Aembed.setAuthor(`Congrats you got ${amount} Moneys from quiz!`)
+      db.add(`money_${message.guild.id}_${user.id}`, amount)
+      message.channel.send(Aembed)
       } else {
         return message.channel.send(`You got it incorrect.`);
       }
     } catch (e) {
       return message.channel.send(`You did not answer!`);
       
-      let embed = new MessageEmbed()
     }
   },
 };
