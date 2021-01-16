@@ -2,6 +2,7 @@ const db = require('quick.db');
 const ms = require('ms')
 const Discord = require('discord.js');
 const { COLOR } = require('../.././config.json')
+var economy = new db.table('economy')
 
 module.exports = {
     name: "resetdata",
@@ -23,7 +24,18 @@ let Embed = new Discord.MessageEmbed()
         }, ms (time))
         let times = '6s'
         setTimeout(function(){
-          db.subtract(`money_${message.guild.id}_${message.author.id}`, 999999999);
+          db.get('myUser')
+// -> { guild: null, balance: 500 }
+
+db.delete('myUser.balance')
+// -> true
+          
+          db.get('myData')
+// -> "Hello World!"
+
+db.delete('myData')
+// true
+          
           let sebed = new Discord.MessageEmbed()
           sebed.setColor(COLOR)
           sebed.setDescription(`**Success Reseting Your Data**`)
