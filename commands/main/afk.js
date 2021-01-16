@@ -4,6 +4,8 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = {
     name : 'afk',
+    category: 'main',
+  usage: 'afk <reason>',
     run : async(client, message, args) => {
         const content = args.join(" ")
         await db.set(`afk-${message.author.id}+${message.guild.id}`, content)

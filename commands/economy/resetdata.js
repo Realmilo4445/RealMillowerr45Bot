@@ -3,7 +3,11 @@ const ms = require('ms')
 const Discord = require('discord.js');
 const { COLOR } = require('../.././config.json')
 var economy = new db.table('economy')
+db.get('myData')
+// -> "Hello World!"
 
+db.delete('myData')
+// true
 module.exports = {
     name: "resetdata",
   category: "economy",
@@ -24,17 +28,6 @@ let Embed = new Discord.MessageEmbed()
         }, ms (time))
         let times = '6s'
         setTimeout(function(){
-          db.get('myUser')
-// -> { guild: null, balance: 500 }
-
-db.delete('myUser.balance')
-// -> true
-          
-          db.get('myData')
-// -> "Hello World!"
-
-db.delete('myData')
-// true
           
           let sebed = new Discord.MessageEmbed()
           sebed.setColor(COLOR)
