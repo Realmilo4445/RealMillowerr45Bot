@@ -5,7 +5,7 @@ const { COLOR } = require('../../config.json')
 const works = [
   {
     title: `The Cake needs 100ML Milk you have 25ML, What ML you need?`,
-    options: ["25", "50", "49"],
+    options: ["50", "75", "49"],
     work: `(👨‍🍳)Chef`,
     correct: 2,
     fail: `You suck at **(👨‍🍳)Chef** and you dont earn Money`,
@@ -24,8 +24,10 @@ const works = [
   {
     title: `Airplane in middle ways, Airplane goes to Miami, Wheres the right ways goes to Miami? Tips: Miami on left ways`,
     options: ["right", "middle", "left"],
-    fail: `You suck at **(👨‍✈️)Pilot** and Airplane crashed yo`,
+    work: `(👨‍✈️)Pilot`,
+    fail: `You suck at **(👨‍✈️)Pilot** and Airplane crashed you must pay this!`,
     correct: 3,
+    amount: 550,
   }
              ]
 
@@ -64,16 +66,12 @@ module.exports = {
         sembed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         msg.edit(sembed)
       } else {
-        let smbed = new MessageEmbed()
-        .SetAuthor(`${q.fail}`);
-        smbed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-        msg.edit(smbed)
       }
     } catch (e) {
-      let slmbed = new MessageEmbed()
-        .SetAuthor(`${q.fail}`);
-        slmbed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-        msg.edit(slmbed)
+      let sembed = new MessageEmbed()
+        .setAuthor(`${q.fail}`);
+        sembed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
+        msg.edit(sembed)
       
     }
   },
