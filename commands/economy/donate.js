@@ -1,7 +1,7 @@
 const { Message, MessageEmbed } = require("discord.js");
 const db = require('quick.db');
 const ms = require('ms')
-let amount = Math.floor(Math.random() * 80) + 15
+let amount = Math.floor(Math.random() * 80) + 
 module.exports = {
   name: "donate",
   description: "This command gives a response from the donate",
