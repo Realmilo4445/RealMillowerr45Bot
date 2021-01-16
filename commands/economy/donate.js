@@ -23,7 +23,7 @@ const answers = [
   `**New Zealand**`,
   `**Brazil**`,
   `**Brunei**`,
-  `**USA**`
+  `**United Kingdom**`
 ];
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
       const Embed = new MessageEmbed();

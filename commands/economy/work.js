@@ -17,13 +17,22 @@ const works = [
     options: ["Robbery goes right ways", "Robbery goes middle ways", "Robbery goes left ways"],
     correct: 1,
     work: `(👮‍♂️)Policeman`,
-    fail: `You suck at (👮‍♂️)Policeman Robbery has run`,
+    fail: `You suck at (👮‍♂️)Policeman. Robbery has run`,
     amount: 150,
   },
   
   {
     title: `Airplane in middle ways, Airplane goes to Miami, Wheres the right ways goes to Miami? Tips: Miami on left ways`,
     options: ["right", "middle", "left"],
+    work: `(👨‍✈️)Pilot`,
+    fail: `You suck at (👨‍✈️)Pilot and Airplane crashed you must pay this!`,
+    correct: 3,
+    amount: 550,
+  },
+  
+  {
+    title: `Pilot want to practice ride the Airplane, Airplane goes to Land and Airplane needs to select right ways! where correct ways for Airplane goes to Land?`,
+    options: ["right", "right", "left", "Answ"],
     work: `(👨‍✈️)Pilot`,
     fail: `You suck at (👨‍✈️)Pilot and Airplane crashed you must pay this!`,
     correct: 3,

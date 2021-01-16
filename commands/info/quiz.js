@@ -10,8 +10,14 @@ let questions = [
   },
   {
     title: "12/2 + 45/2",
-    options: ["34/2", "56/4", "37/2", "24/5"],
+    options: ["34/2", "57/4", "37/2", "24/5"],
     correct: 3,
+  },
+  
+  {
+    title: "How many planets on Space?",
+    options: ["5", "9", "7", "2"],
+    correct: 2,
   },
 ];
 module.exports = {
