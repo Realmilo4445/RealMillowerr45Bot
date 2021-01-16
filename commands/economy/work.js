@@ -8,7 +8,7 @@ const works = [
     options: ["50", "75", "49"],
     work: `(👨‍🍳)Chef`,
     correct: 2,
-    fail: `You suck at **(👨‍🍳)Chef** and you dont earn Money`,
+    fail: `You suck at (👨‍🍳)Chef and you dont earn Money`,
     amount: 250,
   },
   
@@ -17,7 +17,7 @@ const works = [
     options: ["Robbery goes right ways", "Robbery goes middle ways", "Robbery goes left ways"],
     correct: 1,
     work: `(👮‍♂️)Policeman`,
-    fail: `You suck at **(👮‍♂️)Policeman** Robbery has run`,
+    fail: `You suck at (👮‍♂️)Policeman Robbery has run`,
     amount: 150,
   },
   
@@ -25,7 +25,7 @@ const works = [
     title: `Airplane in middle ways, Airplane goes to Miami, Wheres the right ways goes to Miami? Tips: Miami on left ways`,
     options: ["right", "middle", "left"],
     work: `(👨‍✈️)Pilot`,
-    fail: `You suck at **(👨‍✈️)Pilot** and Airplane crashed you must pay this!`,
+    fail: `You suck at (👨‍✈️)Pilot and Airplane crashed you must pay this!`,
     correct: 3,
     amount: 550,
   }
@@ -61,15 +61,23 @@ module.exports = {
       if (parseInt(msgs.first().content) == q.correct) {
         db.add(`money_${message.guild.id}_${user.id}`, q.amount)
         let sembed = new MessageEmbed()
-        sembed.setAuthor(`You great as **${q.works}** and earn **${q.amount}** Moneys`);
+        sembed.setColor(COLOR)
+        sembed.setAuthor(`You great as ${q.work} and earn ${q.amount} Moneys`);
         sembed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-        msg.edit(sembed)
+        message.channel.send(sembed)
       } else {
         let selmbed = new MessageEmbed()
+        selmbed.setColor(COLOR)
         .setAuthor(`${q.fail}`);
         selmbed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-        msg.edit(selmbed)
+        message.channel.send(selmbed)
       }
+    } catch (e) {
+      let sellmbed = new MessageEmbed()
+        sellmbed.setColor(COLOR)
+        .setAuthor(`${q.fail}`);
+        sellmbed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
+        message.channel.send(sellmbed)
     }
   },
 };
