@@ -2,9 +2,14 @@ const db = require('quick.db');
 const ms = require('parse-ms');
 const { MessageEmbed } = require('discord.js')
 const { COLOR } = require('../../config.json')
-const work = [
+const Chef = [
+  `The soup needs 100ML you have 50ML, What ML you need?`,
+]
+ let quiz = Chef[Math.floor(Math.random() * Chef.length)];
+const works = [
   {
-    title: ""
+    title: ``,
+    work: `(👨‍🍳)Chef`
   },
               (`(👮‍♂️)Policeman`),
               (`(👨‍🌾)Farmer`),
@@ -28,27 +33,36 @@ module.exports = {
     category: "economy",
     description: "Work your a** off",
     async run (client, message, args) {
-        let Embed = new MessageEmbed()
-        .setColor(COLOR)
-        let user = message.author;
-        let timeout = 60000;
-        let author = await db.fetch(`worked_${message.guild.id}_${user.id}`);
+    let q = works[Math.floor(Math.random() * works.length)];
+    let i = 0;
+    let user = message.author;
+    const Embed = new MessageEmbed()
+      .setTitle(q.title)
+      .setDescription(
+        q.options.map((opt) => {
+          i++;
+          return `${i} - ${opt}\n`;
+        })
+      )
+      .setColor(`GREEN`)
+      .setFooter(
+        `Reply to this message with the correct question number! You have 15 seconds.`
+      );
+    let msg = message.channel.send(Embed);
+    try {
+      let msgs = await message.channel.awaitMessages(
+        (u2) => u2.author.id === message.author.id,
+        { time: 15000, max: 1, errors: ["time"] }
+      );
+      if (parseInt(msgs.first().content) == q.correct) {
+        return message.channel.send(`You got it correct! **${q.works}**`);
         
-
-        if(author !== null && timeout - (Date.now() - author) > 0){
-            let time = ms(timeout - (Date.now() - author));
-            Embed.setAuthor(`You cannot work again for ${time.minutes}m and ${time.seconds}s`)
-            return message.channel.send(Embed)
-        } else {
-            let Embed = new MessageEmbed()
-            .setColor(COLOR)
-            let amount = Math.floor(Math.random() * 80) + 1;
-          let works = work[Math.floor(Math.random() * work.length)];
-            db.add(`money_${message.guild.id}_${user.id}`, amount)
-            db.set(`worked_${message.guild.id}_${user.id}`, Date.now())
-            Embed.setDescription(`you worked as **${works}** and earned **${amount}** Money(s)`)
-            Embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-            message.channel.send(Embed)
-        }
+      } else {
+        return message.channel.send(`You got it incorrect.`);
+      }
+    } catch (e) {
+      return message.channel.send(`You did not answer!`);
+      
     }
-}
+  },
+};
