@@ -9,7 +9,7 @@ module.exports = {
     let Embed = new Discord.MessageEmbed()
     const here = '[invite](https://discord.com/api/oauth2/authorize?client_id=773761326858240020&permissions=8&scope=bot)'
     Embed.setColor(COLOR)
-    Embed.setDescription('You Can [Invite](https://discord.com/api/oauth2/authorize?client_id=773761326858240020&permissions=8&scope=bot) Bot Here')
+    Embed.setDescription('You Can [Invite](https://discord.com/api/oauth2/authorize?client_id=773761326858240020&permissions=8&scope=bot) Bot Here You can [Vote](https://top.gg/bot/773761326858240020) here')
     message.channel.send(Embed)
   }
 }
