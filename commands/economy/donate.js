@@ -26,14 +26,23 @@ const answers = [
       const Embed = new MessageEmbed();
       db.add(`money_${message.guild.id}_${user.id}`, amount)
       Embed.setDescription(`Send donate to **${chosenAnswer}**!`)
-    let time = "10s"
-    setTimeout(function(){
+    let users = message.author;
+        let timeout = 864;
+        let amount = 500;
+
+        let daily = await db.fetch(`daily_${message.guild.id}_${user.id}`);
+
+        if(daily !== null && timeout - (Date.now() - daily) > 0){
+            let time = ms(timeout - (Date.now() - daily));
+          Embed.setAuthor(`(❌) Hey! Slowdown wait ${time.seconds} seconds for donate`)
+            return message.channel.send(Embed)
+        } else {
       const embed = new MessageEmbed()
     embed.setDescription(`Congrats you got donate **${amount}** Moneys from **${chosenAnswer}**!`);
     embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }));
     message.channel.send(embed)
-    },ms (time))
     message.channel.send(Embed)
     //Create an instance of the UtilityEmbeds class
+      }
   },
 };
