@@ -3,13 +3,17 @@ const ms = require('parse-ms');
 const { MessageEmbed } = require('discord.js')
 const { COLOR } = require('../../config.json')
 const Chef = [
-  `The soup needs 100ML you have 50ML, What ML you need?`,
+  `The Cake needs 100ML Milk you have 25ML, What ML you need?`,
 ]
  let quiz = Chef[Math.floor(Math.random() * Chef.length)];
 const works = [
   {
     title: ``,
-    work: `(👨‍🍳)Chef`
+    options: ["50", "15", "49"],
+    work: `(👨‍🍳)Chef`,
+    correct: 1,
+    fail: `You suck at **Chef** and you dont earn Money`,
+    amount: 250,
   },
               (`(👮‍♂️)Policeman`),
               (`(👨‍🌾)Farmer`),
@@ -55,10 +59,13 @@ module.exports = {
         { time: 15000, max: 1, errors: ["time"] }
       );
       if (parseInt(msgs.first().content) == q.correct) {
-        return message.channel.send(`You got it correct! **${q.works}**`);
-        
+        let sembed = new MessageEmbed()
+        return message.channel.send(`You great as **${q.works}** and earn **${q.amount}** Moneys`);
+        msg.edit(sembed)
       } else {
-        return message.channel.send(`You got it incorrect.`);
+        let smbed = new
+        return message.channel.send(`${q.fail}`);
+        msg.edit(smbed)
       }
     } catch (e) {
       return message.channel.send(`You did not answer!`);
