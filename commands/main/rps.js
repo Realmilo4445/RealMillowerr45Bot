@@ -20,7 +20,7 @@ module.exports = {
   run: async (client, message, args) => {
     //Create an instance of the UtilityEmbeds class;
 
-    const question = message.content.slice(7);
+    const question = args.join(" ")
 
     if (!question) {
       return message.channel.send(
@@ -33,8 +33,10 @@ module.exports = {
 
     const embed = new MessageEmbed();
     embed.setAuthor("RPS!");
-    embed.setDescription(`You Choose: ${question}`)
-    embed.setTitle(`**I Choose ${chosenAnswer}**!`);
+    embed.setTitle(`**You Choose:
+${question}
+I Choose: 
+${chosenAnswer}**!`);
     embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }));
 
     message.channel.send(embed);
