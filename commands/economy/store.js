@@ -8,7 +8,7 @@ module.exports = {
     run: async (client, message, args) => {
 
         const one = new Discord.MessageEmbed()
-        .setTitle('Store')
+        .setTitle('Car Store')
         .setDescription(`**(🚗)Car** - **500** Moneys \n **(🏎)Sport Car** - **550** Moneys \n **(🚙)Sport Utility Car** - **300** Moneys`)
         .setFooter(`Page 1/4`)
         .setTimestamp();
@@ -16,7 +16,7 @@ module.exports = {
         const msg = await message.channel.send(one);
       
       const two = new Discord.MessageEmbed()
-        .setTitle('FStore')
+        .setTitle('Food Store')
         .setDescription(`**(🍔)Hamburger** - **5** Moneys \n **(🍕)Pizza** - **3** Moneys  \n **(🌭)Hotdog** - **4** Moneys`)
         .setFooter(`Page 2/4`)
         .setTimestamp();
@@ -28,7 +28,7 @@ module.exports = {
         .setTimestamp();
       
       const four = new Discord.MessageEmbed()
-        .setTitle('Store')
+        .setTitle('Modern Store')
         .setDescription(`**(🎟)Credits** - **10** Moneys \n **(💻)Laptop** - **150** Moneys`)
         .setFooter(`Page 4/4`)
         .setTimestamp();

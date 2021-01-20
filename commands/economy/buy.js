@@ -69,12 +69,26 @@ module.exports = {
             embed.setAuthor(`Successfully bought one **(🌭)Hotdog**`)
             message.channel.send(embed)
         }
-        if(purchase === 'Sport Car'){
+        if(purchase === 'common lootbox'){
             if(amount < 550) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 550);
-            db.push(message.author.id, "(🏎)Sport Car");
+            db.push(message.author.id, "(🎁)Common Lootbox");
             embed.setColor('RED')
-            embed.setAuthor(`Successfully bought **(🏎)Sport Car**`)
+            embed.setAuthor(`Successfully bought **(🎁)Common Lootbox**`)
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, "(🎁)Common Lootbox");
+            db.push(message.author.id, "(👓)Glasses")
+            embed.setDescription(`Congrats! you got (👓)Glasses from Lootbox!`)
+            message.channel.send(embed)
+        }
+        if(purchase === 'common lootbox'){
+            if(amount < 550) return message.channel.send('You do not have enough money to buy this item. Please try another one');
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, 550);
+            db.push(message.author.id, "(🎁)Common Lootbox");
+            embed.setColor('RED')
+            embed.setAuthor(`Successfully bought **(🎁)Common Lootbox**`)
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, "(🎁)Common Lootbox");
+            db.push(message.author.id, "(👓)Glasses")
+            embed.setDescription(`Congrats! you got (👓)Glasses from Lootbox!`)
             message.channel.send(embed)
         }
     }
