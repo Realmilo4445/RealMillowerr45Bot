@@ -1,24 +1,28 @@
+const db = require('quick.db');
+const Discord = require('discord.js');
+
 module.exports = {
-    name: "ship",
-    category: "economy",
-    run: async (bot, message, args) => {
-        if (!args[0]) return message.channel.send("You forgot to mention someone!")
-        if (!args[1]) return message.channel.send("You need to mention someone else!")
+    name: "buy",
+  category: "economy",
+    description: "Buy an item from the store",
 
-        if (args[0] || args[1]) {
-            var FirstUser = message.mentions.members.first() || message.guild.members.cache.get(args[0])
-            var SecondUser = message.mentions.members.first(-1) || message.guild.members.cache.get(args[1])
+    async run (client, message, args) {
+        let purchase = args.join(" ");
+        if(!purchase) return message.channel.send('Please provide an item to buy')
+        let items = await db.fetch(message.author.id, { items: [] });
+        let amount = await db.fetch(`money_${message.guild.id}_${message.author.id}`)
 
-            if (!FirstUser) return message.channel.send(`I couldn't find someone named **${args[0]}**!`)
-            if (!SecondUser) return message.channel.send(`I couldn't find someone named **${args[1]}**!`)
-
-            if (FirstUser || SecondUser) {
-                const FirstUserSliced = FirstUser.user.username.slice(0, FirstUser.user.username.length / 2)
-                const SecondUserSliced = SecondUser.map(user => { return user.user.username.slice(user.user.username.length / 2) })
-                const SecondUserName = SecondUser.map(user => { return user.user.username })
-
-                message.channel.send(`${FirstUser.user.username} + ${SecondUserName} = **${FirstUserSliced}${SecondUserSliced}**`)
-            }
+        if(purchase === 'car'){
+            if(amount < 500) return message.channel.send('You do not have enough money to buy this item. Please try another one');
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, 500);
+            db.push(message.author.id, "Car");
+            message.channel.send('Successfully bought one car')
+        }
+        if(purchase === 'watch'){
+            if(amount < 250) return message.channel.send('You do not have enough money to buy this item. Please try another one');
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, 250);
+            db.push(message.author.id, "Watch");
+            message.channel.send('Successfully bought one car')
         }
     }
 }
