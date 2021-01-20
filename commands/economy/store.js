@@ -23,7 +23,8 @@ module.exports = {
       
       const three = new Discord.MessageEmbed()
         .setTitle('Lootbox Store')
-        .setDescription(`**(🎁)Common Lootbox** - **200** Moneys \n **(🎁)Rare Lootbox** - **250** Moneys **(🎁)Epic Lootbox** - **450** Moneys **(🎁)Legendary Lootbox** - **1,000** Moneys`)
+        .setDescription(`**(🎁)Common Lootbox** - **200** Moneys \n **(🎁)Rare Lootbox** - **250** Moneys
+        **(🎁)Epic Lootbox** - **450** Moneys **(🎁)Legendary Lootbox** - **1,000** Moneys`)
         .setFooter(`Page 3/4`)
         .setTimestamp();
       
