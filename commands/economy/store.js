@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: "store",
-  category: "intelligent",
+  category: "economy",
     description: "View the store",
 
     async run (client, message, args) {
@@ -14,5 +14,8 @@ module.exports = {
         .setTimestamp();
 
         message.channel.send(embed);
+      
+      const reactions = ["➡"];
+      
     }
 }
