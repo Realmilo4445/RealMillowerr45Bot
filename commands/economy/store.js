@@ -13,9 +13,9 @@ module.exports = {
         .setDescription(`**(🚗)Car** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
         .setTimestamp();
         let rct = message.react(`➡`)
-        let msg = message.channel.send(embed)
+        let msg = await message.channel.send(embed)
         
-        if(rct) {
+        if(!rct) {
         let s = new Discord.MessageEmbed()
         .setTitle('Store')
         .setDescription(`**(💍)Ring** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
