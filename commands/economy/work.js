@@ -61,58 +61,17 @@ const item = quiz[Math.floor(Math.random() * quiz.length)];
 const filter = response => {
 	return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
 };
-let embed = new MessageEm
-message.channel.send(item.question).then(() => {
+let slme = new MessageEmbed()
+let slmi = new MessageEmbed()
+slme.setDescription(item.question).then(() => {
 	message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
 		.then(collected => {
-			message.channel.send(`${collected.first().author} got the correct answer!`);
+			slmi.setDescription(`You great as ${quiz} and earn ${quiz.amount} Moneys`);
+    slmi.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
 		})
 		.catch(collected => {
 			message.channel.send('Looks like nobody got the answer this time.');
 		});
 });
-      
-    let q = works[Math.floor(Math.random() * works.length)];
-    let i = 0;
-    let user = message.author;
-    const Embed = new MessageEmbed()
-      .setTitle(q.title)
-      .setDescription(
-        q.options.map((opt) => {
-          i++;
-          return `${i} - ${opt}\n`;
-        })
-      )
-      .setColor(`RED`)
-      .setFooter(
-        `Reply to this message with the correct question number! You have 15 seconds.`
-      );
-    let msg = message.channel.send(Embed);
-    try {
-      let msgs = await message.channel.awaitMessages(
-        (u2) => u2.author.id === message.author.id,
-        { time: 15000, max: 1, errors: ["time"] }
-      );
-      if (parseInt(msgs.first().content) == q.correct) {
-        db.add(`money_${message.guild.id}_${user.id}`, q.amount)
-        let sembed = new MessageEmbed()
-        sembed.setColor(COLOR)
-        sembed.setAuthor(`You great as ${q.work} and earn ${q.amount} Moneys`);
-        sembed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-        message.channel.send(sembed)
-      } else {
-        let selmbed = new MessageEmbed()
-        selmbed.setColor(COLOR)
-        .setAuthor(`${q.fail}`);
-        selmbed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-        message.channel.send(selmbed)
-      }
-    } catch (e) {
-      let sellmbed = new MessageEmbed()
-        sellmbed.setColor(COLOR)
-        .setAuthor(`${q.fail}`);
-        sellmbed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-        message.channel.send(sellmbed)
     }
-  },
-};
+}
