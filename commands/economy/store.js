@@ -12,19 +12,24 @@ module.exports = {
         .setTitle('Store')
         .setDescription(`**(🚗)Car** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
         .setTimestamp();
-      let msg = await message.channel.send(embed)
+      let msg = await message.channel.send({embed})
         
         await msg.react(nextPageEmoji)
         await msg.react(nextPreviousEmoji)
-        await msg.awaitReactions((reaction, user) => user.id == user.id && (reaction.emoji.name == nextPreviousEmoji||reaction.emoji.name == nextPageEmoji),{max: 1, max:10000})
-        .then(async collected => {
           let s = new Discord.MessageEmbed()
         .setTitle('Store')
         .setDescription(`**(💍)Ring** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
         .setTimestamp();
-          if(collected.first().emoji.name == nextPageEmoji){ return msg.edit(s) }
-          if(collected.first().emoji.name == nextPreviousEmoji){ return msg.edit(embed) }
-          else return message.channel.send('error')
-        }).catch(async () => { return message.channel.send('error')})
-      }
-    }
+      let filter = (emoji,userID) => (emoji.name===nextPageEmoji||emoji.name===nextPreviousEmoji)&&userID===msg.author.id;
+		  let collector = message.reactionCollector(msg,filter,{time:900000,idle:120000});
+      collector.on('collect', async function(emoji){
+			if(emoji.name===nextPageEmoji) {
+				await msg.edit({s});
+			}
+			else if(emoji.name===nextPreviousEmoji){
+				await msg.edit({embed});
+			}
+      })
+                   }
+                   }
+                   
