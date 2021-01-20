@@ -27,13 +27,13 @@ module.exports = {
         .setFooter(`Page 2/4`)
         .setTimestamp();
       
-      const fourqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq = new Discord.MessageEmbed()
+      const four = new Discord.MessageEmbed()
         .setTitle('Store')
         .setDescription(`**(🚗)Car** - **500** Moneys \n **(⏰)Watch** - **250** Moneys`)
         .setFooter(`Page 2/4`)
         .setTimestamp();
       
-      msg.react('⏪').then(() => msg.react('◀')).then(() => msg.react('▶')).then(() => msg.react('⏩'));
+msg.react('1️⃣').then(() => msg.react('2️⃣').then(() => msg.react('3️⃣')).then(() => msg.react('')));
 
 const filter = (reaction, user) => {
 	return ['⏪', '◀', '▶', '⏩'].includes(reaction.emoji.name) && user.id === message.author.id;
@@ -43,12 +43,12 @@ msg.awaitReactions(filter, { max: 4, time: 60000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
-		if (reaction.emoji.name === '▶') {
+		if (reaction.emoji.name === '⏩') {
 			msg.edit(two)
-		} else if (reaction.emoji.name === '◀') {
+		} else if (reaction.emoji.name === '⏪') {
 			msg.edit(one)
     } else if (reaction.emoji.name === '⏪') {
-			msg.edit(one)
+			msg.edit(two)
     } else if (reaction.emoji.name === '⏩') {
 			msg.edit(four)
     }
