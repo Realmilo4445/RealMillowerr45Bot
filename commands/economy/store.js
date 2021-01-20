@@ -16,13 +16,13 @@ module.exports = {
         const msg = await message.channel.send(one);
       
       const two = new Discord.MessageEmbed()
-        .setTitle('Store')
+        .setTitle('FStore')
         .setDescription(`**(🍔)Hamburger** - **5** Moneys \n **(🍕)Pizza** - **3** Moneys  \n **(🌭)Hotdog** - **4** Moneys`)
         .setFooter(`Page 2/4`)
         .setTimestamp();
       
       const three = new Discord.MessageEmbed()
-        .setTitle('Store')
+        .setTitle('Lootbox Store')
         .setDescription(`**(🎁)Common Lootbox** - **200** Moneys \n **(🎁)Rare Lootbox** - **250** Moneys **(🎁)Epic Lootbox** - **450** Moneys **(🎁)Legendary Lootbox** - **1,000** Moneys`)
         .setFooter(`Page 3/4`)
         .setTimestamp();
