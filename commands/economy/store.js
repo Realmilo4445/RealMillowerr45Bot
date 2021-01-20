@@ -45,12 +45,8 @@ message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
 		  if (reaction.emoji.name === '1️⃣') {
 			msg.edit(one)
-		} else if (reaction.emoji.name === '2️⃣'){
+		} else {
 			msg.edit(two)
-    } else if (reaction.emoji.name === '3️⃣') {
-      msg.edit(three)
-    } else if (reaction.emoji.name === '4️⃣'){
-			msg.edit(four)
     }
 	})
     }
