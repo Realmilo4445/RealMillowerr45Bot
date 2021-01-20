@@ -72,10 +72,8 @@ module.exports = {
         if(purchase === 'common lootbox'){
             if(amount < 200) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 200);
-            db.push(message.author.id, "(🎁)Common Lootbox");
             embed.setColor('RED')
             embed.setAuthor(`Successfully bought **(🎁)Common Lootbox**`)
-            db.subtract(`money_${message.guild.id}_${message.author.id}`, "(🎁)Common Lootbox");
             db.push(message.author.id, "(👓)Glasses")
             embed.setDescription(`Congrats! you got (👓)Glasses from Lootbox!`)
             message.channel.send(embed)
@@ -83,23 +81,44 @@ module.exports = {
         if(purchase === 'rare lootbox'){
             if(amount < 250) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 250);
-            db.push(message.author.id, "(🎁)Rare Lootbox");
             embed.setColor('RED')
             embed.setAuthor(`Successfully bought **(🎁)Rare Lootbox**`)
-            db.subtract(`money_${message.guild.id}_${message.author.id}`, "(🎁)Rare Lootbox");
             db.push(message.author.id, "(⚔)Sword")
             embed.setDescription(`Congrats! you got (⚔)Sword from Lootbox!`)
             message.channel.send(embed)
         }
         if(purchase === 'rare lootbox'){
-            if(amount < 250) return message.channel.send('You do not have enough money to buy this item. Please try another one');
-            db.subtract(`money_${message.guild.id}_${message.author.id}`, 250);
-            db.push(message.author.id, "(🎁)Epic Lootbox");
+            if(amount < 450) return message.channel.send('You do not have enough money to buy this item. Please try another one');
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, 450);
             embed.setColor('RED')
-            embed.setAuthor(`Successfully bought **(🎁)Rare Lootbox**`)
-            db.subtract(`money_${message.guild.id}_${message.author.id}`, "(🎁)Epic Lootbox");
-            db.push(message.author.id, "(⚔)Ticket")
-            embed.setDescription(`Congrats! you got (⚔)Ticket from Lootbox!`)
+            embed.setAuthor(`Successfully bought **(🎁)Epic Lootbox**`)
+            db.push(message.author.id, "(🎟)Ticket")
+            embed.setDescription(`Congrats! you got (🎟)Ticket from Lootbox!`)
+            message.channel.send(embed)
+        }
+        if(purchase === 'legendary lootbox'){
+            if(amount < 1000) return message.channel.send('You do not have enough money to buy this item. Please try another one');
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, 1000);
+            embed.setColor('RED')
+            embed.setAuthor(`Successfully bought **(🎁)Legendary Lootbox**`)
+            db.push(message.author.id, "(💎)Diamond")
+            embed.setDescription(`Congrats! you got (💎)Diamond from Lootbox!`)
+            message.channel.send(embed)
+        }
+        if(purchase === 'hticket'){
+            if(amount < 10) return message.channel.send('You do not have enough money to buy this item. Please try another one');
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, 10);
+            db.push(message.author.id, "(🎟)Ticket");
+            embed.setColor('RED')
+            embed.setAuthor(`Successfully bought one **(🎟)Ticket**`)
+            message.channel.send(embed)
+        }
+        if(purchase === 'laptop'){
+            if(amount < 150) return message.channel.send('You do not have enough money to buy this item. Please try another one');
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, 150);
+            db.push(message.author.id, "(💻)Laptop");
+            embed.setColor('RED')
+            embed.setAuthor(`Successfully bought one **(💻)Laptop**`)
             message.channel.send(embed)
         }
     }

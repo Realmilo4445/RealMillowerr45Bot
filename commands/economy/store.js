@@ -30,7 +30,7 @@ module.exports = {
       
       const four = new Discord.MessageEmbed()
         .setTitle('Modern Store')
-        .setDescription(`**(🎟)Credits** - **10** Moneys \n **(💻)Laptop** - **150** Moneys`)
+        .setDescription(`**(🎟)Ticket** - **10** Moneys \n **(💻)Laptop** - **150** Moneys`)
         .setFooter(`Page 4/4`)
         .setTimestamp();
       
