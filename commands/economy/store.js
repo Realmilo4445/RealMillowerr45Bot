@@ -20,10 +20,8 @@ module.exports = {
         .setTitle('Store')
         .setDescription(`**(💍)Ring** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
         .setTimestamp();
-      let filter = (emoji,userID) => (emoji.name===nextPageEmoji||emoji.name===nextPreviousEmoji)&&userID===msg.author.id;
-		  let collector = message.reactionCollector(msg,filter,{time:900000,idle:120000});
-      collector.on('collect', async function(emoji){
-			if(emoji.name===nextPageEmoji) {
+      msg.awaitReactions((reaction, user) => user.id == user.id && (reaction.emoji.name == nextPageEmoji||reaction.emoji.name == nextPreviousEmoji )).then(async collected => {
+			if(collectemoji.name===nextPageEmoji) {
 				await msg.edit({s});
 			}
 			else if(emoji.name===nextPreviousEmoji){
