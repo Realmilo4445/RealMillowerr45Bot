@@ -1,0 +1,11 @@
+[
+	{
+		"question": "Pilot want to practice fyling the Airplane, Airplane goes to Land and Airplane needs to select right ways! where correct ways for Airplane goes to Land?",
+    "fail": "You suck at (✈️)flying practice and Almost crushed but your friend help you",
+		"answers": ["right"]
+	},
+	{
+		"question": "How many letters are there in the alphabet?",
+		"answers": ["26", "twenty-six", "twenty six", "twentysix"]
+	}
+]
