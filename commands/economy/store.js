@@ -33,19 +33,19 @@ module.exports = {
         .setFooter(`Page 4/4`)
         .setTimestamp();
       
-message.react('1️⃣').then(() => message.react('2️⃣').then(() => message.react('3️⃣')).then(() => message.react('4️⃣')));
+message.react('1️⃣').then(() => message.react('2️⃣'));
 
 const filter = (reaction, user) => {
 	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
-msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
 		  if (reaction.emoji.name === '1️⃣') {
 			msg.edit(one)
-		} else {
+		} if (reaction.emoji.name === '2️⃣') {
 			msg.edit(two)
     }
 	})
