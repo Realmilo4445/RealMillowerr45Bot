@@ -11,18 +11,21 @@ module.exports = {
         if(!purchase) return message.channel.send('Please provide an item to buy')
         let items = await db.fetch(message.author.id, { items: [] });
         let amount = await db.fetch(`money_${message.guild.id}_${message.author.id}`)
-
+        let embed = new Discord.MessageEmbed()
+        
         if(purchase === 'car'){
             if(amount < 500) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 500);
-            db.push(message.author.id, "Car");
-            message.channel.send('Successfully bought one car')
+            db.push(message.author.id, "(🚗)Car");
+            embed.setAuthor(`Successfully bought one **(🚗)Car**`)
+            message.channel.send(embed)
         }
         if(purchase === 'watch'){
             if(amount < 250) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 250);
-            db.push(message.author.id, "Watch");
-            message.channel.send('Successfully bought one car')
+            db.push(message.author.id, "(⏰)Watch");
+            embed.setAuthor(`Successfully bought **(⏰)Watch**`)
+            message.channel.send(embed)
         }
     }
 }

@@ -13,7 +13,7 @@ module.exports = {
         .setFooter(`Page 1/4`)
         .setTimestamp();
 
-        const msg = message.channel.send(one);
+        const msg = await message.channel.send(one);
       
       const two = new Discord.MessageEmbed()
         .setTitle('Store')
@@ -29,17 +29,17 @@ module.exports = {
       
       const four = new Discord.MessageEmbed()
         .setTitle('Store')
-        .setDescription(`**(🚗)Car** - **500** Moneys \n **(⏰)Watch** - **250** Moneys`)
+        .setDescription(`**(🎟)Credits** - **10** Moneys \n **(💻)Laptop** - **150** Moneys`)
         .setFooter(`Page 4/4`)
         .setTimestamp();
       
-message.react('1️⃣').then(() => message.react('2️⃣'));
+msg.react('1️⃣').then(() => msg.react('2️⃣').then(() => msg.react('3️⃣').then(() => msg.react('4️⃣'))));
 
 const filter = (reaction, user) => {
 	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
-message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
@@ -47,6 +47,10 @@ message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 			msg.edit(one)
 		} if (reaction.emoji.name === '2️⃣') {
 			msg.edit(two)
+    }if (reaction.emoji.name === '3️⃣') {
+			msg.edit(three)
+		} if (reaction.emoji.name === '4️⃣') {
+			msg.edit(four)
     }
 	})
     }
