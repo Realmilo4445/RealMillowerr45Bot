@@ -21,6 +21,9 @@ module.exports = {
         let msg = message.channel.send(embed)
         await msg.react(nextPageEmoji)
         await msg.react(nextPreviousEmoji)
-        await msg.awaitReactions((reaction, user) => user.id == user.id && )
+        await msg.awaitReactions((reaction, user) => user.id == user.id && (reaction.emoji.name == nextPageEmoji||reaction.emoji.name == nextPreviousEmoji),{max: 1, time: 10000})
+        .then(async collected => {
+          if(collected.first().emoji.name == nextPageEmoji)
+        }).catch(async () {return message.channel.send("")})
           }
       }
