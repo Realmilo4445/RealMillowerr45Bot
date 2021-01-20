@@ -12,22 +12,31 @@ module.exports = {
         .setTitle('Store')
         .setDescription(`**(🚗)Car** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
         .setTimestamp();
-      let msg = await message.channel.send({embed})
+      let msg = await message.channel.send(embed)
         
-        await msg.react(nextPageEmoji)
-        await msg.react(nextPreviousEmoji)
           let s = new Discord.MessageEmbed()
         .setTitle('Store')
-        .setDescription(`**(💍)Ring** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
+        .setDescription(`**(💍)Ring** - **280** Moneys \n **()Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
         .setTimestamp();
-      msg.awaitReactions((reaction, user) => user.id == user.id && (reaction.emoji.name == nextPageEmoji||reaction.emoji.name == nextPreviousEmoji )).then(async collected => {
-			if(collectemoji.name===nextPageEmoji) {
-				await msg.edit({s});
-			}
-			else if(emoji.name===nextPreviousEmoji){
-				await msg.edit({embed});
-			}
-      })
+msg.react('➡').then(() => msg.react('⬅'));
+
+const filter = (reaction, user) => {
+	return ['➡', '⬅'].includes(reaction.emoji.name) && user.id === message.author.id;
+};
+
+msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+	.then(collected => {
+		const reaction = collected.first();
+
+		if (reaction.emoji.name === '➡') {
+			msg.edit(s)
+		} else {
+			msg.edit(embed)
+		}
+	})
+	.catch(collected => {
+		message.reply('you reacted with neither a thumbs up, nor a thumbs down.');
+	});
                    }
                    }
                    
