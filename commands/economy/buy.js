@@ -91,6 +91,16 @@ module.exports = {
             embed.setDescription(`Congrats! you got (⚔)Sword from Lootbox!`)
             message.channel.send(embed)
         }
-      
+        if(purchase === 'rare lootbox'){
+            if(amount < 250) return message.channel.send('You do not have enough money to buy this item. Please try another one');
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, 250);
+            db.push(message.author.id, "(🎁)Epic Lootbox");
+            embed.setColor('RED')
+            embed.setAuthor(`Successfully bought **(🎁)Rare Lootbox**`)
+            db.subtract(`money_${message.guild.id}_${message.author.id}`, "(🎁)Epic Lootbox");
+            db.push(message.author.id, "(⚔)Ticket")
+            embed.setDescription(`Congrats! you got (⚔)Ticket from Lootbox!`)
+            message.channel.send(embed)
+        }
     }
 }

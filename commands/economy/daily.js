@@ -3,7 +3,7 @@ const { COLOR } = require('../../config.json')
 const db = require('quick.db');
 const ms = require('parse-ms');
 
-module.exports = {
+module.eexports = {
     name: "daily",
     category: "economy",
     description: "Receive a daily award of money",
