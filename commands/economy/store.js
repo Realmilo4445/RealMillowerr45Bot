@@ -12,18 +12,18 @@ module.exports = {
         .setTitle('Store')
         .setDescription(`**(🚗)Car** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
         .setTimestamp();
-      
+      let msg = await message.channel.send(embed)
         
-        let msg = await message.channel.send(embed)
         await msg.react(nextPageEmoji)
         await msg.react(nextPreviousEmoji)
-        await msg.awaitReactions((reaction, user) => user.id == user.id && (reaction.emoji.name == nextPageEmoji||reaction.emoji.name == nextPreviousEmoji))
+        await msg.awaitReactions((reaction, user) => user.id == user.id && (reaction.emoji.name == nextPreviousEmoji||reaction.emoji.name == nextPageEmoji))
         .then(async collected => {
-          if(collected.first().emoji.name == nextPreviousEmoji){let s = new Discord.MessageEmbed()
+          let s = new Discord.MessageEmbed()
         .setTitle('Store')
         .setDescription(`**(💍)Ring** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
-        .setTimestamp(); await msg.edit(s) }
-          if(collected.first().emoji.name == nextPageEmoji){ await msg.edit(embed) }
+        .setTimestamp();
+          if(collected.first().emoji.name == nextPageEmoji){ return message.channel.send(s) }
+          if(collected.first().emoji.name == nextPreviousEmoji){ return message.channel.send(embed) }
         })
       }
     }
