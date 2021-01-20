@@ -13,7 +13,7 @@ module.exports = {
         .setFooter(`Page 1/4`)
         .setTimestamp();
 
-        let msg = message.channel.send(one);
+        const msg = message.channel.send(one);
       
       const two = new Discord.MessageEmbed()
         .setTitle('Store')
@@ -33,26 +33,23 @@ module.exports = {
         .setFooter(`Page 4/4`)
         .setTimestamp();
       
-msg.react('1️⃣').then(() => msg.react('2️⃣').then(() => msg.react('3️⃣')).then(() => msg.react('4️⃣')));
+message.react('1️⃣').then(() => message.react('2️⃣').then(() => message.react('3️⃣')).then(() => message.react('4️⃣')));
 
 const filter = (reaction, user) => {
 	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
-msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
 		  if (reaction.emoji.name === '1️⃣') {
 			msg.edit(one)
-		}
-      if (reaction.emoji.name === '2️⃣') {
+		} else if (reaction.emoji.name === '2️⃣'){
 			msg.edit(two)
-    } 
-      if (reaction.emoji.name === '3️⃣') {
-			msg.edit(three)
-    }
-      if (reaction.emoji.name === '4️⃣') {
+    } else if (reaction.emoji.name === '3️⃣') {
+      msg.edit(three)
+    } else if (reaction.emoji.name === '4️⃣'){
 			msg.edit(four)
     }
 	})
