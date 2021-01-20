@@ -11,13 +11,15 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
         .setTitle('Store')
         .setDescription(`**(🚗)Car** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
-        .setTimestamp();
+        .setTimestamp()
+        .setFooter(`Pa`);
       let msg = await message.channel.send(embed)
         
           let s = new Discord.MessageEmbed()
         .setTitle('Store')
-        .setDescription(`**(💍)Ring** - **280** Moneys \n **()Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
-        .setTimestamp();
+        .setDescription(`**(💍)Ring** - **280** Moneys \n **(🍔)Hamburger** - **50** Moneys \n **(🌭)Hotdog** - **10** Moneys`)
+        .setTimestamp()
+        .setFooter(`Page 2/2`);
 msg.react('➡').then(() => msg.react('⬅'));
 
 const filter = (reaction, user) => {
