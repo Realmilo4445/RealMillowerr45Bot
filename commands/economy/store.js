@@ -1,6 +1,7 @@
 
 const Discord = require('discord.js');
 const nextPageEmoji = "➡"
+const nextPreviousEmoji = "⬅"
 module.exports = {
     name: "store",
   category: "economy",
@@ -11,12 +12,15 @@ module.exports = {
         .setTitle('Store')
         .setDescription(`**(🚗)Car** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
         .setTimestamp();
-        let msg = message.channel.send(embed)
-
-        let s = new Discord.MessageEmbed()
+      
+      let s = new Discord.MessageEmbed()
         .setTitle('Store')
         .setDescription(`**(💍)Ring** - **500** Moneys \n **(⏰)Watch** - **250** Moneys \n **(🎁)Lootbox** - **300** Moneys`)
         .setTimestamp();
         await msg.edit(s)
+        let msg = message.channel.send(embed)
+        await msg.react(nextPageEmoji)
+        await msg.react(nextPreviousEmoji)
+        await msg.awaitReactions((reaction, user) => user.id == user.id && )
           }
       }
