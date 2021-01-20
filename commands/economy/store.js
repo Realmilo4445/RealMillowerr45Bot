@@ -5,20 +5,18 @@ module.exports = {
   category: "economy",
     description: "View the store",
 
-    async run (client, message, args) {
+    run: async (client, message, args) => {
 
         const one = new Discord.MessageEmbed()
         .setTitle('Store')
-        .settITLE('Car Shop')
         .setDescription(`**(🚗)Car** - **500** Moneys \n **(🏎)Sport Car** - **550** Moneys \n **(🚙)Sport Utility Car** - **300** Moneys`)
         .setFooter(`Page 1/4`)
         .setTimestamp();
 
-        let msg = message.channel.send();
+        let msg = message.channel.send(one);
       
       const two = new Discord.MessageEmbed()
         .setTitle('Store')
-        .setAuthor('Food Shop')
         .setDescription(`**(🍔)Hamburger** - **5** Moneys \n **(🍕)Pizza** - **3** Moneys  \n **(🌭)Hotdog** - **4** Moneys`)
         .setFooter(`Page 2/4`)
         .setTimestamp();
@@ -35,28 +33,28 @@ module.exports = {
         .setFooter(`Page 4/4`)
         .setTimestamp();
       
-msg.react('1️⃣').then(() => message.react('2️⃣').then(() => message.react('3️⃣')).then(() => message.react('4️⃣')));
+msg.react('1️⃣').then(() => msg.react('2️⃣').then(() => msg.react('3️⃣')).then(() => msg.react('4️⃣')));
 
 const filter = (reaction, user) => {
 	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
-msg.awaitReactions(filter, { max: 4, time: 60000, errors: ['time'] })
+msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
-		if (reaction.emoji.name === '1️⃣') {
+		  if (reaction.emoji.name === '1️⃣') {
 			msg.edit(one)
-		} else if (reaction.emoji.name === '2️⃣') {
+		}
+      if (reaction.emoji.name === '2️⃣') {
 			msg.edit(two)
-    } else if (reaction.emoji.name === '3️⃣') {
+    } 
+      if (reaction.emoji.name === '3️⃣') {
 			msg.edit(three)
-    } else if (reaction.emoji.name === '4️⃣') {
+    }
+      if (reaction.emoji.name === '4️⃣') {
 			msg.edit(four)
     }
 	})
-	.catch(collected => {
-		message.reply('you reacted with neither a thumbs up, nor a thumbs down.');
-	});
     }
 }
