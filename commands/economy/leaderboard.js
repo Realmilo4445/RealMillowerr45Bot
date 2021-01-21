@@ -17,5 +17,7 @@ module.exports = {
       const embed = new Discord.RichEmbed()
       .setAuthor(`${message.guild.name} - Leaderboard!`, message.guild.iconURL)
       .setDescription(content)
+      .setColor(`RED`)
+      message.channel.send(embed)
     }
 }
