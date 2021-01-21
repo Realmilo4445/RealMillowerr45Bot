@@ -90,9 +90,17 @@
   {
 		"question": "🔘 🔘 🔘 🔘 🔘| How many orbits on the space?",
     "work": "(👨‍🚀)Atronaut",
+    "fail": "You suck at (👨‍🚀)Atronaut and you dont earn Money",
+    "correct": "You great as (👨‍🚀)Atronaut and earn 800 Moneys",
+    "amount": 800,
+    "answers": ["5", "five"]
+	},
+  {
+		"question": "what year was Indonesia independent?",
+    "work": "(👨‍🏫)Teacher",
     "fail": "You suck at (👨‍🏫)Teacher and you dont earn Money",
-    "correct": "You great as (👨‍🏫)Teacher and earn 270 Moneys",
-    "amount": 270,
-    "answers": ["0", "zero"]
+    "correct": "You great as (👨‍🏫)Teacher and earn 690 Moneys",
+    "amount": 690,
+    "answers": ["1945"]
 	}
 ]
