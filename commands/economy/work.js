@@ -56,26 +56,22 @@ module.exports = {
     description: "Work your a** off",
     async run (client, message, args) {
     
-const quiz = require('../../quiz.json');
+const quiz = require('./quiz.json');
 const item = quiz[Math.floor(Math.random() * quiz.length)];
 const filter = response => {
 	return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
 };
-let slme = new MessageEmbed()
-let slmi = new MessageEmbed()
-message.channel.send(item.question).then(() =>
+let em = new MessageEmbed()
+em.setAuthor(item.question).then(() => {
 	message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
 		.then(collected => {
-			slmi.setDescription(`You great as ${quiz.work} and earn ${quiz.amount} Moneys`);
-    slmi.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-    message.channel.send(slme)
+			message.channel.send();
 		})
 		.catch(collected => {
-    let emped = new MessageEmbed()
-    .setAuthor(quiz.fail)
-  
-			message.channel.send()
+			message.channel.send('Looks like nobody got the answer this time.');
 		});
-});
+})
+      
+      let msg = await message.channel.send(em)
     }
 }
