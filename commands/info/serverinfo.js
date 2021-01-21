@@ -4,7 +4,7 @@ module.exports = {
   name: "serverinfo",
   category: "info",
   description: "serverinfo",
-  async run(client, message, args)  {
+  run: async(client, message, args) => {
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
 
@@ -44,7 +44,7 @@ const regions = {
 
 		const embed = new MessageEmbed()
 			.setDescription(`**Guild information for __${message.guild.name}__**`)
-			.setColor('BLUE')
+        .setColor('RED')
 			.setThumbnail(message.guild.iconURL({ dynamic: true }))
 			.addField('General', [
 				`**❯ Name:** ${message.guild.name}`,
