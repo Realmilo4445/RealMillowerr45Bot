@@ -5012,7 +5012,7 @@ specifiers:
   mongodb: ^3.6.2
   mongoose: ^5.9.13
   node-df: ^0.1.4
-  node-fetch: ^2.6.0
+  node-fetch: ^2.6.1
   novelcovid: ^1.2.6
   parse-ms: ^2.1.0
   path: ^0.12.7
