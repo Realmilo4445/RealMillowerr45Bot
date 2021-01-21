@@ -61,7 +61,7 @@
     "fail": "You suck at (👨‍🍳)Chef and you dont earn Money",
     "correct": "You great as (👨‍🍳)Chef and earn 250 Moneys",
     "amount": 250,
-    "answers": ["55", "55ml"]
+    "answers": ["59", "59ml"]
 	},
   {
 		"question": "The cake needs 100Ml you have 36Ml, How many you need Ml?",
@@ -69,10 +69,10 @@
     "fail": "You suck at (👨‍🍳)Chef and you dont earn Money",
     "correct": "You great as (👨‍🍳)Chef and earn 250 Moneys",
     "amount": 250,
-    "answers": ["55", "55ml"]
+    "answers": ["64", "64ml"]
 	},
   {
-		"question": "2 + 2 * 2 = ?",
+		"question": "2 + 2 x 2 = ?",
     "work": "(👨‍🏫)Teacher",
     "fail": "You suck at (👨‍🏫)Teacher and you dont earn Money",
     "correct": "You great as (👨‍🏫)Teacher and earn 270 Moneys",
@@ -80,11 +80,11 @@
     "answers": ["8", "eight"]
 	},
   {
-		"question": "9 + 2 + 2 = 100",
+		"question": "2 x 68 + 1 x 0 = ?",
     "work": "(👨‍🏫)Teacher",
     "fail": "You suck at (👨‍🏫)Teacher and you dont earn Money",
     "correct": "You great as (👨‍🏫)Teacher and earn 270 Moneys",
     "amount": 270,
-    "answers": ["8", "eight"]
+    "answers": ["0", "zero"]
 	}
 ]
