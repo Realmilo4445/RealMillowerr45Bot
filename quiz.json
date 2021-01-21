@@ -7,6 +7,14 @@
     "correct": "You great as (✈️)Airplane flying practice and earn 500 Moneys",
 		"answers": ["right", "r"]
 	},
+  {
+		"question": "Pilot want to practice fyling the Airplane, Airplane goes to Land and Airplane needs to select middle ways! where correct ways for Airplane goes to Land? r, m, or l ?",
+    "fail": "You suck at (✈️)flying practice and Almost crushed but your friend help you",
+    "work": "(✈️)Airplane flying practice",
+    "amount": 500,
+    "correct": "You great as (✈️)Airplane flying practice and earn 500 Moneys",
+		"answers": ["middle", "m"]
+	},
 	{
 		"question": "The cake needs 100Ml you have 45Ml, How many you need Ml?",
     "work": "(👨‍🍳)Chef",
@@ -16,12 +24,12 @@
     "answers": ["55", "55ml"]
 	},
   {
-		"question": "What is code : 34404 607",
-    "work": "(👨‍💻)Programmer",
-    "fail": "You suck at (👨‍💻)Programmer and you dont get money to hack the bank",
-    "correct": "You great as (👨‍💻)Programmer and earn 250 Moneys",
-    "amount": 250,
-    "answers": ["ERROR BOT", "error bot"]
+		"question": "Airplane in middle ways, Airplane goes to Miami, Wheres the correct ways goes to Miami? Tips: Miami in left ways",
+    "work": "(👨‍✈️)Pilot",
+    "fail": "You suck at (👨‍✈️)Pilot and Airplane crashed you must pay for this!",
+    "correct": "You great as (👨‍✈️)Pilot and earn 550 Moneys",
+    "amount": 550,
+    "answers": ["l", "left"]
 	},
   {
 		"question": "What is code : 34404 607",
@@ -30,5 +38,53 @@
     "correct": "You great as (👨‍💻)Programmer and earn 250 Moneys",
     "amount": 250,
     "answers": ["ERROR BOT", "error bot"]
+	},
+  {
+		"question": "What is code : 1 I0v3 40u",
+    "work": "(👨‍💻)Programmer",
+    "fail": "You suck at (👨‍💻)Programmer and you dont get money to hack the bank",
+    "correct": "You great as (👨‍💻)Programmer and earn 250 Moneys",
+    "amount": 250,
+    "answers": ["I love you", "i love you"]
+	},
+  {
+		"question": "right <---🏃‍---> left || Where ways goes Robbery?",
+    "work": "(👮‍♂️)Policeman",
+    "fail": "You suck at (👮‍♂️)Policeman. Robbery has run",
+    "correct": "You great as (👮‍♂️)Policeman and earn 250 Moneys",
+    "amount": 150,
+    "answers": ["r", "right"]
+	},
+  {
+		"question": "The cake needs 75Ml you have 16Ml, How many you need Ml?",
+    "work": "(👨‍🍳)Chef",
+    "fail": "You suck at (👨‍🍳)Chef and you dont earn Money",
+    "correct": "You great as (👨‍🍳)Chef and earn 250 Moneys",
+    "amount": 250,
+    "answers": ["55", "55ml"]
+	},
+  {
+		"question": "The cake needs 100Ml you have 36Ml, How many you need Ml?",
+    "work": "(👨‍🍳)Chef",
+    "fail": "You suck at (👨‍🍳)Chef and you dont earn Money",
+    "correct": "You great as (👨‍🍳)Chef and earn 250 Moneys",
+    "amount": 250,
+    "answers": ["55", "55ml"]
+	},
+  {
+		"question": "2 + 2 * 2 = ?",
+    "work": "(👨‍🏫)Teacher",
+    "fail": "You suck at (👨‍🏫)Teacher and you dont earn Money",
+    "correct": "You great as (👨‍🏫)Teacher and earn 270 Moneys",
+    "amount": 270,
+    "answers": ["8", "eight"]
+	},
+  {
+		"question": "9 + 2 + 2 = 100",
+    "work": "(👨‍🏫)Teacher",
+    "fail": "You suck at (👨‍🏫)Teacher and you dont earn Money",
+    "correct": "You great as (👨‍🏫)Teacher and earn 270 Moneys",
+    "amount": 270,
+    "answers": ["8", "eight"]
 	}
 ]
