@@ -101,6 +101,22 @@
     "fail": "You suck at (👨‍🏫)Teacher and you dont earn Money",
     "correct": "You great as (👨‍🏫)Teacher and earn 690 Moneys",
     "amount": 690,
-    "answers": ["1945"]
+    "answers":["1945"]
+	},
+  {
+		"question": "who president 1st on indonesia",
+    "work": "(👨‍🏫)Teacher",
+    "fail": "You suck at (👨‍🏫)Teacher and you dont earn Money",
+    "correct": "You great as (👨‍🏫)Teacher and earn 695 Moneys",
+    "amount": 695,
+    "answers": ["Soekarno"]
+	},
+  {
+		"question": "what we get vitamin by eating Orange?",
+    "work": "(👨‍🔬)Scientist",
+    "fail": "You suck at (👨‍🔬)Scientist and you dont earn Money",
+    "correct": "You great as (👨‍🔬)Scientist and earn 505 Moneys",
+    "amount": 505,
+    "answers": ["Vitamin C", "vitamin c", "c", "C"]
 	}
 ]
