@@ -11,7 +11,7 @@
 		"question": "The cake needs 100Ml you have 45Ml, How many you need Ml?",
     "work": "(👨‍🍳)Chef",
     "fail": "You suck at (👨‍🍳)Chef and you dont earn Money",
-    "correct": "You great as (👨‍🍳)Chef and earn 250 Moneys ",
+    "correct": "You great as (👨‍🍳)Chef and earn 250 Moneys",
     "amount": 250,
     "answers": ["55","55ml"]
 

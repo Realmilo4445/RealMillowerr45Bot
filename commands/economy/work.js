@@ -63,7 +63,7 @@ const filter = response => {
 };
 let em = new MessageEmbed()
 em.setAuthor(item.question)
-let msg = await message.channel.send(em).then(() => {
+message.channel.send(em).then(() => {
 	message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
 		.then(collected => {
     let me = new MessageEmbed()
@@ -71,8 +71,8 @@ let msg = await message.channel.send(em).then(() => {
       message.channel.send(me)
 		})
 		.catch(collected => {
-			let mem = new MessageEmbed();
-    mem.setAuthor(quiz.fail)
+			let mem = new MessageEmbed()
+      mem.setAuthor(quiz.fail)
     message.channel.send(mem)
 		});
 })
