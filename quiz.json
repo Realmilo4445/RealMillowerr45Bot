@@ -86,5 +86,13 @@
     "correct": "You great as (👨‍🏫)Teacher and earn 270 Moneys",
     "amount": 270,
     "answers": ["0", "zero"]
+	},
+  {
+		"question": "🔘 🔘 🔘 🔘 🔘| How many orbits on the space?",
+    "work": "(👨‍🚀)Atronaut",
+    "fail": "You suck at (👨‍🏫)Teacher and you dont earn Money",
+    "correct": "You great as (👨‍🏫)Teacher and earn 270 Moneys",
+    "amount": 270,
+    "answers": ["0", "zero"]
 	}
 ]
