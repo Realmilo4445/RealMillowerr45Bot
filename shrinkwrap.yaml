@@ -4989,7 +4989,7 @@ specifiers:
   anime-scraper: ^3.1.1
   ascii-table: ^0.0.9
   atob: ^2.1.2
-  axios: ^0.21.0
+  axios: ^0.21.1
   bytee-quiz: ^0.1.8
   canvacord: ^5.0.8
   canvas: ^2.6.1
