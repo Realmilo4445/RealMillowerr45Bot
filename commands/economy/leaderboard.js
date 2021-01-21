@@ -5,7 +5,6 @@ module.exports = {
     category: "economy",
     description: "Work your a** off",
     async run (client, message, args) {
-      let money = db.fetch(`money_${user.id}`)
-      if(money = null) money = 0
+      
     }
 }
