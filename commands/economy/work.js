@@ -56,22 +56,27 @@ module.exports = {
     description: "Work your a** off",
     async run (client, message, args) {
     
-const quiz = require('./quiz.json');
+const quiz = require('../../quiz.json');
 const item = quiz[Math.floor(Math.random() * quiz.length)];
 const filter = response => {
 	return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
 };
 let em = new MessageEmbed()
-em.setAuthor(item.question).then(() => {
+em.setAuthor(item.question)
+let msg = await message.channel.send(em).then(() => {
 	message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
 		.then(collected => {
-			message.channel.send();
+    let me = new MessageEmbed()
+			me.setAuthor(quiz.correct)
+      message.channel.send(me)
 		})
 		.catch(collected => {
-			message.channel.send('Looks like nobody got the answer this time.');
+			let mem = new MessageEmbed();
+    mem.setAuthor(quiz.fail)
+    message.channel.send(mem)
 		});
 })
       
-      let msg = await message.channel.send(em)
+      
     }
 }
