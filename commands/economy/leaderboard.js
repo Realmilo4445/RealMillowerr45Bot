@@ -1,16 +1,11 @@
 const Discord = require('discord.js')
+const db = require('quick.db');
 module.exports = {
-    name: "work",
+    name: "leaderboard",
     category: "economy",
     description: "Work your a** off",
     async run (client, message, args) {
-return message.channel.send(
-	currency.sort((a, b) => b.balance - a.balance)
-		.filter(user => client.users.cache.has(user.user_id))
-		.first(10)
-		.map((user, position) => `(${position + 1}) ${(client.users.cache.get(user.user_id).tag)}: ${user.balance}💰`)
-		.join('\n'),
-	{ code: true }
-);
+      let money = db.fetch(`money_${user.id}`)
+      if(money = null) money = 0
     }
 }
