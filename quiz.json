@@ -5,7 +5,7 @@
     "work": "(✈️)Airplane flying practice",
     "amount": 500,
     "correct": "You great as (✈️)Airplane flying practice and earn 500 Moneys",
-		"answers": ["right","r"]
+		"answers": ["right", "r"]
 	},
 	{
 		"question": "The cake needs 100Ml you have 45Ml, How many you need Ml?",
@@ -13,7 +13,22 @@
     "fail": "You suck at (👨‍🍳)Chef and you dont earn Money",
     "correct": "You great as (👨‍🍳)Chef and earn 250 Moneys",
     "amount": 250,
-    "answers": ["55","55ml"]
-
+    "answers": ["55", "55ml"]
+	},
+  {
+		"question": "What is code : 34404 607",
+    "work": "(👨‍💻)Programmer",
+    "fail": "You suck at (👨‍💻)Programmer and you dont get money to hack the bank",
+    "correct": "You great as (👨‍💻)Programmer and earn 250 Moneys",
+    "amount": 250,
+    "answers": ["ERROR BOT", "error bot"]
+	},
+  {
+		"question": "What is code : 34404 607",
+    "work": "(👨‍💻)Programmer",
+    "fail": "You suck at (👨‍💻)Programmer and you dont get money to hack the bank",
+    "correct": "You great as (👨‍💻)Programmer and earn 250 Moneys",
+    "amount": 250,
+    "answers": ["ERROR BOT", "error bot"]
 	}
 ]
