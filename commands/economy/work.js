@@ -56,7 +56,7 @@ module.exports = {
     description: "Work your a** off",
     async run (client, message, args) {
     
-const quiz = require('quiz.json');
+const quiz = require('../.quiz.json');
 const item = quiz[Math.floor(Math.random() * quiz.length)];
 const filter = response => {
 	return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
