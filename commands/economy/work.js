@@ -68,9 +68,13 @@ slme.setDescription(item.question).then(() => {
 		.then(collected => {
 			slmi.setDescription(`You great as ${quiz} and earn ${quiz.amount} Moneys`);
     slmi.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
+    message.channel.send(slme)
 		})
 		.catch(collected => {
-			message.channel.send('Looks like nobody got the answer this time.');
+    let emped = new MessageEmbed()
+    .setAuthor(quiz.fail)
+  
+			message.channel.send()
 		});
 });
     }
