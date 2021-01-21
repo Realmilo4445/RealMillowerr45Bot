@@ -66,7 +66,7 @@ let slmi = new MessageEmbed()
 slme.setDescription(item.question).then(() => {
 	message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
 		.then(collected => {
-			slmi.setDescription(`You great as ${quiz} and earn ${quiz.amount} Moneys`);
+			slmi.setDescription(`You great as ${quiz.work} and earn ${quiz.amount} Moneys`);
     slmi.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
     message.channel.send(slme)
 		})
