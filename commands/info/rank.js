@@ -1,7 +1,11 @@
 const { MessageAttachment } = require("discord.js");
 const canvacord = require("canvacord");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+  name: "rank",
+  descriptions: "rank card",
+  category: "info",
+  run: async (client, message, args) => {
   let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
 
   let level = client.db.get(`level_${user.id}`) || 0;
@@ -37,4 +41,5 @@ module.exports.run = async (client, message, args) => {
   const img = await card.build();
   
   return message.channel.send(new MessageAttachment(img, "rank.png"));
+  }
 };

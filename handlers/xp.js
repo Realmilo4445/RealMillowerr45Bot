@@ -36,6 +36,7 @@ class Util {
         `${message.author}, You just reached level ${newlvl}`
       );
     db.add(`xp_${message.author.id}_${message.guild.id}`, toadd);
+    db.add(`level_${message.author.id}_${message.guild.id}`, toadd);
   }
 }
 
