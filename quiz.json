@@ -1,6 +1,6 @@
 [
 	{
-		"question": "Pilot want to practice fyling the Airplane, Airplane goes to Land and Airplane needs to select right ways! where correct ways for Airplane goes to Land? r, m, or l ?",
+		"question": "Pilot want to practice fyling the Airplane, Airplane goes to Land and Airplane needs to select right ways! where correct ways for Airplane goes to Land?",
     "fail": "You suck at (✈️)flying practice and Almost crushed but your friend help you",
     "work": "(✈️)Airplane flying practice",
     "amount": 500,
@@ -8,7 +8,7 @@
 		"answers": ["right", "r"]
 	},
   {
-		"question": "Pilot want to practice fyling the Airplane, Airplane goes to Land and Airplane needs to select middle ways! where correct ways for Airplane goes to Land? r, m, or l ?",
+		"question": "Pilot want to practice fyling the Airplane, Airplane goes to Land and Airplane needs to select middle ways! where correct ways for Airplane goes to Land?",
     "fail": "You suck at (✈️)flying practice and Almost crushed but your friend help you",
     "work": "(✈️)Airplane flying practice",
     "amount": 500,
