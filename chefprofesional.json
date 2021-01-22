@@ -1,10 +1,18 @@
 [
   {
-		"question": "The soup need 50ml!",
-    "fail": "You suck at (👨‍🍳)Chef Proffesional and Almost crushed but your friend help you",
+		"question": "The soup need 50ml you have 20 how many ml you need?! and need tomato 1 gram you have 0.5grams tomato how many tomatos you need?",
+    "fail": "You suck at (👨‍🍳)Chef Proffesional and you dont earn money",
     "work": "(👨‍🍳)Chef Proffesional",
-    "amount": 500,
-    "correct": "You great as (✈️)Airplane flying practice and earn 500 Moneys",
-		"answers": ["right", "r"]
-  } 
+    "amount": 900,
+    "correct": "You great as (👨‍🍳)Chef Proffesional and earn 500 Moneys",
+		"answers": ["30 and 0.5", "30ml and 0.5grams"]
+  },
+  {
+		"question": "The steak need to cut the cow beef 2cm how many you cut the cow beefs?! and need tomato 2 gram you have 1grams tomato how many tomatos you need?",
+    "fail": "You suck at (👨‍🍳)Chef Proffesional and you dont earn money",
+    "work": "(👨‍🍳)Chef Proffesional",
+    "amount": 900,
+    "correct": "You great as (👨‍🍳)Chef Proffesional and earn 500 Moneys",
+		"answers": ["2 and 1", "2cm and 1grams"]
+  }
 ]

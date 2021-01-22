@@ -11,7 +11,7 @@ module.exports = {
     .setColor(COLOR)
       
     if(!args.length) {
-      embed.setAuthor("If i didn't responding because we making new command or fixing bug || new command = 'waiter' command!")
+      embed.setAuthor("If i didn't responding because we making new command or fixing bug || new command = 'chef proffesional' command!")
        message.channel.send(embed)
     }
     }
