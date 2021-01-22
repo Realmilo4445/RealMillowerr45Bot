@@ -13,7 +13,7 @@ module.exports = {
     let user;
 
     if (!args[0]) {
-      user = message.member;
+      user = message.mentions.member.first().username;
     } else {
 
 
