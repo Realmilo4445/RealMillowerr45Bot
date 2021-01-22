@@ -8,7 +8,7 @@ module.exports = {
     description: "Check the sever's leaderboard",
 
     async run (client, message, args) {
-        let money = db.startWith(`money_${message.guild.id}`, { sort: '.data' })
+        let money = db.startsWith(`money_${message.guild.id}`, { sort: '.data' })
 
         let content = "";
 

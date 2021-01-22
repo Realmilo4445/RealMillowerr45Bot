@@ -1,4 +1,4 @@
-const db = require('quick.db');
+qewruiopconst db = require('quick.db');
 const ms = require('parse-ms');
 const { MessageEmbed } = require('discord.js')
 const { COLOR } = require('../../config.json')
