@@ -13,6 +13,7 @@ let Embed = new Discord.MessageEmbed()
 let embed = new Discord.MessageEmbed()
 const users = message.mentions.members.first()
         let userd = message.mentions.users.first().username
+        if(!users) return message.channel.send(`Please mention anyone to rob!`)
         let amount = Math.floor(Math.random() * 80) + 5;
       if(message.author.id === users.id) {
         embed.setColor(COLOR)
