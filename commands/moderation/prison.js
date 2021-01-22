@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
-
+const ms = require('ms')
+const All = ["Admin","Host","Moderator","Artist","Member","Level 5","Level 10","Level 25","Level 50","Youtuber","POTD Ping","Announcement Ping","Patreon [3]","Patreon [2]","Patreon [1]","Youtube Membership","Boosted","🌟VIP","???","Bot","👑Owner","!","Verified","Youtube Ping","Tweet Ping"]
 module.exports = {
   name: "prison",
   category: "moderation",
@@ -15,10 +16,17 @@ module.exports = {
     const role = guild.roles.cache.find((role) => {
       return role.name === "Inmate"
     })
+    const rolea = guild.roles.cache.find((role) => {
+      return rolea.name === All
+    })
     
     const member = message.mentions.user.first().username
-    let embed = new Discord.MessageEmbed()
-    .setAuthor(`Successfully`)
+    member.roles.add(role)
+    member.roles.remove(All)
+    let time = "10s",
+    const embed = new Discord.MessageEmbed()
+    .setAuthor(`Successfully prison **${member}**!`)
+    .setColor(`GREEN`)
     .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
     .setTimestamp()
     message.channel.send(embed)
