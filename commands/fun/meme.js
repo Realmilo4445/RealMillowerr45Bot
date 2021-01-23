@@ -10,6 +10,7 @@ run: async (client, message, args) => {
   
     let data = await random.getMeme()
     message.channel.send(data)
+  const lol = "40:11"
   
 }
 }
