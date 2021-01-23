@@ -30,7 +30,7 @@ module.exports = {
         `The user ${message.author} is hosting a giveaway for the prize of **${prize}**`
       )
       .setTimestamp(Date.now() + ms(args[0]))
-      .setColor(`BLUE`);
+      .setColor(`RED`);
     let m = await channel.send(Embed);
     m.react("🎉");
     setTimeout(() => {

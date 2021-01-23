@@ -32,6 +32,7 @@ module.exports = {
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
 
     const embed = new MessageEmbed();
+    embed.setColor(`RED`)
     embed.setDescription(chosenAnswer);
 
     message.channel.send(embed);

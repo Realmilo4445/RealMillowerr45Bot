@@ -25,7 +25,7 @@ module.exports = {
       .setTitle(`New poll!`)
       .setDescription(`${question}`)
       .setFooter(`${message.author.username} created this poll.`)
-      .setColor(`RANDOM`);
+      .setColor(`RED`);
     let msg = await bot.channels.cache.get(channel.id).send(Embed);
     await msg.react("👍");
     await msg.react("👎");

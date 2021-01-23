@@ -26,7 +26,7 @@ module.exports = {
           return `${i} - ${opt}\n`;
         })
       )
-      .setColor(`GREEN`)
+      .setColor(`RED`)
       .setFooter(
         `Reply to this message with the correct question number! You have 15 seconds.`
       );

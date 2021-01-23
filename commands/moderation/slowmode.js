@@ -22,7 +22,7 @@ module.exports = {
             if (currentCooldown === 0) return message.channel.send('Channel cooldown is already off').then(m => m.delete({ timeout: 5000 }));
 
             embed.setTitle('Slowmode Disabled')
-                .setColor('#00ff00')
+                .setColor(`DARK BLUE`)
             return message.channel.setRateLimitPerUser(0, reason)
 
         }

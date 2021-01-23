@@ -37,6 +37,7 @@ module.exports = {
 ${question}
 I Choose: 
 ${chosenAnswer}**!`);
+    embed.setColor(`DARK BLUE`)
     embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }));
 
     message.channel.send(embed);
