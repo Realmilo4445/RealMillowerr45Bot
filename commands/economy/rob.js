@@ -31,7 +31,6 @@ const users = message.mentions.members.first()
             return message.channel.send(Embed)
         } else {
             let Embed = new Discord.MessageEmbed()
-            .setColor(COLOR)
             let amount = Math.floor(Math.random() * 80) + 5;
             db.add(`money_${message.guild.id}_${user.id}`, amount)
             db.set(`worked_${message.guild.id}_${user.id}`, Date.now())

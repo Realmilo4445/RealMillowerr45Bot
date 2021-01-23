@@ -48,6 +48,7 @@ module.exports = {
 
     const embed = new MessageEmbed();
     embed.setTitle("🎱 8ball 🎱");
+    embed.setColor(`BLUE`)
     embed.setDescription(chosenAnswer);
     embed.setFooter(`Requested by ${message.author.tag}`);
 

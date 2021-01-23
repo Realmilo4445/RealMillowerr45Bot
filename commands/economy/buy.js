@@ -89,7 +89,6 @@ module.exports = {
         if(purchase === 'legendary lootbox'){
             if(amount < 1000) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 1000);
-  
             embed.setAuthor(`Successfully bought (🎁)Legendary Lootbox`)
             db.push(message.author.id, "(💎)Diamond")
             embed.setDescription(`Congrats! you got (💎)Diamond from Lootbox!`)
@@ -99,15 +98,14 @@ module.exports = {
             if(amount < 10) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 10);
             db.push(message.author.id, "(🎟)Ticket");
-            embed.setColor('RED')
             embed.setAuthor(`Successfully bought one (🎟)Ticket`)
             message.channel.send(embed)
         }
         if(purchase === 'laptop'){
             if(amount < 150) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 150);
+      
             db.push(message.author.id, "(💻)Laptop");
-            embed.setColor('RED')
             embed.setAuthor(`Successfully bought one (💻)Laptop`)
             message.channel.send(embed)
         }

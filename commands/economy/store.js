@@ -41,7 +41,7 @@ const filter = (reaction, user) => {
 	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
-msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+msg.awaitReactions(filter, { max: 4, time: 60000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
