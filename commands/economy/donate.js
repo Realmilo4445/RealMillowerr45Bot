@@ -6,6 +6,7 @@ module.exports = {
   name: "donate",
   description: "This command gives a response from the donate",
   category: "economy",
+  usage: "donate",
 
   //IntelliSense
   /**

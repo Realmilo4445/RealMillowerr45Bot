@@ -3,7 +3,8 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: "inventory",
-  category: "economy",
+    category: "economy",
+    usage: "inventory",
     description: "View your inventory",
 
 

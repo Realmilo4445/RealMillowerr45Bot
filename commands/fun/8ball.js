@@ -31,7 +31,7 @@ module.exports = {
    * @param {Message} message
    * @param {String[]} args
    */
-
+  usage: "8ball"
   run: async (client, message, args) => {
     //Create an instance of the UtilityEmbeds class;
 

@@ -18,7 +18,9 @@ module.exports = {
             fact = responses.data
 
         } catch (e) {
-            return message.channel.send(`An error occured, please try again!`)
+          let error = new MessageEmbed()
+            error.setAuthor("(❌)An error occured, please try again!")
+          return message.channel.send(error)
         }
 
         const embed = new MessageEmbed()

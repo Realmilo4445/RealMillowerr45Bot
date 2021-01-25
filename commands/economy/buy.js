@@ -3,12 +3,15 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: "buy",
-  category: "economy",
+    category: "economy",
+    usage: "buy <item>",
     description: "Buy an item from the store",
 
     async run (client, message, args) {
+        let embedd = new Discord.MessageEmbed()
+        embedd.setAuthor('Please provide an item to buy')
         let purchase = args.join(" ");
-        if(!purchase) return message.channel.send('Please provide an item to buy')
+        if(!purchase) return message.channel.send(embedd)
         let items = await db.fetch(message.author.id, { items: [] });
         let amount = await db.fetch(`money_${message.guild.id}_${message.author.id}`)
         let embed = new Discord.MessageEmbed()

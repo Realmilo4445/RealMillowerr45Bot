@@ -6,6 +6,7 @@ const ms = require('parse-ms');
 module.exports = {
     name: "daily",
     category: "economy",
+    usage: "daily",
     description: "Receive a daily award of money",
     async run (client, message, args) {
       let Embed = new MessageEmbed()

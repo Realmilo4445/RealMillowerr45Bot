@@ -19,7 +19,8 @@ module.exports = {
 
         } catch (e) {
           let error = new MessageEmbed()
-            error.setAuthor("👩‍")
+            error.setAuthor("(❌)An error occured, please try again!")
+          return message.channel.send(error)
         }
 
         const embed = new MessageEmbed()

@@ -5,7 +5,7 @@ const ms = require('ms')
 
 module.exports = {
     name: "rob",
-  category: "economy",
+   category: "economy",
     description: "rob everyone",
     usage: "rob <mention>",
     run: async (client, message, args) => {
@@ -13,7 +13,9 @@ let Embed = new Discord.MessageEmbed()
 let embed = new Discord.MessageEmbed()
 const users = message.mentions.members.first()
         let userd = message.mentions.users.first().username
-        if(!users) return message.channel.send(`Please mention anyone to rob!`)
+        let rob = new Discord.MessageEmbed()
+        .setAuthor(`Please mention anyone to rob!`)
+        if(!users) return message.channel.send(rob)
         let amount = Math.floor(Math.random() * 80) + 5;
       if(message.author.id === users.id) {
         embed.setColor(COLOR)

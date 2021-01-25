@@ -8,6 +8,7 @@ module.exports = {
     name: "work",
     category: "economy",
     description: "Work your a** off",
+    usage: "work",
     async run (client, message, args) {
     
 const quiz = require('../../quiz.json');
