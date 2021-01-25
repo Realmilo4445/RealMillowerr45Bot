@@ -1,10 +1,15 @@
+const { MessageEmbed } = require('discord.js')
+
 module.exports = {
   name: "dm",
+  usage: "dm <mention>",
   description: "DM a user in the guild",
   category: "fun",
   run: async (bot, message, args) => {
+    let embed = new MessageEmbed()
+    .setAuthor("(❌)You do not have enough permissions!")
     if (!message.member.permissions.has("MANAGE_MESSAGES"))
-      return message.channel.send("You do not have enough permissions!");
+     return message.channel.send(embed);
     let user =
       message.mentions.members.first() ||
       message.guild.members.cache.get(args[0]);
