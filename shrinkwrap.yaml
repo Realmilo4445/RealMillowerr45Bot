@@ -41,6 +41,7 @@ dependencies:
   simple-youtube-api: 5.2.1
   something-random-on-discord: 0.0.1
   translate-google: 1.4.3
+  twitter: 1.7.1
   twitter.js: 0.0.7
   weather-js: 2.0.0
   youtube-notification: 1.1.0
@@ -1867,6 +1868,13 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-aW35yZM6Bb/4oJlZncMH2LCoZtJXTRxES17vE3hoRiowU2kWHaJKFkSBDnDR+cm9J+9QhXmREyIfv0pji9ejCQ==
+  /deep-extend/0.5.1:
+    dev: false
+    engines:
+      iojs: '>=1.0.0'
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-N8vBdOa+DF7zkRrDCsaOXoCs/E2fJfx9B9MrKnnSiHNh4ws7eSys6YQE4KvT1cecKmOASYQBhbKjeuDD9lT81w==
   /deep-extend/0.6.0:
     dev: false
     engines:
@@ -4616,6 +4624,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-k6JeHhNGsp4BlXBL4uusBSBWMbmVktet5c7UTqOpk0BjK8inaJOv0/oCCGs84JysCAaCF7tD6ryxkNBNEiGBTg==
+  /twitter/1.7.1:
+    dependencies:
+      deep-extend: 0.5.1
+      request: 2.88.2
+    dev: false
+    resolution:
+      integrity: sha1-B2I3jx3BwFDkj2ZqypBOJLGpYvQ=
   /type-check/0.3.2:
     dependencies:
       prelude-ls: 1.1.2
@@ -5038,6 +5053,7 @@ specifiers:
   simple-youtube-api: ^5.2.1
   something-random-on-discord: ^0.0.1
   translate-google: ^1.4.3
+  twitter: ^1.7.1
   twitter.js: ^0.0.7
   weather-js: ^2.0.0
   youtube-notification: ^1.1.0
