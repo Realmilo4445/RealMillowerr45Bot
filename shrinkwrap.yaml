@@ -41,6 +41,7 @@ dependencies:
   simple-youtube-api: 5.2.1
   something-random-on-discord: 0.0.1
   translate-google: 1.4.3
+  twitter.js: 0.0.7
   weather-js: 2.0.0
   youtube-notification: 1.1.0
   ytdl-core: 3.4.2
@@ -3581,6 +3582,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-h2AatdwYH+JHiZpv7pt/gSX1XoRGb7L/qSIeuqA6GwYoF9w1vP1cw42TO0aI2pNyshRK5893hNSl+1//vHK7hQ==
+  /oauth-1.0a/2.2.6:
+    dev: false
+    resolution:
+      integrity: sha512-6bkxv3N4Gu5lty4viIcIAnq5GbxECviMBeKR3WX/q87SPQ8E8aursPZUtsXDnxCs787af09WPRBLqYrf/lwoYQ==
   /oauth-sign/0.9.0:
     dev: false
     resolution:
@@ -4603,6 +4608,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-mrTBq+XpCLM4zm76NJOjLHoQNV9mHdBt3Cba/T5lS1rxn8ArwpqE47mqTocupNlkvcLxoeZJjYSUW0DU5ZwqZg==
+  /twitter.js/0.0.7:
+    dependencies:
+      '@discordjs/collection': 0.1.6
+      node-fetch: 2.6.1
+      oauth-1.0a: 2.2.6
+    dev: false
+    resolution:
+      integrity: sha512-k6JeHhNGsp4BlXBL4uusBSBWMbmVktet5c7UTqOpk0BjK8inaJOv0/oCCGs84JysCAaCF7tD6ryxkNBNEiGBTg==
   /type-check/0.3.2:
     dependencies:
       prelude-ls: 1.1.2
@@ -5025,6 +5038,7 @@ specifiers:
   simple-youtube-api: ^5.2.1
   something-random-on-discord: ^0.0.1
   translate-google: ^1.4.3
+  twitter.js: ^0.0.7
   weather-js: ^2.0.0
   youtube-notification: ^1.1.0
   ytdl-core: ^3.1.2
