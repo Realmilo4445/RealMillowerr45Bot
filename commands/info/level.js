@@ -9,9 +9,17 @@ module.exports = {
   category: "info",
   run: (client, message, args) => {
     const user = message.mentions.users.first() || message.author;
+    let eambed = new discord.MessageEmbed()
+    .setAuthor(user.username, message.guild.iconURL())
+    .setColor("#ff2050")
     
+ message.channel.send(embed) 
+    let gembed = new discord.MessageEmbed()
+    .setAuthor("😉 | I am on level 100")
+    
+ message.channel.send(embed) 
       if(user.id === client.user.id) { //IF BOT
-      return message.channel.send("😉 | I am on level 100")
+      return message.channel.send(gembed)
     }
     
     if(user.bot) {
