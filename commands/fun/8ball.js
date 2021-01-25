@@ -31,17 +31,17 @@ module.exports = {
    * @param {Message} message
    * @param {String[]} args
    */
-  usage: "8ball"
+  usage: "8ball <your question>",
   run: async (client, message, args) => {
     //Create an instance of the UtilityEmbeds class;
 
     const question = message.content.slice(7);
-
+    const em = new MessageEmbed()
+    em.setAuthor("(❌)You did not provide your question!")
+    em.setColor("BLUE")
+    em.setFooter(`Triggered by ${message.author.tag}`)
     if (!question) {
-      return message.channel.send(
-          "You did not provide your question!",
-          `Triggered by ${message.author.tag}`
-      )
+      return message.channel.send(em)
     }
 
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];

@@ -3,10 +3,10 @@ const random = new Random();
  
 module.exports = {
   name: "meme",
-   category: "fun",
-  
+  category: "fun",
+  usage: "meme",
   description: "Get Fresh meme :D",
-run: async (client, message, args) => {
+  run: async (client, message, args) => {
   
     let data = await random.getMeme()
     message.channel.send(data)

@@ -10,10 +10,12 @@ name: "anime",
   usage: "anime <anime_name>",
   run: (client, message, args) => {
     
-    
+    let ha = new MessageEmbed()
+    .setAuthor("(❌) Please Give Anime Name")
+    .setColor(`RED`)
     
     if(!args.length) {
-      return message.channel.send("Please Give Anime Name")
+      return message.channel.send(ha)
     }
     //DEFINE OPTIONS
     

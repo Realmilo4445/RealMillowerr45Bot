@@ -14,7 +14,7 @@ let embed = new Discord.MessageEmbed()
 const users = message.mentions.members.first()
         let userd = message.mentions.users.first().username
         let rob = new Discord.MessageEmbed()
-        .setAuthor(`Please mention anyone to rob!`)
+        .setAuthor(`(❌)Please mention anyone to rob!`)
         if(!users) return message.channel.send(rob)
         let amount = Math.floor(Math.random() * 80) + 5;
       if(message.author.id === users.id) {

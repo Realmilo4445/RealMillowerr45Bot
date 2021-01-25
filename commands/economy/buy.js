@@ -9,7 +9,7 @@ module.exports = {
 
     async run (client, message, args) {
         let embedd = new Discord.MessageEmbed()
-        embedd.setAuthor('Please provide an item to buy')
+        embedd.setAuthor('(❌)Please provide an item to buy')
         let purchase = args.join(" ");
         if(!purchase) return message.channel.send(embedd)
         let items = await db.fetch(message.author.id, { items: [] });

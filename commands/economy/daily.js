@@ -19,7 +19,7 @@ module.exports = {
 
         if(daily !== null && timeout - (Date.now() - daily) > 0){
             let time = ms(timeout - (Date.now() - daily));
-          Embed.setAuthor(`You've already collected your daily award. Come back in ${time.days}d, ${time.hours}h, ${time.minutes}m, and ${time.seconds}s`)
+          Embed.setAuthor(`(❌)You've already collected your daily award. Come back in ${time.days}d, ${time.hours}h, ${time.minutes}m, and ${time.seconds}s`)
             return message.channel.send(Embed)
         } else {
             let Embed = new MessageEmbed()

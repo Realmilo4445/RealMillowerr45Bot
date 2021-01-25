@@ -4,6 +4,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: "panda",
     category: "animals",
+    usage: "panda",
     run: async (client, message, args) => {
         const url = "https://some-random-api.ml/img/panda";
         const facts = "https://some-random-api.ml/facts/panda"
@@ -20,6 +21,7 @@ module.exports = {
         } catch (e) {
           let error = new MessageEmbed()
             error.setAuthor("(❌)An error occured, please try again!")
+            error.setColor("GREEN")
           return message.channel.send(error)
         }
 

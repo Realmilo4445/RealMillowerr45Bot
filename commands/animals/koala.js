@@ -20,6 +20,7 @@ module.exports = {
         } catch (e) {
           let error = new MessageEmbed()
             error.setAuthor("(❌)An error occured, please try again!")
+            error.setColor("GREEN")
           return message.channel.send(error)
         }
 

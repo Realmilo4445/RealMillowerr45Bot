@@ -3,10 +3,10 @@ const random = new Random();
  
 module.exports = {
   name: "advice",
-   category: "fun",
-  
+  category: "fun",
+  usage: "advice",
   description: "Get Fresh Advice :D",
-run: async (client, message, args) => {
+  run: async (client, message, args) => {
   
     let data = await random.getAdvice()
     message.channel.send(data)
