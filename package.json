@@ -57,7 +57,8 @@
     "bytee-quiz": "^0.1.8",
     "mongodb": "^3.6.2",
     "twitter.js": "^0.0.7",
-    "twitter": "^1.7.1"
+    "twitter": "^1.7.1",
+    "@pusher/push-notifications-web": "^1.0.3"
   },
   "engines": {
     "node": "12.x"
