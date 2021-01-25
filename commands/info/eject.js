@@ -22,11 +22,11 @@ module.exports = {
 
     const question = message.content.slice(7);
 
+    let ee = new MessageEmbed()
+    ee.setAuthor("(❌)Please mention to want eject")
+    
     if (!question) {
-      return message.channel.send(
-        "please select to want eject",
-        `Triggered by ${message.author.tag}`
-      );
+      return message.channel.send(ee);
     }
 
     let chosenAnswer = answers[Math.floor(Math.random() * answers.length)];

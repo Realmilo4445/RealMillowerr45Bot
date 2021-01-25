@@ -8,8 +8,11 @@ name: "imdb",
   usage: "imdb <name>",
   run: async (client, message, args, color) => {
 
+    let es = new discord.MessageEmbed()
+    es.setAuthor("(❌)Please give the name of movie or series")
+    
      if(!args.length) {
-      return message.channel.send("Please give the name of movie or series")
+      return message.channel.send(es)
     }
     
      const imob = new imdb.Client({apiKey: "5e36f0db"}) //You need to paste you imdb api
