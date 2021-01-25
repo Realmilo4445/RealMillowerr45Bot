@@ -2,8 +2,11 @@ const Discord = require("discord.js");
 module.exports = {
   name: "poll",
   description: "Create a simple yes or no poll",
+  usage: "poll ",
   category: "fun",
   run: async (bot, message, args) => {
+    let emb = new Discord.MessageEmbed()
+    .setAuthor()
     if (!message.member.permissions.has("ADMINISTRATOR"))
       return message.channel.send(
         `You do not have admin, ${message.author.username}`

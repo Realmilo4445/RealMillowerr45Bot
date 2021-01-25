@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 module.exports = {
   name: "ping",
+  usage: "ping",
   category: "info",
 
   description: "Returns latency and API ping",

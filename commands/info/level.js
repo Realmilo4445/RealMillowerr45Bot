@@ -10,12 +10,12 @@ module.exports = {
   run: (client, message, args) => {
     const user = message.mentions.users.first() || message.author;
     let eambed = new discord.MessageEmbed()
-    .setAuthor(user.username, message.guild.iconURL())
+    .setAuthor("Bot do not have levels")
     .setColor("#ff2050")
     
- message.channel.send(embed) 
     let gembed = new discord.MessageEmbed()
     .setAuthor("😉 | I am on level 100")
+    .setColor("#ff2050")
     
  message.channel.send(embed) 
       if(user.id === client.user.id) { //IF BOT
@@ -23,7 +23,7 @@ module.exports = {
     }
     
     if(user.bot) {
-      return message.channel.send("Bot do not have levels")
+      return message.channel.send(eambed)
     }
     
     let xp = db.get(`xp_${user.id}_${message.guild.id}`) || 0;
