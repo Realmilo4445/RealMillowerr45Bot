@@ -85,7 +85,7 @@ client.on("message", async message => {
 
   //END
   if (!message.guild) return;
-  let prefix = db.get(`prefix_${message.guild.id}`);
+  let prefix = db.push(`prefix_${message.guild.id}`);
   if (prefix === null) prefix = DEFAULT_PREFIX;
 
   if (!message.content.startsWith(prefix)) return;
