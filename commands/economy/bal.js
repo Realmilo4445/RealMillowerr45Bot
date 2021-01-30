@@ -13,6 +13,7 @@ module.exports = {
         let user = message.mentions.users.first() || message.author
         let bal = await db.fetch(`money_${message.guild.id}_${user.id}`);
         if(bal === null) bal = 0;
+        Embed.setAuthor(`Your balance`)
         Embed.setDescription(`**${bal}** Money(s)`)
         Embed.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
         message.channel.send(Embed)

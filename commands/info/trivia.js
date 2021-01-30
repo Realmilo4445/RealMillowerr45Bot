@@ -14,6 +14,7 @@ let questions = [
 module.exports = {
   name: "trivia",
   description: "Test your knowledge!",
+  usage: "trivia",
   category: "fun",
   run: async (bot, message, args) => {
     let q = questions[Math.floor(Math.random() * questions.length)];
