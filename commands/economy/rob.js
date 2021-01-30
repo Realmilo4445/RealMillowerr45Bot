@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const { COLOR } = require('../.././config.json')
 const ms = require('ms')
 
+
 module.exports = {
     name: "rob",
    category: "economy",
@@ -33,8 +34,14 @@ const users = message.mentions.members.first()
             Embed.setAuthor(`You cannot rob again for ${time.minutes}m and ${time.seconds}s`)
             return message.channel.send(Embed)
         } else {
+ 
+
+
             let Embed = new Discord.MessageEmbed()
             let amount = Math.floor(Math.random() * 80) + 5;
+
+
+
             db.add(`money_${message.guild.id}_${user.id}`, amount)
             db.set(`robbed_${message.guild.id}_${user.id}`, Date.now())
           db.subtract(`money_${message.guild.id}_${userd}`, 50);
