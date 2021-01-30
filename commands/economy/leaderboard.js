@@ -1,5 +1,6 @@
 const db = require("quick.db")
 const discord = require("discord.js")
+const moment = require("moment")
 
 module.exports = {
   name: "leaderboard",
@@ -10,7 +11,7 @@ module.exports = {
     let say = args.join(" ")
     
     if(say === "economy" ||say === "Economy") {
-      let money = db.startsWith(`money_${message.guild.id}`, { sort: '.data'})
+      let money = db.get("account")
       let content = ""
       
       for(let i = 0;i < money.length; i++) {
