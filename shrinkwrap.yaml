@@ -7838,7 +7838,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@among-js/sus': ^0.1.13
-  '@discordjs/opus': ^0.3.2
+  '@discordjs/opus': ^0.3.3
   '@haileybot/captcha-generator': ^1.5.1
   '@pusher/push-notifications-web': ^1.0.3
   anime-scraper: ^3.1.3
