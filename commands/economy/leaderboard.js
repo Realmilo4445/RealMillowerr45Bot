@@ -24,7 +24,13 @@ module.exports = {
      
       let frompages = limit * (page - 1)
       let pages = 15 * page
-      let pagg = Object.entries(data).sort((a,b,c)=> b[i].money - a[i].worked - )
+      let pagg = Object.entries(data).sort((a,b)=> a[1].worked - b[1].robbed.slice(frompages, pages))
+      let arr = []
+      
+      for(var i in pagg){
+        arr.push(`**${i * 1 + 1 + frompages}** ${message.guild.member.cache.get(pagg)}`)
+
+      }
       let embed = new discord.RichEmbed()
       .setAuthor(`${message.guild.name} - Economy Leaderboard!`, message.guild.iconURL)
       .setDescription(content)
