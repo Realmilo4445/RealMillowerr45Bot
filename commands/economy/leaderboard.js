@@ -11,16 +11,15 @@ module.exports = {
     let say = args.join(" ")
     
     if(say === "economy" ||say === "Economy") {
-      let money = db.get("account")
+      let data = db.get("account")
+      if(!data) return message.channel.send("unknown generated data")
       let content = ""
+
+      var limit = 15
       
-      for(let i = 0;i < money.length; i++) {
-        let user = client.users.get(money[i].ID.split("_")[2]).username
-        
-        content += `${i+1}. ${user} ~ $(money[i].data}$\n`
-        
-        
-      }
+      let lastpage = Math.cell(Object.keys(data).length / limit)
+      let page = parseInt(args[0])
+      if(!page) page = 1
       let embed = new discord.RichEmbed()
       .setAuthor(`${message.guild.name} - Economy Leaderboard!`, message.guild.iconURL)
       .setDescription(content)
