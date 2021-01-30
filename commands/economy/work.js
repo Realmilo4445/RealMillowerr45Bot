@@ -26,7 +26,7 @@ let msg = await message.channel.send(em).then(() => {
 			me.setAuthor(item.correct)
       db.add(`money_${message.guild.id}_${user.id}`, item.amount)
       me.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-       msg.channel.send(me)
+
 		})
 		.catch(collected => {
 			let mem = new MessageEmbed()
@@ -34,8 +34,9 @@ let msg = await message.channel.send(em).then(() => {
       mem.setAuthor(item.fail)
     message.channel.send(mem)
 		});
+
 })
-      
+
       
     }
 }
