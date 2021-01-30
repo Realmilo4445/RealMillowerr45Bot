@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
-const { COLOR } = require('../../config.json')
 
 module.exports = {
   name: "link",
+  usage: "link",
   category: "moderation",
   description: "Send link to invite my bot",
   run : async (client, message, args) => {
