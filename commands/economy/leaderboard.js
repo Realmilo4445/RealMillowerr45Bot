@@ -28,7 +28,7 @@ module.exports = {
       let arr = []
       
       for(var i in pagg){
-        arr.push(`**${i * 1 + 1 + frompages}** ${message.guild.member.cache.get(pagg)}`)
+        arr.push(`**${i * 1 + 1 + frompages}** ${message.guild.member.cache.get(pagg[i][0]) ? message.guild.member.cache.get(pagg[i])[0].user.tag :"UnknownUser" } - Worked:**${pagg[i][1].worked}** Robbed:**${pagg[i][1].robbed}**`)
 
       }
       let embed = new discord.RichEmbed()
