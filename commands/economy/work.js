@@ -10,10 +10,10 @@ module.exports = {
     description: "Work your a** off",
     usage: "work",
     async run (client, message, args) {
-    
+db.add(`worked_${message.guild.id}_${message.author.id}`)
 const quiz = require('../../quiz.json');
       let user = message.author
-const item = quiz[Math.floor(Math.random() * quiz.length)];
+const item = quiz[Math.floor(Math.random() * quiz.length
 const filter = response => {
 	return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
 };
@@ -24,9 +24,11 @@ let msg = await message.channel.send(em).then(() => {
 		.then(collected => {
     let me = new MessageEmbed()
 			me.setAuthor(item.correct)
+    
       db.add(`money_${message.guild.id}_${user.id}`, item.amount)
       me.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
 message.channel.send(me)
+    
 		})
 		.catch(collected => {
 			let mem = new MessageEmbed()

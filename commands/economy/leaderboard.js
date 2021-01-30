@@ -22,7 +22,9 @@ module.exports = {
       if(!page) page = 1
       if(page > lastpage)return message.channel.send(`Sorry, there is no **Page ${page}** dm RealMillowerr45#2048!`)
      
-      
+      let frompages = limit * (page - 1)
+      let pages = 15 * page
+      let pagg = Object.entries(data).sort((a,b)=> b[i]money)
       let embed = new discord.RichEmbed()
       .setAuthor(`${message.guild.name} - Economy Leaderboard!`, message.guild.iconURL)
       .setDescription(content)

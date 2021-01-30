@@ -25,7 +25,7 @@ const users = message.mentions.members.first()
       Embed.setColor(COLOR)
       let user = message.author;
         let timeout = 0;
-        let author = await db.fetch(`worked_${message.guild.id}_${user.id}`);
+        let author = await db.fetch(`robbed_${message.guild.id}_${user.id}`);
 
         if(author !== null && timeout - (Date.now() - author) > 0){
             let time = ms(timeout - (Date.now() - author));
