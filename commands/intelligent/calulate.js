@@ -11,8 +11,8 @@ module.exports = {
     async run (client, message, args){
    
       let sembed = new Discord.MessageEmbed()
-      sembed.setAuthor(`Please provide a question`)
-       let u = new Discord.MessageEmbed().
+      sembed.setAuthor(`(:x:)Please provide a question`)
+       let u = new Discord.MessageEmbed().setAuthor(`(:x:)Please provide valid question`)
         if(!args[0]) return message.channel.send(sembed);
 
         let resp;
@@ -20,7 +20,7 @@ module.exports = {
         try {
             resp = math.evaluate(args.join(" "))
         } catch (e) {
-            return message.channel.send('Please provide a **valid** question')
+            return message.channel.send(u)
         }
 
         const embed = new Discord.MessageEmbed()
