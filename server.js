@@ -39,7 +39,7 @@ client.on("ready", () => {
   let server = client.guilds.cache.size;
   client.user.setPresence({
     activity: {
-      name: `${server} Servers || ${DEFAULT_PREFIX}help or ${DEFAULT_PREFIX}helpmusic`,
+      name: `${server} Fun Servers || ${DEFAULT_PREFIX}help or ${DEFAULT_PREFIX}helpmusic`,
       type: "WATCHING"
     },
     status: "o"
@@ -88,7 +88,7 @@ client.on("message", async message => {
   let prefix = db.get(`prefix_${message.guild.id}`);
   if (prefix === null) prefix = DEFAULT_PREFIX;
 
-  if (!message.content.startsWith(prefix)) return;
+  if (!message.content.startsWith(prefix)) return db.add(`<_${message.guild.id}_${message.author.id}`, 1);
 
   if (!message.member)
     message.member = await message.guild.fetchMember(message);
