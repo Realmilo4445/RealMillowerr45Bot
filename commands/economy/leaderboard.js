@@ -7,7 +7,7 @@ module.exports = {
   description: "global leaderboard",
   usage: "leaderboard <economy> or leaderboard <checklist>",
   run: async(client, message, args) => {
-    let say = args.join[""]
+    let say = args.join(" ")
     
     if (say === "economy") {
     let data = db.get("account");
@@ -35,6 +35,7 @@ module.exports = {
     .setThumbnail(message.guild.iconURL({size: 4096, dynamic:true}))
     .setDescription(arr.join("\n"))
     .setFooter(`Page ${page} / ${lastpage}`)
+    return message.channel.sen(embed)
    }
   }
 }

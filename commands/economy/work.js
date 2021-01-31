@@ -10,7 +10,7 @@ module.exports = {
     description: "Work your a** off",
     usage: "work",
     async run (client, message, args) {
-db.add(`worked_${message.guild.id}_${message.author.id}`)
+db.add(`worked_${message.guild.id}_${message.author.id}`, 1)
 const quiz = require('../../quiz.json');
       let user = message.author
 const item = quiz[Math.floor(Math.random() * quiz.length)]
