@@ -3,7 +3,7 @@ const db = require('quick.db')
 const moment = require('moment')
 
 module.exports = {
-  name: "leaderboard",
+  name: "leaderboard -unfinished",
   description: "global leaderboard",
   usage: "leaderboard <economy> or leaderboard <checklist>",
   run: async(client, message, args) => {
