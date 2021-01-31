@@ -12,7 +12,7 @@ aliases: ["am"],
 
    run: async(client, message, args) => {
 let  e = args.join(" ")
-let user = message.mentions.users.first() || message.author
+let user = message.author || message.mentions.users.first().username
 if(!message.member.hasPermission("ADMINISTRATOR")) { return message.channel.send('You are dont have permission to use this command!') }
         if (!args[0]) return message.reply("Please enter the amount of moneys to add!");
 
@@ -31,7 +31,9 @@ if(!message.member.hasPermission("ADMINISTRATOR")) { return message.channel.send
  
 let embed = new Discord.MessageEmbed()
 db.add(`money_${message.guild.id}_${user.id}`, args)
-embed.setAuthor(`Successfully added ${args} money(s) to ${user}!`)
+embed.setDescription(`Successfully added ${args} money(s) to ${user}!`)
+     embed.setColor(`RED`)
+
 message.channel.send(embed)
 
  
