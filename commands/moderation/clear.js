@@ -1,9 +1,11 @@
 module.exports = {
     name: 'clear',
   usage: 'clear <number>',
+  aliases: ['c'],
     category: "moderation",
     description: "Clear messages!",
    run: async(client, message, args) => {
+     if(!message.member.hasPermission("ADMINISTRATOR")) {return message.channel.send('You are not allowed to use this command!')}
         if (!args[0]) return message.reply("Please enter the amount of messages to clear!");
  
         if(isNaN(args[0])) return message.reply("Please type a real number!");
