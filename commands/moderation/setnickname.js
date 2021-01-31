@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "setnickname",
   description: "set your nickname",
+  category: "moderation",
   usage: "set nickname <your name>",
   run: async (client, message, args) => {
   

@@ -2,6 +2,7 @@ const { MessageEmbed, Permissions } = require('discord.js');
 
 module.exports = {
     name: 'rolename',
+  category: 'moderation',
     run: async (client, message, args) => {
         // code starts here
         try {
@@ -37,7 +38,7 @@ module.exports = {
             await message.channel.send(embed)
 
         } catch (e) {
-            return message.channel.send('Role Doesn\'t Exist').then(() => console.log(e))
+            return message.channel.send('(:x:)Role Doesn\'t Exist').then(() => console.log(e))
         }
 
     }

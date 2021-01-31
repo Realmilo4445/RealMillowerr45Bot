@@ -5,6 +5,7 @@ const moment = require('moment')
 module.exports = {
   name: "leaderboard -unfinished",
   description: "global leaderboard",
+  category: "economy",
   usage: "leaderboard <economy> or leaderboard <checklist>",
   run: async(client, message, args) => {
     let say = args.join(" ")

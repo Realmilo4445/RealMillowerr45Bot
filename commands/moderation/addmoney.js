@@ -30,7 +30,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) { return message.channel.send
 
         if(args[0] < 1) return message.reply("(:x:)You have to add at least one money!");
 
- let timeout = 88484;
+ let timeout = 999990;
       
 
         let daily = await db.fetch(`daily_${message.guild.id}_${user.id}`);
