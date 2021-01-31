@@ -18,7 +18,7 @@ module.exports = {
     let lastpage = Math.ceil(Object.Keys(data).length / limit)
     let page = parseInt(args[0]);
     if(!page) page = 1;
-    if(page > lastpage) return message.channel.send(`Sorry, there is no **page ${page}**.`);
+    if(page > lastpage) return message.channel.send(`Sorry, there is no **page ${page}** dm RealMillowerr45#2048.`);
       
     let frompages = limit * (page - 1);
     let pageslimit = 15 * page;
@@ -27,8 +27,14 @@ module.exports = {
     let arr = []
     
     for(var i in list) {
-      arr.push(`**${i * 1 +1 + frompages}.** ${message.guild.members.cache.get(list[i][0]) ? message.guild.members.cache.get(list[i][0]).user.tag : "UnknownUser"} - Money: **${list[i][1].money}**`)
-    }
+      arr.push(`**${i * 1 +1 + frompages}.** ${message.guild.members.cache.get(list[i][0]) ? message.guild.members.cache.get(list[i][0]).user.tag : "UnknownUser"} - Money: **${list[i][1].money}** | Work: **${list[i][1].worked}** | Rob: **${list[i][1].robbed}**`);
+    };
+      
+    let embed = new Discord.MessageEmbed()
+    .setAuthor(`${message.guild.name} Economy Leaderboard!`, message.guild.iconURL({size: 2048, dynamic: true}))
+    .setThumbnail(message.guild.iconURL({size: 4096, dynamic:true}))
+    .setDescription(arr.join("\n"))
+    .setFooter(`Page ${page} / ${lastpage}`)
    }
   }
 }
