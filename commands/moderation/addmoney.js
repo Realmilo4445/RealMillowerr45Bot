@@ -30,7 +30,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) { return message.channel.send
 
         if(args[0] < 1) return message.reply("(:x:)You have to add at least one money!");
 
- let timeout = 8640000;
+ let timeout = 88484;
       
 
         let daily = await db.fetch(`daily_${message.guild.id}_${user.id}`);
@@ -41,6 +41,7 @@ Embed.setColor(`GREEN`)
             return message.channel.send(Embed)
         } else {
 let embed = new Discord.MessageEmbed()
+db.set(`daily_${message.guild.id}_${user.id}`, Date.now())
 db.add(`money_${message.guild.id}_${user.id}`, args)
 embed.setDescription(`Successfully added ${args} money(s) to ${user}!`)
      embed.setColor(`GREEN`)
