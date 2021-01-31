@@ -14,7 +14,7 @@ dependencies:
   canvas-senpai: 1.0.0
   common-tags: 1.8.0
   discord.js: 12.5.1
-  discord.js-commando: 0.11.1
+  discord.js-commando: 0.12.0
   dotenv: 8.2.0
   express: 4.17.1
   fs: 0.0.2
@@ -43,7 +43,7 @@ dependencies:
   something-random-on-discord: 0.0.1
   translate-google: 1.4.3
   twitter: 1.7.1
-  twitter.js: 0.0.7
+  twitter.js: 0.0.8
   weather-js: 2.0.0
   youtube-notification: 1.1.0
   ytdl-core: 4.4.5
@@ -2855,16 +2855,17 @@ packages:
       node: '>= 10.14.2'
     resolution:
       integrity: sha512-Mv/TDa3nZ9sbc5soK+OoA74BsS3mL37yixCvUAQkiuA4Wz6YtwP/K47n2rv2ovzHZvoiQeA5FTQOschKkEwB0Q==
-  /discord.js-commando/0.11.1:
+  /discord.js-commando/0.12.0:
     dependencies:
       common-tags: 1.8.0
-      emoji-regex: 9.2.0
+      emoji-regex: 9.2.1
+      is-promise: 4.0.0
       require-all: 3.0.0
     dev: false
     engines:
       node: '>=8.6.0'
     resolution:
-      integrity: sha512-wjx29ur6Z94mmTvCvPT0YJYjt4v6PzHj4FtVWJdMYWzm15MuWNgdU3sqRrGK0bXAFfv1H8faDBUdNGrxRPQnmA==
+      integrity: sha512-AY4nAG8ltp0ZNZ7ggUZ0rg/d0tTO4t5Mq5OruJylo0AyWaAR5fMj2Mt+eApyURQ1PHdlpmj7GhqrMGEsnIXvUg==
   /discord.js/12.5.1:
     dependencies:
       '@discordjs/collection': 0.1.6
@@ -3016,10 +3017,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
-  /emoji-regex/9.2.0:
+  /emoji-regex/9.2.1:
     dev: false
     resolution:
-      integrity: sha512-DNc3KFPK18bPdElMJnf/Pkv5TXhxFU3YFDEuGLDRtPmV4rkmCjBkCSEp22u6rBHdSN9Vlp/GK7k98prmE1Jgug==
+      integrity: sha512-117l1H6U4X3Krn+MrzYrL57d5H7siRHWraBs7s+LjRuFK7Fe7hJqnJ0skWlinqsycVLU5YAo6L8CsEYQ0V5prg==
   /enabled/2.0.0:
     dev: false
     resolution:
@@ -4167,6 +4168,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-DFLlS8yjkbssSUsh6GJtczbG45c=
+  /is-promise/4.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==
   /is-redirect/1.0.0:
     dev: false
     engines:
@@ -7294,14 +7299,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-mrTBq+XpCLM4zm76NJOjLHoQNV9mHdBt3Cba/T5lS1rxn8ArwpqE47mqTocupNlkvcLxoeZJjYSUW0DU5ZwqZg==
-  /twitter.js/0.0.7:
+  /twitter.js/0.0.8:
     dependencies:
       '@discordjs/collection': 0.1.6
       node-fetch: 2.6.1
       oauth-1.0a: 2.2.6
     dev: false
     resolution:
-      integrity: sha512-k6JeHhNGsp4BlXBL4uusBSBWMbmVktet5c7UTqOpk0BjK8inaJOv0/oCCGs84JysCAaCF7tD6ryxkNBNEiGBTg==
+      integrity: sha512-UPlCe+gxXSXF/PjFDUujWnEfqmjKXX7QCUHeZprkJf6KaT1u65iuAtWUI3dq8LXqxc6tVMnZ6za0VXdn7dttYA==
   /twitter/1.7.1:
     dependencies:
       deep-extend: 0.5.1
@@ -7852,7 +7857,7 @@ specifiers:
   canvas-senpai: ^1.0.0
   common-tags: ^1.8.0
   discord.js: ^12.5.1
-  discord.js-commando: ^0.11.1
+  discord.js-commando: ^0.12.0
   dotenv: ^8.2.0
   express: ^4.17.1
   fs: ^0.0.2
@@ -7881,7 +7886,7 @@ specifiers:
   something-random-on-discord: ^0.0.1
   translate-google: ^1.4.3
   twitter: ^1.7.1
-  twitter.js: ^0.0.7
+  twitter.js: ^0.0.8
   weather-js: ^2.0.0
   youtube-notification: ^1.1.0
   ytdl-core: ^4.4.4
