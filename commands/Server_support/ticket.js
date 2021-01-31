@@ -8,6 +8,6 @@ module.exports = {
   run: async(client, message, args) => {
     const reason = args.join(" ")
     
-    ticket.makeTicket(message, reason)
+    ticket.makeTicket(message, reason, "swrf")
   }
 }
