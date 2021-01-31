@@ -3,12 +3,12 @@ const ticket = new DiscordTicket()
 const { MessageEmbed } = require('discord.js')
 
 module.exports = {
-  name: "ticket-role",
+  name: "close",
   caregory: "support_server",
   description: "Set support ticket role",
   run: async(client, message, args) => {
-    const role = message.mentions.roles.first()
+    const channel = message.mentions.channel.first()||message.channel
     
-    ticket.setRole(message, role)
+    ticket.setRole(message, channel)
   }
 }
