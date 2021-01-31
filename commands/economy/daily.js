@@ -10,7 +10,7 @@ module.exports = {
     description: "Receive a daily award of money",
     async run (client, message, args) {
       let Embed = new MessageEmbed()
-      .setColor(COLOR)
+     
         let user = message.author;
         let timeout = 8640000;
         let amount = 500;
