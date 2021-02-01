@@ -27,7 +27,7 @@ module.exports = {
     .setDescription(args.join(" "))
     .setTimestamp()
     
-   await message.channel.send(embed)
+   let msg = await message.channel.send(embed)
      .then(m => {
     
 m.react('✅')
@@ -37,24 +37,25 @@ m.react('❌')
     message.react('✅').then(() => message.react('❌'));
 
 const filter = (reaction, user) => {
-	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.member.hasPermission("ADMINISTATOR");
 };
 
-message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+message.awaitReactions(filter, { max: 2, time: 6000000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
 		if (reaction.emoji.name === '✅') {
-			message.reply('you reacted with a thumbs up.');
+			let em = new MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("DARK BLUE")
+    .setDescription(`Accepted by: ${collected.first().users.username}`)
+    .setTimestamp()
+    msg.edit
 		} else {
-			message.reply('you reacted with a thumbs down.');
+			let he = new MessageEmbed()
 		}
 	})
-    
-    
-    
-    
-	});
     
     }
   }
