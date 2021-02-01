@@ -47,13 +47,27 @@ module.exports = {
 msg.react('✅').then(() => msg.react('❌'))
 
 const filter = (reaction, user) => {
-	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.member.hasPermission("ADMINISTRATOR");
 };
 
 msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
-
+   
+   let gembed = new MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("DARK BLUE")
+    .setDescription("Accepted by" + collected.first().user.username)
+    .setTimestamp()
+   
+   let sembed = new MessageEmbed()
+    .setAuthor("SUGGESTION: " +message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("DARK BLUE")
+    .setDescription("Denied by" + collected.first().user.username)
+    .setTimestamp()
+   
 		  if (reaction.emoji.name === '✅') {
 			msg.edit(gembed)
 		} if (reaction.emoji.name === '❌') {
@@ -62,4 +76,4 @@ msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	})
     
     }
-  }
+}
