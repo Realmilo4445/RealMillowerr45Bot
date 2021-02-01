@@ -2,7 +2,7 @@
 
 const Discord = require('discord.js')
 const setticket = require('./setticket.js')
-
+const db = require("quick.db")
 module.exports = {
     name: 'ticket',
     usage: 'ticket',
@@ -11,7 +11,7 @@ module.exports = {
     description: "opens a server support ticket",
     run: async(client, message, args)=>{
         const user = message.author.id;
-        const name = "ticket-" + user.id;
+        const name = "ticket-" + user;
         if(message.guild.channels.cache.find(ch => ch.name == name)){
             message.channel.send("(:x:)You have already opened a ticket")
         }else{
@@ -24,12 +24,13 @@ module.exports = {
         SEND_MESSAGES: true,
         VIEW_CHANNEL: true
     })
+    
     const embed = new Discord.MessageEmbed()
     .setColor(`BROWN`)
     .setAuthor("(✅)I have created a ticket for you")
     message.channel.send(embed);
     const E = new Discord.MessageEmbed()
-    .setAuthor().setColor(`BROWN`)
+    .setAuthor(`).setColor(`BROWN`)
     chan.send(E).then((m)=>{
         m.pin()
     })
