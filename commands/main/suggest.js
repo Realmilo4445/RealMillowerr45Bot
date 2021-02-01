@@ -29,33 +29,15 @@ module.exports = {
     
    let msg = await message.channel.send(embed)
      .then(m => {
-    
+  
 m.react('✅')
 m.react('❌')
-    })
+         return ['✅','❌'].icludes(reaction.emoji.name) && message.member.hasPermission("ADMINISTRATOR")
+       
     
-    message.react('✅').then(() => message.react('❌'));
-
-const filter = (reaction, user) => {
-	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.member.hasPermission("ADMINISTATOR");
-};
 
 message.awaitReactions(filter, { max: 2, time: 6000000, errors: ['time'] })
 	.then(collected => {
-		const reaction = collected.first();
-
-		if (reaction.emoji.name === '✅') {
-			let em = new MessageEmbed()
-    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
-    .setThumbnail(message.author.avatarURL())
-    .setColor("DARK BLUE")
-    .setDescription(`Accepted by: ${collected.first().users.username}`)
-    .setTimestamp()
-    msg.edit
-		} else {
-			let he = new MessageEmbed()
-		}
-	})
-    
+		con
     }
   }
