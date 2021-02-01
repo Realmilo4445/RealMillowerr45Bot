@@ -47,10 +47,10 @@ module.exports = {
 msg.react('✅').then(() => msg.react('❌'))
 
 const filter = (reaction, user) => {
-	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.member.id;
+	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
-msg.awaitReactions(filter, { max: 90, time: 60000000000, errors: ['time'] })
+msg.awaitReactions(filter, { max: 9, time: 6000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
