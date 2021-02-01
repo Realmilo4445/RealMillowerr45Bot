@@ -10,14 +10,14 @@ module.exports = {
     
     if(!args.length) {
       return message.channel.send("Please Give the Suggestion")
-    }
+    };
     
     let channel = message.guild.channels.cache.find((x) => (x.name === "suggestion" || x.name === "suggestions"))
     
     
     if(!channel) {
       return message.channel.send("there is no channel with name - suggestions")
-    }
+    };
                                                     
     
     let embed = new MessageEmbed()
@@ -25,26 +25,22 @@ module.exports = {
     .setThumbnail(message.author.avatarURL())
     .setColor("DARK BLUE")
     .setDescription(args.join(" "))
-    .setTimestamp()
+    .setTimestamp();
     
+    const msg = await message.channel.send(embed).then
     
-    channel.send(embed).then(m => {
-      m.react("✅")
-      m.react("❌")
-    })
-    
-message.react('').then(() => message.react('👎'));
+message.react('✅').then(() => message.react('❌'));
 
 const filter = (reaction, user) => {
-	return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
 message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
-		if (reaction.emoji.name === '👍') {
-			message.reply('you reacted with a thumbs up.');
+		if (reaction.emoji.name === '✅') {
+			
 		} else {
 			message.reply('you reacted with a thumbs down.');
 		}
