@@ -27,18 +27,15 @@ module.exports = {
     .setDescription(args.join(" "))
     .setTimestamp()
     
-   let msg = await message.channel.send(embed)
+   let msg = await channel.send(embed)
      .then(m => {
   
-m.react('✅').then(collected => {
-    let sembed = new MessageEmbed()
-    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
-    .setThumbnail(message.author.avatarURL())
-    .setColor("DARK BLUE")
-    .setDescription(`Accepted by: ${collected.first().users.username}`)
-    .setTimestamp()
-})
+m.react('✅')
+
 m.react('❌')
      })
+   
+   message.channel.send("Sended Your Suggestion to " + channel)
+    
     }
   }
