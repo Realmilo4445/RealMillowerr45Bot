@@ -7,7 +7,7 @@ module.exports = {
   description: "Set support ticket role",
   run: async(client, message, args) => {
     const role = message.mentions.roles.first()
-    
+ 
     ticket.setRole(message, role)
   }
 }
