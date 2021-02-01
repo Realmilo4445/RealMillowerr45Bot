@@ -33,14 +33,14 @@ module.exports = {
     .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
     .setThumbnail(message.author.avatarURL())
     .setColor("DARK BLUE")
-    .setDescription("Accepted")
+    .setDescription("Accepted by", message.author.tag)
     .setTimestamp()
    
    let sembed = new MessageEmbed()
     .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
     .setThumbnail(message.author.avatarURL())
     .setColor("DARK BLUE")
-    .setDescription("Denied")
+    .setDescription("Denied by", message.author.tag)
     .setTimestamp()
    
       message.channel.send("Sended Your Suggestion to:" + channel)
@@ -50,7 +50,7 @@ const filter = (reaction, user) => {
 	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
-msg.awaitReactions(filter, { max: 9, time: 6000, errors: ['time'] })
+msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
