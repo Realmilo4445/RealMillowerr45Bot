@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'give-role',
-    category : "MODERATION",
+    category : "moderation",
     run: async (client, message, args) => {
 
         message.delete();

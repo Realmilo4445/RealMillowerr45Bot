@@ -5,7 +5,7 @@ module.exports = {
   usage: "addcmd <cmd_name> <cmd_responce>",
   description: "add guild custom commands",
   category: "moderation",
-  run: (client, message, args) => {
+  run: async(client, message, args) => {
 
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("(:x:) You need `MANAGE_MESSAGES` perms to use this command")
