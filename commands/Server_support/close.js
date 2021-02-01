@@ -2,12 +2,14 @@ const Discord = require('discord.js')
 
 
 module.exports = {
-    name: 'endticket',
-    description: "ends the ticket",
-    execute(client, message, args){
-        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("Only a moderator can end a ticket!")
+    name: 'close',
+    category: 'server_support',
+    usage: 'close',
+    aliases: ["c"],
+    description: "close the server support ticket",
+    run: async(client, message, args)=>{
 
-        if(message.member.hasPermission("ADMINISTRATOR")) message.channnel.delete()
+        message.channel.delete()
     }
 
 }

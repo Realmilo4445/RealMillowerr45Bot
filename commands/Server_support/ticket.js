@@ -25,9 +25,12 @@ module.exports = {
         VIEW_CHANNEL: true
     })
     const embed = new Discord.MessageEmbed()
+    .setColor(`BROWN`)
     .setAuthor("(✅)I have created a ticket for you")
     message.channel.send(embed);
-    chan.send("Support will be here shortly").then((m)=>{
+    const E = new Discord.MessageEmbed()
+    .setAuthor("Say Anything What Do You Want?").setColor(`BROWN`)
+    chan.send(E).then((m)=>{
         m.pin()
     })
     })   
