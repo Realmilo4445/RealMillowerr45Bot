@@ -6,10 +6,7 @@ module.exports = {
   usage: "suggest <message>",
   description: "Send your Suggestion",
   category: "main",
-  run: (client, message, args) => {
-       
-    let embed = new MessageEmbed()
-    .setAuthor("SUGGESTION: " + message.author.tag 
+  run: async(client, message, args) => {
     
     if(!args.length) {
       return message.channel.send("Please Give the Suggestion")
@@ -23,16 +20,41 @@ module.exports = {
     };
                                                     
     
-    let embd = new MessageEmbed()
+    let embed = new MessageEmbed()
     .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
     .setThumbnail(message.author.avatarURL())
     .setColor("DARK BLUE")
     .setDescription(args.join(" "))
-    .setTimestamp();
+    .setTimestamp()
     
-   await message.channel.send(embed).then(m => {
+   await message.channel.send(embed)
+     .then(m => {
     
-m.react('✅').then(() => m.react('❌'))
+m.react('✅')
+m.react('❌')
     })
+    
+    message.react('✅').then(() => message.react('❌'));
+
+const filter = (reaction, user) => {
+	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+};
+
+message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+	.then(collected => {
+		const reaction = collected.first();
+
+		if (reaction.emoji.name === '✅') {
+			message.reply('you reacted with a thumbs up.');
+		} else {
+			message.reply('you reacted with a thumbs down.');
+		}
+	})
+    
+    
+    
+    
+	});
+    
     }
   }
