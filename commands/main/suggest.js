@@ -29,13 +29,25 @@ module.exports = {
     
    let msg = await channel.send(embed)
    
+   let gembed = new MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("DARK BLUE")
+    .setDescription("Accepted")
+    .setTimestamp()
    
+   let sembed = new MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("DARK BLUE")
+    .setDescription("Denied")
+    .setTimestamp()
    
       message.channel.send("Sended Your Suggestion to:" + channel)
 msg.react('✅').then(() => msg.react('❌'))
 
 const filter = (reaction, user) => {
-	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.member.id;
 };
 
 msg.awaitReactions(filter, { max: 90, time: 60000000000, errors: ['time'] })
@@ -43,9 +55,9 @@ msg.awaitReactions(filter, { max: 90, time: 60000000000, errors: ['time'] })
 		const reaction = collected.first();
 
 		  if (reaction.emoji.name === '✅') {
-			msg.edit(one)
+			msg.edit(gembed)
 		} if (reaction.emoji.name === '❌') {
-			msg.edit(two)
+			msg.edit(sembed)
     }
 	})
     

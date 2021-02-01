@@ -1,59 +1,63 @@
-const Discord = require('discord.js');
+const { MessageEmbed } = require("discord.js")
+
 
 module.exports = {
-    name: "store",
-    category: "economy",
-    usage: "store",
-    description: "View the store",
-
-    run: async(client, message, args) => {
-
-        const one = new Discord.MessageEmbed()
-        .setTitle('Car Store')
-        .setDescription(`**(🚗)Car** - **500** Moneys \n **(🏎)Sport Car** - **550** Moneys \n **(🚙)Sport Utility Car** - **300** Moneys`)
-        .setFooter(`Page 1/4`)
-        .setTimestamp();
-
-        const msg = await message.channel.send(one);
+  name: "suggest",
+  usage: "suggest <message>",
+  description: "Send your Suggestion",
+  category: "main",
+  run: async (client, message, args) => {
+    
+    if(!args.length) {
+      return message.channel.send("Please Give the Suggestion")
+    };
+    
+    let channel = message.guild.channels.cache.find((x) => (x.name === "suggestion" || x.name === "suggestions"))
+    
+    
+    if(!channel) {
+      return message.channel.send("there is no channel with name - suggestions")
+    };
+                                                    
+    
+    let embed = new MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("DARK BLUE")
+    .setDescription(args.join(" "))
+    .setTimestamp()
+    
+   let msg = await channel.send(embed)
+   message.channel.send("Send Your Suggestion to" + channel)
       
-      const two = new Discord.MessageEmbed()
-        .setTitle('Food Store')
-        .setDescription(`**(🍔)Hamburger** - **5** Moneys \n **(🍕)Pizza** - **3** Moneys  \n **(🌭)Hotdog** - **4** Moneys`)
-        .setFooter(`Page 2/4`)
-        .setTimestamp();
-      
-      const three = new Discord.MessageEmbed()
-        .setTitle('Lootbox Store')
-        .setDescription(`**(🎁)Common Lootbox** - **200** Moneys \n **(🎁)Rare Lootbox** - **250** Moneys
-    **(🎁)Epic Lootbox** - **450** Moneys 
-    **(🎁)Legendary Lootbox** - **1,000** Moneys`)
-        .setFooter(`Page 3/4`)
-        .setTimestamp();
-      
-      const four = new Discord.MessageEmbed()
-        .setTitle('Modern Store')
-        .setDescription(`**(🎟)Ticket** - **10** Moneys \n **(💻)Laptop** - **150** Moneys`)
-        .setFooter(`Page 4/4`)
-        .setTimestamp();
-      
-msg.react('1️⃣').then(() => msg.react('2️⃣').then(() => msg.react('3️⃣').then(() => msg.react('4️⃣'))));
+    let fembed = new MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("DARK BLUE")
+    .setDescription("Accepted")
+    .setTimestamp()
+    
+    let gembed = new MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("Denied")
+    .setDescription(args.join(" "))
+    .setTimestamp()
+    
+msg.react('✅').then(() => msg.react('❌'));
 
 const filter = (reaction, user) => {
-	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.author.id;
+	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.member.id;
 };
 
 msg.awaitReactions(filter, { max: 90, time: 60000000000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
-		  if (reaction.emoji.name === '1️⃣') {
-			msg.edit(one)
-		} if (reaction.emoji.name === '2️⃣') {
-			msg.edit(two)
-    }if (reaction.emoji.name === '3️⃣') {
-			msg.edit(three)
-		} if (reaction.emoji.name === '4️⃣') {
-			msg.edit(four)
+		  if (reaction.emoji.name === '✅') {
+			msg.edit(fembed)
+		} if (reaction.emoji.name === '❌') {
+			msg.edit(gembed)
     }
 	})
     }
