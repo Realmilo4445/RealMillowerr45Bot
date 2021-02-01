@@ -7,7 +7,7 @@ module.exports = {
   description: "Send your Suggestion",
   category: "main",
   run: async(client, message, args) => {
-    
+  
     if(!args.length) {
       return message.channel.send("Please Give the Suggestion")
     };
@@ -28,14 +28,26 @@ module.exports = {
     .setTimestamp()
     
    let msg = await channel.send(embed)
-     .then(m => {
-  
-m.react('✅')
-
-m.react('❌')
-     })
    
-   message.channel.send("Sended Your Suggestion to " + channel)
+   
+   
+      message.channel.send("Sended Your Suggestion to:" + channel)
+msg.react('✅').then(() => msg.react('❌'))
+
+const filter = (reaction, user) => {
+	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+};
+
+msg.awaitReactions(filter, { max: 90, time: 60000000000, errors: ['time'] })
+	.then(collected => {
+		const reaction = collected.first();
+
+		  if (reaction.emoji.name === '✅') {
+			msg.edit(one)
+		} if (reaction.emoji.name === '❌') {
+			msg.edit(two)
+    }
+	})
     
     }
   }

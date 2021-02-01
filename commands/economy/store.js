@@ -39,7 +39,7 @@ module.exports = {
 msg.react('1️⃣').then(() => msg.react('2️⃣').then(() => msg.react('3️⃣').then(() => msg.react('4️⃣'))));
 
 const filter = (reaction, user) => {
-	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.auth.id;
+	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.author.id;
 };
 
 msg.awaitReactions(filter, { max: 90, time: 60000000000, errors: ['time'] })
