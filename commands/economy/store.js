@@ -6,7 +6,7 @@ module.exports = {
     usage: "store",
     description: "View the store",
 
-    run: async (client, message, args) => {
+    run: async(client, message, args) => {
 
         const one = new Discord.MessageEmbed()
         .setTitle('Car Store')
@@ -39,10 +39,10 @@ module.exports = {
 msg.react('1️⃣').then(() => msg.react('2️⃣').then(() => msg.react('3️⃣').then(() => msg.react('4️⃣'))));
 
 const filter = (reaction, user) => {
-	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.author.id;
+	return ['1️⃣', '2️⃣', '3️⃣', '4️⃣'].includes(reaction.emoji.name) && user.id === message.auth.id;
 };
 
-msg.awaitReactions(filter, { max: 4, time: 60000, errors: ['time'] })
+msg.awaitReactions(filter, { max: 90, time: 60000000000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 

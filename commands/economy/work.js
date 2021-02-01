@@ -9,7 +9,7 @@ module.exports = {
     category: "economy",
     description: "Work your a** off",
     usage: "work",
-    run: async (client, message, args) => {
+    run: async(client, message, args) => {
 db.add(`worked_${message.guild.id}_${message.author.id}`, 1)
 const quiz = require('../../quiz.json');
       let user = message.author
@@ -27,14 +27,14 @@ let msg = await message.channel.send(em).then(() => {
 
       db.add(`money_${message.guild.id}_${user.id}`, item.amount)
       me.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-msg.edit(me)
+message.channel.send(me)
     
 		})
 		.catch(collected => {
 			let mem = new MessageEmbed()
       mem.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
       mem.setAuthor(item.fail)
-    msg.edit(mem)
+    message.channel.send(mem)
 		});
 
 })
