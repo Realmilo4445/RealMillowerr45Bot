@@ -30,14 +30,8 @@ module.exports = {
    let msg = await message.channel.send(embed)
      .then(m => {
   
-m.react('✅')
+m.react('✅').then 
 m.react('❌')
-         return ['✅','❌'].icludes(reaction.emoji.name) && message.member.hasPermission("ADMINISTRATOR")
-       
-    
-
-message.awaitReactions(filter, { max: 2, time: 6000000, errors: ['time'] })
-	.then(collected => {
-		con
+     })
     }
   }
