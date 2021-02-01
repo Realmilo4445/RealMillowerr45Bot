@@ -30,7 +30,7 @@ module.exports = {
     .setAuthor("(✅)I have created a ticket for you")
     message.channel.send(embed);
     const E = new Discord.MessageEmbed()
-    .setAuthor(`).setColor(`BROWN`)
+    .setAuthor(`Support ticket here, Please talk if you want to support`).setColor(`BROWN`)
     chan.send(E).then((m)=>{
         m.pin()
     })
