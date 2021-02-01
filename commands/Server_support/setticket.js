@@ -14,7 +14,7 @@ module.exports = {
       
       let say = args.join(" ")
       if(!say)return message.channel.send("(:x:)Please type valid question for ticket!")
-      let channel = message.guild.channels
+      let channel = message.guild.channels.cache.find((x)=>(x.name === "ticket-" + message.author.id))
     }
 
 }
