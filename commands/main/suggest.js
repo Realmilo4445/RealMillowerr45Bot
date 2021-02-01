@@ -7,6 +7,9 @@ module.exports = {
   description: "Send your Suggestion",
   category: "main",
   run: (client, message, args) => {
+       
+    let embed = new MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag 
     
     if(!args.length) {
       return message.channel.send("Please Give the Suggestion")
@@ -20,36 +23,16 @@ module.exports = {
     };
                                                     
     
-    let embed = new MessageEmbed()
+    let embd = new MessageEmbed()
     .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
     .setThumbnail(message.author.avatarURL())
     .setColor("DARK BLUE")
     .setDescription(args.join(" "))
     .setTimestamp();
     
-    const msg = await message.channel.send(embed).then
+   await message.channel.send(embed).then(m => {
     
-message.react('✅').then(() => message.react('❌'));
-
-const filter = (reaction, user) => {
-	return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
-};
-
-message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-	.then(collected => {
-		const reaction = collected.first();
-
-		if (reaction.emoji.name === '✅') {
-			
-		} else {
-			message.reply('you reacted with a thumbs down.');
-		}
-	})
-	.catch(collected => {
-		message.reply('you reacted with neither a thumbs up, nor a thumbs down.');
-	});
-    
-    message.channel.send("Sended Your Suggestion to " + channel)
-    
+m.react('✅').then(() => m.react('❌'))
+    })
+    }
   }
-}
