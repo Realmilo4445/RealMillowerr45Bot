@@ -6,9 +6,7 @@ module.exports = {
   caregory: "server_support",
   description: "Close support ticket role",
   run: async(client, message, args) => {
-    const channel = message.mentions.channels.first() || message.channel
-    const arg = message.content.slice(6)
-    const channel = message.mentions.channels.first() || message.guild.channels.cache.find(c => c.id == arg || c.name == arg) || message.channel
+    const channel = message.mentions.channels.first() || message.guild.channels.cache.find(c => c.id == args || c.name == args) || message.channel
  
     ticket.closeTicket(message, channel)
   }

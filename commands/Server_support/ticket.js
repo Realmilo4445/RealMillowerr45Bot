@@ -1,13 +1,11 @@
 const { DiscordTicket } = require('discord_ticket_maker')
 const ticket = new DiscordTicket()
-
+const Discord = require("discord.js")
 module.exports = {
   name: "ticket",
   caregory: "server_support",
   description: "Make a support ticket role",
   run: async(client, message, args) => {
-    const reason = args.join(" ")
-    
-    ticket.makeTicket(message, reason, "swrf")
+    ticket.makeTicket(message, args, "swrf")
   }
 }
