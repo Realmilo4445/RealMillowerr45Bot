@@ -1,7 +1,6 @@
 //This is the ticket.js file for my command handler
 
 const Discord = require('discord.js')
-const setticket = require('./setticket.js')
 const db = require("quick.db")
 module.exports = {
     name: 'ticket',
