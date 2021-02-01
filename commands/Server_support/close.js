@@ -1,13 +1,13 @@
-const { DiscordTicket } = require('discord_ticket_maker')
-const ticket = new DiscordTicket()
+const Discord = require('discord.js')
+
 
 module.exports = {
-  name: "close",
-  caregory: "server_support",
-  description: "Close support ticket role",
-  run: async(client, message, args) => {
-    const channel = message.mentions.channels.first() || message.guild.channels.cache.find(c => c.id == args || c.name == args) || message.channel
- 
-    ticket.closeTicket(message, channel)
-  }
+    name: 'endticket',
+    description: "ends the ticket",
+    execute(client, message, args){
+        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("Only a moderator can end a ticket!")
+
+        if(message.member.hasPermission("ADMINISTRATOR")) message.channnel.delete()
+    }
+
 }
