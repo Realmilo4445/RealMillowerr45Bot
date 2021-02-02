@@ -7,6 +7,7 @@ module.exports = {
   category: 'utilities',
   description: 'google translate',
   run: async(client, message, args) => {
-    
+    let languange = args[0]
+    let text = args.slice[1
   }
 }
