@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
+const ms = require('ms')
 module.exports = {
   name: 'sell',
   category: 'economy',
@@ -19,14 +20,24 @@ module.exports = {
         
         if(price[0] < 1) return message.reply("You have to sell at least one money item price!")
     
-    if(say === {items} + {price}) {
+    if(say === items + price) {
       let embed = new Discord.MessageEmbed()
       .setAuthor(`Succesfully sell your item`)
-      .setDescription(items + price)
-      .set
+      .setDescription(`item: ${items} price: ${price}`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      .setTimestamp()
       db.subract(items)
+      db.add(`money_${message.guild.id}_${message.author.id}`, price + 50)
       let msg = await message.channel.send(embed)
-      
+      let time = 5
+      setTimeout(function(){
+      let Embed = new Discord.MessageEmbed()
+      .setAuthor(`Successfully selling your item and people buy your item`)
+      .setDescription(`You got ${price} and extra 50 moneys`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      .setTimestamp()
+      msg.edit(Embed)
+      },ms (time))
     }
   }
 }
