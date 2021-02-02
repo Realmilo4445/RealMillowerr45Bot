@@ -11,16 +11,15 @@ module.exports = {
     let items = await db.fetch(message.author.id)
     if(items === null) items = "Nothing"
     if(!items === null) return message.channel.send("You dont have item to sell!")
-    const combine = `${items} ${args}`
-        if (!args[0]) return message.reply("Please enter the amount of item price to sell!");
+    const combine = items + args
+        if (!combine[0]) return message.reply("Please enter the amount of item price to sell!");
  
-        if(isNaN(args[0])) return message.reply("Please type a real number!");
+        if(isNaN(combine[0])) return message.reply("Please type a real number!");
  
-        if(args[0] > 100) return message.reply("You can't sell more than 100 moneys item price!");
+        if(combine[0] > 100) return message.reply("You can't sell more than 100 moneys item price!");
         
-        if(args[0] < 1) return message.reply("You have to sell at least one money price!");
+        if(combine[0] < 1) return message.reply("You have to sell at least one money price!");
  
-    if(say === combine) {
       let embed = new Discord.MessageEmbed()
       .setAuthor(`Succesfully sell your item`)
       .setDescription(`item: ${items} price: ${args}`)
@@ -38,6 +37,5 @@ module.exports = {
       .setTimestamp()
       msg.edit(Embed)
       },ms (time))
-    }
   }
 }
