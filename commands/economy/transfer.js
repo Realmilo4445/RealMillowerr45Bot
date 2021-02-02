@@ -15,19 +15,19 @@ aliases: ["trans"],
    run: async(client, message, args) => {
 let  e = args.join(" ")
 let user = message.author || message.mentions.users.first().username
-        if (!args[0]) return message.reply("(:x:)Please enter the amount of moneys to transfer!");
+        if (!e[0]) return message.reply("(:x:)Please enter the amount of moneys to transfer!");
 
  
 
-        if(isNaN(args[0])) return message.reply("(:x:)Please type a real number!");
+        if(isNaN(e[0])) return message.reply("(:x:)Please type a real number!");
 
  
 
-        if(args[0] > 100) return message.reply("(:x:)You can't transfer more than 100 moneys!");
+        if(e[0] > 100) return message.reply("(:x:)You can't transfer more than 100 moneys!");
 
         
 
-        if(args[0] < 1) return message.reply("(:x:)You have to transfer at least one money!");
+        if(e[0] < 1) return message.reply("(:x:)You have to transfer at least one money!");
 
  let timeout = 99990;
       
@@ -40,8 +40,8 @@ let user = message.author || message.mentions.users.first().username
         } else {
 let embed = new Discord.MessageEmbed()
 db.set(`daily_${message.guild.id}_${user.id}`, Date.now())
-db.add(`money_${message.guild.id}_${user.id}`, args)
-db.subtract(`money_${message.guild.id}_${message.author.id}`, args)
+db.add(`money_${message.guild.id}_${user.id}`, e)
+db.subtract(`money_${message.guild.id}_${message.author.id}`, e)
 embed.setDescription(`Successfully transfered ${args} money(s) to ${user}!`)
 
 message.channel.send(embed)

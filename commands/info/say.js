@@ -11,7 +11,7 @@ module.exports = {
     .setAuthor(saying)
     .setColor(`RANDOM`)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
-    .setTimeStamp()
+    .setTimestamp()
     message.channel.send(embed)
   }
 }
