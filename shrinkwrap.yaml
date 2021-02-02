@@ -2,6 +2,7 @@ dependencies:
   '@among-js/sus': 0.1.13
   '@discordjs/opus': 0.3.3
   '@haileybot/captcha-generator': 1.6.1
+  '@k3rn31p4nic/google-translate-api': 1.1.1
   '@pusher/push-notifications-web': 1.1.0
   anime-scraper: 3.1.3
   ascii-table: 0.0.9
@@ -1466,6 +1467,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-8fULQjB0x4LzUSiSYG6ZtQl355sZjxbv8r9PPAuYHzS9sGiSHJQavNqK/nKnpDsVkU88/vRGcE7t3nMU0dEnVw==
+  /@k3rn31p4nic/google-translate-api/1.1.1:
+    dependencies:
+      got: 11.8.1
+    deprecated: This has been moved to @iamtraction/google-translate
+    dev: false
+    engines:
+      node: '>=8.0.0'
+    resolution:
+      integrity: sha512-vg3zLYXhUmdwrNxmoKOfYSJzB8lHKDnqR7L/SYQQKCYkxsj2syK/cJMAcK5fQC0hfwgexxUaWhR2p2gGEe3nVw==
   /@pusher/push-notifications-web/1.1.0:
     dev: false
     resolution:
@@ -8040,6 +8050,7 @@ specifiers:
   '@among-js/sus': ^0.1.13
   '@discordjs/opus': ^0.3.3
   '@haileybot/captcha-generator': ^1.5.1
+  '@k3rn31p4nic/google-translate-api': ^1.1.1
   '@pusher/push-notifications-web': ^1.0.3
   anime-scraper: ^3.1.3
   ascii-table: ^0.0.9
