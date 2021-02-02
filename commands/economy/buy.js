@@ -19,49 +19,49 @@ module.exports = {
         if(purchase === 'car'){
             if(amount < 500) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 500);
-            db.push(message.author.id, "Car");
+            db.push(message.author.id, "(🚗)Car");
             embed.setAuthor(`Successfully bought one (🚗)Car`)
             message.channel.send(embed)
         }
         if(purchase === 'watch'){
             if(amount < 250) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 250);
-            db.push(message.author.id, "Watch");
+            db.push(message.author.id, "(⏰)Watch");
             embed.setAuthor(`Successfully bought (⏰)Watch`)
             message.channel.send(embed)
         }
         if(purchase === 'sport utility car'){
             if(amount < 200) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 200);
-            db.push(message.author.id, "Sport Utility Car");
+            db.push(message.author.id, "(🚙)Sport Utility Car");
             embed.setAuthor(`Successfully bought one (🚙)Sport Utility Car`)
             message.channel.send(embed)
         }
         if(purchase === 'sport Car'){
             if(amount < 550) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 550);
-            db.push(message.author.id, "Sport Car");
+            db.push(message.author.id, "(🏎)Sport Car");
             embed.setAuthor(`Successfully bought (🏎)Sport Car`)
             message.channel.send(embed)
         }
       if(purchase === 'hamburger'){
             if(amount < 5) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 5);
-            db.push(message.author.id, "Hamburger");
+            db.push(message.author.id, "(🍔)Hamburger");
             embed.setAuthor(`Successfully bought one (🍔)Hamburger`)
             message.channel.send(embed)
         }
         if(purchase === 'pizza'){
             if(amount < 3) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 3);
-            db.push(message.author.id, "Pizza");
+            db.push(message.author.id, "(🍕)Pizza");
             embed.setAuthor(`Successfully bought (🍕)Pizza`)
             message.channel.send(embed)
         }
         if(purchase === 'hotdog'){
             if(amount < 4) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 4);
-            db.push(message.author.id, "Hotdog");
+            db.push(message.author.id, "🌭Hotdog");
             embed.setAuthor(`Successfully bought one (🌭)Hotdog`)
             message.channel.send(embed)
         }

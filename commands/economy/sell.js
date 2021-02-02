@@ -9,9 +9,7 @@ module.exports = {
   run: async(client, message, args) => {
     let say = args.join(" ")
     const combine = args.join(" ")
-    let items = await db.fetch(message.author.id)
-    if(items === null) items = "Nothing"
-    if(!items === null) return message.channel.send("You dont have item to sell!")
+    let items = args.join(" ")
   if(say === 'setPrice' + combine) {
     if (!say === 'setPrice') return message.channel.send("please setPrice!")
         if (!combine[0]) return message.reply("Please enter the amount of messages to clear!");
