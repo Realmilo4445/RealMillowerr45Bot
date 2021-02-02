@@ -24,7 +24,7 @@ module.exports = {
         }
 
         const embed = new Discord.MessageEmbed()
-        .setColor(`RANDOM`)
+        .setColor(`GRAY`)
         .setTitle('Calculator')
         .addField('Question', `\`\`\`css\n${args.join(' ')}\`\`\``)
         .addField('Answer', `\`\`\`css\n${resp}\`\`\``)
