@@ -69,7 +69,7 @@ module.exports = {
             if(amount < 200) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 200);
             embed.setAuthor(`Successfully bought (🎁)Common Lootbox`)
-            db.push(message.author.id, "Glasses")
+            db.push(message.author.id, "(👓)Glasses")
             embed.setDescription(`Congrats! you got (👓)Glasses from Lootbox!`)
             message.channel.send(embed)
         }
@@ -77,7 +77,7 @@ module.exports = {
             if(amount < 250) return message.channel.send('You do not have enough money to buy this item. Please try another one');
             db.subtract(`money_${message.guild.id}_${message.author.id}`, 250);
             embed.setAuthor(`Successfully bought (🎁)Rare Lootbox`)
-            db.push(message.author.id, "Sword")
+            db.push(message.author.id, "(⚔)Sword")
             embed.setDescription(`Congrats! you got (⚔)Sword from Lootbox!`)
             message.channel.send(embed)
         }
