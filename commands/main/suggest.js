@@ -58,14 +58,14 @@ msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
     .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
     .setThumbnail(message.author.avatarURL())
     .setColor("DARK BLUE")
-    .setDescription("Accepted by" + collected.first().user.username)
+    .setDescription("Accepted by" + message.author.tag)
     .setTimestamp()
    
    let sembed = new MessageEmbed()
     .setAuthor("SUGGESTION: " +message.author.tag, message.author.avatarURL())
     .setThumbnail(message.author.avatarURL())
     .setColor("DARK BLUE")
-    .setDescription("Denied by" + collected.first().user.username)
+    .setDescription("Denied by" + message.author.tag)
     .setTimestamp()
    
 		  if (reaction.emoji.name === '✅') {
