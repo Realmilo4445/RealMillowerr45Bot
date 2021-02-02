@@ -4,7 +4,7 @@ module.exports = {
   description: "Create a simple yes or no poll",
   usage: "poll ",
   category: "fun",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     let emb = new Discord.MessageEmbed()
     .setAuthor()
     if (!message.member.permissions.has("ADMINISTRATOR"))
@@ -20,7 +20,7 @@ module.exports = {
       );
     }
     let question = message.content
-      .split(`${bot.prefix}poll ${channel} `)
+      .split(`${client.users.prefix}poll ${channel} `)
       .join("");
     if (!question)
       return message.channel.send(`You did not specify your question!`);
@@ -29,7 +29,7 @@ module.exports = {
       .setDescription(`${question}`)
       .setFooter(`${message.author.username} created this poll.`)
       .setColor(`RED`);
-    let msg = await bot.channels.cache.get(channel.id).send(Embed);
+    let msg = await client.channels.cache.get(channel.id).send(Embed);
     await msg.react("👍");
     await msg.react("👎");
   },
