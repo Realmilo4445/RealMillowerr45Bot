@@ -34,7 +34,7 @@ module.exports = {
       online: "https://emoji.gg/assets/emoji/9166_online.png",
       idle: "https://emoji.gg/assets/emoji/3929_idle.png",
       dnd: "https://emoji.gg/assets/emoji/2531_dnd.png",
-      offlie: "https://emoji.gg/assets/emoji/7445_status_offline.png"
+      offline: "https://emoji.gg/assets/emoji/7445_status_offline.png"
     }
 
     //NOW BADGES
