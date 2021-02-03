@@ -7,9 +7,14 @@ module.exports = {
     category : "moderation",
     run: async (client, message, args) => {
 
-        if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('(You do not have **MANAGE_CHANNELS** permission!').then(m => m.delete({ timeout: 5000 }));
+        if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('(❌)You do not have **MANAGE_CHANNELS** permission!').then(m => m.delete({ timeout: 5000 }));
 
-        if (!args[0]) return message.channel.send('You did not specify a time!').then(m => m.delete({ timeout: 5000}));
+        let eme = new MessageEmbed()
+        .setAuthor("(❌)You did not specify a time!")
+        .setColor(`GREEN`)
+        .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      
+        if (!args[0])return message.channel.send(eme).then(m => m.delete({ timeout: 5000}));
 
         const currentCooldown = message.channel.rateLimitPerUser;
 
@@ -30,10 +35,22 @@ module.exports = {
 
         const time = ms(args[0]) / 1000;
 
-        if (isNaN(time)) return message.channel.send('not a valid time, please try again!').then(m => m.delete({ timeout: 5000 }));
+        let s = new MessageEmbed()
+        .setAuthor(`Not a valid time, please try again!`)
+        .setColor(`GREEN`)
+        .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+        if (isNaN(time)) return message.channel.send(s).then(m => m.delete({ timeout: 5000 }));
 
-        if (time >= 21600) return message.channel.send('That slowmode limit is too high, please enter anything lower than 6 hours.').then(m => m.delete({ timeout: 5000 }));
+        let e = new MessageEmbed()
+        .setAuthor("That slowmode limit too high, please enter anything lower than 6 hours")
+        .setColor(`GREEN`)
+        .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+        
+        if (time >= 21600) return message.channel.send(e).then(m => m.delete({ timeout: 5000 }));
 
+        let es = new MessageEmbed()
+        .setAuthor(`Slowmod`)
+      
         if (currentCooldown === time) return message.channel.send(`Slowmode is already set to ${args[0]}`);
 
         embed.setTitle('Slowmode Enabled')
