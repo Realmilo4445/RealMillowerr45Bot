@@ -24,16 +24,19 @@ module.exports = {
        let qjd = new MessageEmbed()
        .setAuthor("(❌)You can not set prefix a double argument")
        .setColor(`GREEN`)
-       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}
-                                                                     ))
-      return message.channel.send("You can not set prefix a double argument")
+       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      return message.channel.send(qjd)
     }
     
      if(args.join("") === DEFAULT_PREFIX) {
+       let dj = new MessageEmbed()
+       .setAuthor("Reseted Prefix ✅")
+       .setColor(`GREEN`)
+       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       db.delete(`prefix_${message.guild.id}`)
-     return await message.channel.send("Reseted Prefix ✅")
+     return await message.channel.send(dj)
     }
-    
+    let embed
         db.set(`prefix_${message.guild.id}`, args[0])
   await message.channel.send(`Seted Bot Prefix to ${args[0]}`)
 
