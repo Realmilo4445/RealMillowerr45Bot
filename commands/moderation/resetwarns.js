@@ -8,17 +8,23 @@ module.exports = {
   run: async (client, message, args) => {
     
       if(!message.member.hasPermission("ADMINISTRATOR")) {
-      return message.channel.send("Yopu should have admin perms to use this command")
+        message.delete()
+      return message.channel.send("(❌)You should have admin perms to use this command")
     }
     
     const user = message.mentions.members.first()
     
     if(!user) {
+      let a = new MessageEmbed()
+      .setAuthor(`(❌)Please mention the person whose warning you want to reset`)
+      .setColor(`GREEN`)
+      .setFooter(message.author.tag, message.authir.displayAvatarURL({dynamic: true}))
     return message.channel.send("Please mention the person whose warning you want to reset")
     }
     
     if(message.mentions.users.first().bot) {
-      return message.channel.send("Bot are not allowed to have warnings")
+      message.delete()
+      return message.channel.send("(❌)Bot are not allowed to have warnings")
     }
     
     

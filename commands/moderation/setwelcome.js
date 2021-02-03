@@ -22,8 +22,9 @@ module.exports = {
     db.set(`welchannel_${message.guild.id}`, channel.id) //set id in var
     let embed = new Discord.MessageEmbed()
     .setAuthor(`Welcome Channel is seted as ${channel}`)
-    .setColor(``)
+    .setColor(`GREEN`)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
     
-    message.channel.send(`Welcome Channel is seted as ${channel}`) //send success message
+    message.channel.send(embed) //send success message
   }
 }
