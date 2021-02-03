@@ -9,16 +9,23 @@ module.exports = {
   description: "Change the prefix",
   run: async (client, message, args) => {
     
-    if(!message.member.hasPermission("ADMINISTRATOR")) { return message.channel.send("(❌)You are not allowed or do not have permission to change prefix")    
+    if(!message.member.hasPermission("ADMINISTRATOR")) { return message.channel.send("(❌)You are not allowed or do not have permission to change prefix")}    
     
    if(!args[0]) {
       let a = new MessageEmbed()
-      .setAuthor("Please give the prefix that you want to set")
-      .setColor
-      return message.channel.send("Please give the prefix that you want to set")
+      .setAuthor("(❌)Please give the prefix that you want to set")
+      .setColor(`GRREN`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      
+      return message.channel.send(a)
     }
     
      if(args[1]) {
+       let qjd = new MessageEmbed()
+       .setAuthor("(❌)You can not set prefix a double argument")
+       .setColor(`GREEN`)
+       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}
+                                                                     ))
       return message.channel.send("You can not set prefix a double argument")
     }
     
