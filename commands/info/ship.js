@@ -6,10 +6,17 @@ module.exports = {
     usage: 'ship <user1> <user2',
     description: 'shipping name',
     run: async (client, message, args) => {
+      let es = new Discord.MessageEmbed()
+      .setAuthor("You forgot to mention someone!")
+      .setColor(`RED`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      .setTimestamp()
       
-      let embed = new MessageEmbed()
+      let is = new Discord.MessageEmbed()
+      .setAuthor("You forgot to mention someone else!")
       
-        if (!args[0]) return message.channel.send("You forgot to mention someone!")
+      let embed = new Discord.MessageEmbed()
+        if (!args[0]) return message.channel.send(es)
         if (!args[1]) return message.channel.send("You need to mention someone else!")
  
         if (args[0] || args[1]) {
@@ -23,8 +30,10 @@ module.exports = {
                 const FirstUserSliced = FirstUser.user.username.slice(0, FirstUser.user.username.length / 2)
                 const SecondUserSliced = SecondUser.map(user => { return user.user.username.slice(user.user.username.length / 2) })
                 const SecondUserName = SecondUser.map(user => { return user.user.username })
- 
-                message.channel.send(`${FirstUser.user.username} + ${SecondUserName} = **${FirstUserSliced}${SecondUserSliced}**`)
+ embed.setAuthor(`${FirstUser.user.username} + ${SecondUserName} = ${FirstUserSliced}${SecondUserSliced}`)
+ embed.setColor(`RED`)
+ embed.setTimestamp()
+                message.channel.send(embed)
             }
         }
     }
