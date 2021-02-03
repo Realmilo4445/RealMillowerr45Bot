@@ -13,16 +13,22 @@ module.exports = {
     const cmd = args.join(" ").split(' | ');
     
     let uh = new discord.MessageEmbed()
-    .setAuthor("Please Give anime name")
+    .setAuthor("(❌)Please Give anime name")
     .setColor(`RED`)
-    .setFooter
-    
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+    .setTimestamp()
+     
+    let u = new discord.MessageEmbed()
+    .setAuthor("(❌)Please Give anime episode")
+    .setColor(`RED`)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+    .setTimestamp()
     if(!cmd[0]) {
       return message.channel.send(uh)
     }
     
     if(!cmd[1]) {
-      return message.channel.send("Please Give anime episode number")
+      return message.channel.send(u)
     }
     
         let msg = await message.channel.send("Hacking website -_-")
