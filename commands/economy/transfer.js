@@ -13,15 +13,15 @@ aliases: ["trans"],
     description: "transfered to user",
 
    run: async(client, message, args) => {
-     let es = args[1]
-let given = db.fetch(`money_${message.author.id}`)
-let user = message.mentions.users.first()
+     let es = args.join(" ")
+let given = db.fetch(`money_${message.guild.id}_${message.author.id}`)
+let user = message.mentions.users.first().username
 if(!user) return message.channel.send("Please mention people for transfer!")
 
 let embed = new Discord.MessageEmbed()
-embed.setDescription(`Successfully transfered ${es} money(s) to ${user}!`)
-db.add(`money_${user.id}`,es)
-db.subtract(`money_${message.author.id}`, es)
+embed.setDescription(`Successfully transfered **${es}** money(s) to **${user}**!`)
+db.add(`money_${message.guild.id}_${message.mentions.users.id}`, es)
+db.subtract(`money_${message.guild.id}_${message.author.id}`, es)
  message.channel.send(embed)
 
  

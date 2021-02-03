@@ -14,7 +14,7 @@ aliases: ["am"],
 
    run: async(client, message, args) => {
 let  e = args.join(" ")
-let user = message.author || message.mentions.users.first().username
+let user = message.author
 if(!message.member.hasPermission("ADMINISTRATOR")) { return message.channel.send('(:x:)You are dont have permission to use this command!') }
         if (!args[0]) return message.reply("(:x:)Please enter the amount of moneys to add!");
 
