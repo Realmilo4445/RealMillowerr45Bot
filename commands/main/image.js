@@ -12,7 +12,9 @@ module.exports = {
   usage: "image <>",
     run : async(client, message, args) => {
       let emb = new MessageEmbed()
-      .setAuthor(`(:x:)Please enter search query`)
+      .setAuthor(`(❌)Please enter search query`)
+      .setColor(`DARK BLUE`)
+      .setFooter(message.author.id, message.author.displayAvatarURL({dynamic: true}))
         const query = args.join(" ")
         if(!query) return message.channel.send(emb)
 

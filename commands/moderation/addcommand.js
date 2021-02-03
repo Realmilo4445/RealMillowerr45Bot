@@ -1,4 +1,5 @@
 const db = require("quick.db")
+const { MessageEmbed } = require('discord.js')
 
 module.exports = {
   name: "addcmd",
@@ -7,6 +8,7 @@ module.exports = {
   category: "moderation",
   run: async(client, message, args) => {
 
+    
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("(:x:) You need `MANAGE_MESSAGES` perms to use this command")
 
@@ -28,8 +30,12 @@ module.exports = {
     }
 
     db.push(`cmd_${message.guild.id}`, data)
-
-    return message.channel.send("Added **" + cmdname.toLowerCase() + "** as a custom command in guild.")
+ let embed = new MessageEmbed()
+ .setAuthor("Added " + cmdname.toLowerCase() + "as a custom command in guild.")
+ .setColor(`GREEN`)
+ .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+ .setTimestamp()
+    return message.channel.send(embed)
 
 
   }

@@ -1,4 +1,5 @@
 const db = require("quick.db")
+const {MessageEmbed} = require('discord.js')
 
 module.exports = {
   name: "delcmd",
@@ -8,6 +9,7 @@ module.exports = {
   run: (client, message, args) => {
 
     let cmdname = args[0]
+let embed = new MessageEmbed()
 
     if(!cmdname) return message.channel.send(":x: Gimm me commmand name, `delcmd <cmd_name>`")
 

@@ -17,6 +17,10 @@ module.exports = {
     
     let us = new discord.MessageEmbed()
     .setAuthor(`(❌)Unable To Get the data of Given Location`)
+    .setColor(`RED`)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+    .setTimestamp()
+    
     if(!args.length) {
       return message.channel.send(es)
     }
@@ -36,7 +40,7 @@ let embed = new discord.MessageEmbed()
 .setThumbnail(result[0].current.imageUrl);
    message.channel.send(embed)
 } catch(err) {
-  return message.channel.send("Unable To Get the data of Given location")
+  return message.channel.send(us)
 }
 });   
     //LETS CHECK OUT PKG
