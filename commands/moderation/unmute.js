@@ -1,7 +1,8 @@
-const 
+const Discord = require('discord.js')
 
 module.exports = {
   name: "unmute",
+  usage: 'unmute <@mention>',
   description: "Change the bot status",
   category: "moderation",
   run: async (client, message, args) => {
@@ -9,33 +10,39 @@ module.exports = {
     if (!message.member.hasPermission("MANAGE_ROLES")) {
       message.delete()
       return message.channel.send(
-        "Sorry but you do not have permission to unmute anyone"
+        "(❌)Sorry but you do not have permission to unmute anyone"
       );
     }
 
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-      message.edit()
-      return message.channel.send("I do not have permission to manage roles.");
+      message.delete()
+      return message.channel.send("(❌)I do not have permission to manage roles.");
     }
     
     const user = message.mentions.members.first();
 
     if (!user) {
-      return message.channel.send(
-        "Please mention the member to who you want to unmute"
-      );
+      let eme = new Discord.MessageEmbed()
+      .setColor(`GREEN`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      .setAuthor(`(❌)Please mention who want to unmute`)
+      return message.channel.send();
     }
     
     let muterole = message.guild.roles.cache.find(x => x.name === "Muted")
     
     
  if(user.roles.cache.has(muterole)) {
-      return message.channel.send("Given User do not have mute role so what i am suppose to take")
+      message.delete()
+      return message.channel.send("(❌)Given User do not have mute role so what i am suppose to take")
     }
     
        user.roles.remove(muterole)
-    
-    await message.channel.send(`**${message.mentions.users.first().username}** is unmuted`)
+    let embed = new Discord.MessageEmbed()
+    .setAuthor(`**${message.mentions.users.first().username}** is unmuted`)
+    .setColor(`GREEN`)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+    await message.channel.send(embed)
     
     user.send(`You are now unmuted from **${message.guild.name}**`)
 

@@ -10,14 +10,14 @@ module.exports = {
     
 if(!message.member.hasPermission("ADMINISTRATOR")) {
   message.delete()
-      return message.channel.send("You should have admin perms to use this command!")
+      return message.channel.send("(❌)You should have admin perms to use this command!")
     }
     
     const user = message.mentions.members.first()
     
      if(!user) {
        let esed = new MessageEmbed()
-       .setAuthor(`Please Mention the person to who you want to warn - warn @mention <reason>`)
+       .setAuthor(`(❌)Please Mention the person to who you want to warn - warn @mention <reason>`)
        .setColor(`GREEN`)
        .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       return message.channel.send(esed)
@@ -28,7 +28,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
 
   if(!reason) {
       let e = new MessageEmbed()
-      .setAuthor(`Please provide reeson to warn - warn @mention <reason>`)
+      .setAuthor(`(❌)Please provide reeson to warn - warn @mention <reason>`)
       .setColor(`GREEN`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({dynammic: true}))
       return message.channel.send(e)
@@ -38,7 +38,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
     
     if(warnings === 3) {
       let a = new MessageEmbed()
-      .setAuthor(`**${message.mentions.users.first().username}** already reached his/her limit with 3 warnings`)
+      .setAuthor(`(✅)**${message.mentions.users.first().username}** already reached his/her limit with 3 warnings`)
       .setColor(`GREEN`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       return message.channel.send(`${message.mentions.users.first().username} already reached his/her limit with 3 warnings`)
