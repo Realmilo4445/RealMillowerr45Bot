@@ -6,11 +6,14 @@ module.exports = {
   category: "moderation",
   run: async (client, message, args) => {
     let emb = new Discord.MessageEmbed()
-    .setAuthor(`You dont have admin permission, ${message.author.username}`)
+    .setAuthor(`(❌)You dont have admin permission, ${message.author.username}`)
     .setColor(`RED`)
-    let et = new Discord.
+    let et = new Discord.MessageEmbed()
+    .setAuthor(`(❌)You did not specify your question!`)
+    .setColor(`RED`)
     let as = new Discord.MessageEmbed()
-    .setAuthor(`You did not mention / give id of your channel! use !channel <channel> to show your channel id!`)
+    .setAuthor(`(❌)You did not mention / give id of your channel! use !channel <channel> to show your channel id!`)
+    .setColor(`RED`)
     if (!message.member.permissions.has("ADMINISTRATOR"))
       return message.channel.send(
         emb
@@ -27,7 +30,7 @@ module.exports = {
       .split(`${client.users.prefix}poll ${channel} `)
       .join("");
     if (!question)
-      return message.channel.send(`You did not specify your question!`);
+      return message.channel.send(et);
     const Embed = new Discord.MessageEmbed()
       .setTitle(`New poll!`)
       .setDescription(`${question}`)
