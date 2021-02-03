@@ -26,8 +26,10 @@ module.exports = {
 
              if (alreadyHasRole) return message.channel.send(say).then(m => m.delete({ timeout: 5000 }));
 
-          let sy = new MessageEmbed
-          
+          let sy = new MessageEmbed()
+          .setAuthor(`Try to give a role that exist next time...`)
+          .setColor(`GREEN`)
+          .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
           
              const embed = new MessageEmbed()
                  .setTitle(`Role Name: ${roleName.name}`)
@@ -38,7 +40,12 @@ module.exports = {
 
             return member.roles.add(roleName).then(() => message.channel.send(embed));
         } catch (e) {
-            return message.channel.send('Try to give a role that exists next time...').then(m => m.delete({ timeout: 5000 })).then(() => console.log(e))
+          let sy = new MessageEmbed()
+          .setAuthor(`Try to give a role that exist next time...`)
+          .setColor(`GREEN`)
+          .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+          
+            return message.channel.send(sy).then(m => m.delete({ timeout: 5000 })).then(() => console.log(e))
         }
     }
 }

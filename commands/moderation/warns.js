@@ -12,6 +12,10 @@ module.exports = {
     
      if(warnings === null) warnings = 0;
     
+    let embed = new MessageEmbed()
+    .setAuthor(`**${user}** have **${warnings}** warning(s)`)
+    .setColor(`GREEN`)
+    .setFooter(message.auth)
      message.channel.send(`${user} have **${warnings}** warning(s)`)
     
   }
