@@ -12,9 +12,13 @@ module.exports = {
     
     const cmd = args.join(" ").split(' | ');
     
+    let uh = new discord.MessageEmbed()
+    .setAuthor("Please Give anime name")
+    .setColor(`RED`)
+    .setFooter
     
     if(!cmd[0]) {
-      return message.channel.send("Please Give anime name")
+      return message.channel.send(uh)
     }
     
     if(!cmd[1]) {
@@ -29,6 +33,7 @@ module.exports = {
     let embed = new discord.MessageEmbed()
     .setTitle(`SCRAP - ${cmd}`)
     .setColor("#ff2050")
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
     
     if(episode.videoLinks[0].url) {
     embed.addField(episode.videoLinks[0].name, `[Link](${episode.videoLinks[0].url})`, true)
