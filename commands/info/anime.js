@@ -11,9 +11,11 @@ name: "anime",
   run: (client, message, args) => {
     
     let ha = new MessageEmbed()
-    .setAuthor("(❌) Please Give Anime Name")
+    .setAuthor("(❌)Please Give Anime Name")
     .setColor(`RED`)
-    
+    let nobk = new MessageEmbed()
+    .setAuthor("(:x:)Unable to find this anime")
+    .setColor(`RED`)
     if(!args.length) {
       return message.channel.send(ha)
     }
@@ -50,7 +52,7 @@ name: "anime",
         
        } catch (err) {
         msg.delete();
-         return message.channel.send("Unable to find this anime");
+         return message.channel.send(nobk);
        }
         
         
