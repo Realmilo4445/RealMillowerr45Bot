@@ -32,17 +32,19 @@ module.exports = {
     
      if(warnings === null) {
        let es = new MessageEmbed()
-       .setAuthor(`${message.mentions.users.first().username} do not have any warnings`)
+       .setAuthor(`(❌)${message.mentions.users.first().username} do not have any warnings`)
        .setColor(`GREEN`)
        .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       return message.channel.send(es)
     }
     
     let embed = new MessageEmbed()
-    .setAuthor(`Your all warnings are reseted by ${message.mentions.users.first(.username}`)
+    .setAuthor(`Reseted all warnings are reseted by ${message.mentions.users.first().username}`)
+    .setColor(`GREEN`)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
     db.delete(`warnings_${message.guild.id}_${user.id}`)
     user.send(`Your all warnings are reseted by ${message.author.username} from ${message.guild.name}`)
-    await message.channel.send(`Reseted all warnings of ${message.mentions.users.first().username}`) //DO NOT FORGET TO USE ASYNC FUNCTION
+    await message.channel.send(embed) //DO NOT FORGET TO USE ASYNC FUNCTION
     
     
   }
