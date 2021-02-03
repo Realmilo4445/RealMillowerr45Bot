@@ -29,7 +29,7 @@ dependencies:
   jimp: 0.16.1
   mathjs: 9.0.0
   moment: 2.29.1
-  mongodb: 3.6.3
+  mongodb: 3.6.4
   mongoose: 5.11.13
   node-df: 0.1.4
   node-fetch: 2.6.1
@@ -5523,6 +5523,20 @@ packages:
       saslprep: 1.0.3
     resolution:
       integrity: sha512-rOZuR0QkodZiM+UbQE5kDsJykBqWi0CL4Ec2i1nrGrUI3KO11r6Fbxskqmq3JK2NH7aW4dcccBuUujAP0ERl5w==
+  /mongodb/3.6.4:
+    dependencies:
+      bl: 2.2.1
+      bson: 1.1.5
+      denque: 1.5.0
+      require_optional: 1.0.1
+      safe-buffer: 5.2.1
+    dev: false
+    engines:
+      node: '>=4'
+    optionalDependencies:
+      saslprep: 1.0.3
+    resolution:
+      integrity: sha512-Y+Ki9iXE9jI+n9bVtbTOOdK0B95d6wVGSucwtBkvQ+HIvVdTCfpVRp01FDC24uhC/Q2WXQ8Lpq3/zwtB5Op9Qw==
   /mongoose-legacy-pluralize/1.0.2:
     dev: false
     peerDependencies:
@@ -8077,7 +8091,7 @@ specifiers:
   jimp: ^0.16.1
   mathjs: ^9.0.0
   moment: ^2.29.1
-  mongodb: ^3.6.3
+  mongodb: ^3.6.4
   mongoose: ^5.11.13
   node-df: ^0.1.4
   node-fetch: ^2.6.1
