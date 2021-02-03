@@ -49,9 +49,11 @@ module.exports = {
         if (time >= 21600) return message.channel.send(e).then(m => m.delete({ timeout: 5000 }));
 
         let es = new MessageEmbed()
-        .setAuthor(`Slowmod`)
-      
-        if (currentCooldown === time) return message.channel.send(`Slowmode is already set to ${args[0]}`);
+        .setAuthor(`Slowmode is already set to **${args[0]}**`)
+        .setColor(`GREEN`)
+        .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+        
+        if (currentCooldown === time) return message.channel.send(es);
 
         embed.setTitle('Slowmode Enabled')
             .addField('Slowmode: ', args[0])
