@@ -23,7 +23,7 @@ if(!message.guild.me.hasPermission("KICK_MEMBERS")) {
     }
 
 if(target.id === message.author.id) {
-     return message.channel.send(`**${message.author.username}**, You catn not kick yourself`)
+     return message.channel.send(`**${message.author.username}**, You can not kick yourself`)
     }
 
  if(!args[1]) {
