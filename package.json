@@ -55,7 +55,7 @@
     "atob": "^2.1.2",
     "react-quiz-component": "^0.3.8",
     "bytee-quiz": "^0.1.8",
-    "mongodb": "^3.6.3",
+    "mongodb": "^3.6.4",
     "twitter.js": "^0.0.8",
     "twitter": "^1.7.1",
     "@pusher/push-notifications-web": "^1.0.3",
