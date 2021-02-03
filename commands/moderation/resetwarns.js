@@ -19,7 +19,7 @@ module.exports = {
       .setAuthor(`(❌)Please mention the person whose warning you want to reset`)
       .setColor(`GREEN`)
       .setFooter(message.author.tag, message.authir.displayAvatarURL({dynamic: true}))
-    return message.channel.send("Please mention the person whose warning you want to reset")
+    return message.channel.send(a)
     }
     
     if(message.mentions.users.first().bot) {
@@ -31,9 +31,15 @@ module.exports = {
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
     
      if(warnings === null) {
-      return message.channel.send(`${message.mentions.users.first().username} do not have any warnings`)
+       let es = new MessageEmbed()
+       .setAuthor(`${message.mentions.users.first().username} do not have any warnings`)
+       .setColor(`GREEN`)
+       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      return message.channel.send(es)
     }
     
+    let embed = new MessageEmbed()
+    .setAuthor(`Your all warnings are reseted by ${message.mentions.users.first(.username}`)
     db.delete(`warnings_${message.guild.id}_${user.id}`)
     user.send(`Your all warnings are reseted by ${message.author.username} from ${message.guild.name}`)
     await message.channel.send(`Reseted all warnings of ${message.mentions.users.first().username}`) //DO NOT FORGET TO USE ASYNC FUNCTION
