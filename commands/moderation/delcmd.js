@@ -41,9 +41,17 @@ let sembed = new MessageEmbed()
       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       return message.channel.send(g)
 
-
+      let em = new MessageEmbed()
+      .setAuthor(`(❌)Sorry but i am unable to find that command!`)
+      .setColor(`GREEN`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      
     } else {
-      return message.channel.send(":x: Sorry but i am unable to find that command!")
+      let em = new MessageEmbed()
+      .setAuthor(`(❌)Sorry but i am unable to find that command!`)
+      .setColor(`GREEN`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      return message.channel.send(em)
     
 
 

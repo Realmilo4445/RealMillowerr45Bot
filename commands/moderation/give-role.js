@@ -2,6 +2,8 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'give-role',
+    usage: 'give-role <mention> <role',
+  description: 'give role',
     category : "moderation",
     run: async (client, message, args) => {
 
@@ -13,13 +15,20 @@ module.exports = {
 
         try {
 
+          let say = new MessageEmbed()
+          .setColor(`GREEN`)
+          .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+          .setAuthor("User already has that role")
              const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
              const roleName = message.guild.roles.cache.find(r => (r.name === args[1].toString()) || (r.id === args[1].toString().replace(/[^\w\s]/gi, '')));
 
              const alreadyHasRole = member._roles.includes(roleName.id);
 
-             if (alreadyHasRole) return message.channel.send('User already has that role').then(m => m.delete({ timeout: 5000 }));
+             if (alreadyHasRole) return message.channel.send(say).then(m => m.delete({ timeout: 5000 }));
 
+          let sy = new MessageEmbed
+          
+          
              const embed = new MessageEmbed()
                  .setTitle(`Role Name: ${roleName.name}`)
                  .setDescription(`${message.author} has successfully given the role ${roleName} to ${member.user}`)
