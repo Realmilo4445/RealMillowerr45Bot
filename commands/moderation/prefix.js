@@ -13,6 +13,8 @@ module.exports = {
     
    if(!args[0]) {
       let a = new MessageEmbed()
+      .setAuthor("Please give the prefix that you want to set")
+      .setColor
       return message.channel.send("Please give the prefix that you want to set")
     }
     
