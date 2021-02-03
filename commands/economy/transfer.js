@@ -18,15 +18,13 @@ let given = db.fetch(`money_${message.author.id}`)
 let user = message.mentions.users.first().username
 if(!user) return message.channel.send("Please mention people for transfer!")
 
-        
-
         if(given < 0) return message.reply("(:x:)You dont have money to transfer!");
 
 let embed = new Discord.MessageEmbed()
 embed.setDescription(`Successfully transfered ${es} money(s) to ${user}!`)
 db.add(`money_${user.id}`,es)
-db.subract(`money_${message.author.id}`, es)
-return message.channel.send(embed)
+db.subtract(`money_${message.author.id}`, es)
+ message.channel.send(embed)
 
  
 }
