@@ -10,15 +10,22 @@ module.exports = {
 
     let cmdname = args[0]
 let embed = new MessageEmbed()
+.setAuthor(`(❌)Gimme command name, 'delcmd <cmd_name>'`)
+.setColor(`GREEN`)
+.setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
 
-    if(!cmdname) return message.channel.send(":x: Gimm me commmand name, `delcmd <cmd_name>`")
+let sembed = new MessageEmbed()
+.setAuthor(`(❌)Unable to find this command.`)
+.setColor(`GREEN`)
+.setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+    if(!cmdname) return message.channel.send(embed)
 
     let database = db.get(`cmd_${message.guild.id}`)
 
     if(database) {
       let data = database.find(x => x.name === cmdname.toLowerCase())
 
-      if(!data) return message.channel.send(":x: Unable to find this command.")
+      if(!data) return message.channel.send(sembed)
 
       let value = database.indexOf(data)
       delete database[value]
@@ -28,7 +35,11 @@ let embed = new MessageEmbed()
       })
 
       db.set(`cmd_${message.guild.id}`, filter)
-      return message.channel.send(`Deleted the **${cmdname}** Command!`)
+      let g = new MessageEmbed()
+      .setAuthor(`Deleted the ${cmdname} Command!`)
+      .setColor(`GREEN`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      return message.channel.send(g)
 
 
     } else {
