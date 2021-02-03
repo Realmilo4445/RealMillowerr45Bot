@@ -13,7 +13,7 @@ module.exports = {
 let Embed = new Discord.MessageEmbed()
 let embed = new Discord.MessageEmbed()
 const users = message.mentions.members.first()
-        let userd = message.mentions.users.first().username
+        let userd = message.mentions.users.first()
         let rob = new Discord.MessageEmbed()
         .setAuthor(`(❌)Please mention people to rob!`)
         if(!users) return message.channel.send(rob)
