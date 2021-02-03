@@ -7,16 +7,16 @@ module.exports = {
   category: 'info',
   run: async(client, message, args) => {
     let m = new Discord.MessageEmbed()
-    .setAuthor()
+    .setAuthor("Please mention channel for channel id!")
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
-    .setColor()
+    .setColor(`RED`)
     .setTimestamp()
     const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0])
-    if(!channel)return message.channel.send("Please mention channel for channel id!")
+    if(!channel)return message.channel.send(m)
     
     let embed = new Discord.MessageEmbed()
     .setAuthor("Channel id:" + channel.id)
-    .setColor(`RANDOM`)
+    .setColor(`RED`)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
     .setTimestamp()
     message.channel.send(embed)

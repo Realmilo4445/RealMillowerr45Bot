@@ -7,6 +7,7 @@ module.exports = {
   run: async (client, message, args) => {
     let emb = new Discord.MessageEmbed()
     .setAuthor()
+    
     if (!message.member.permissions.has("ADMINISTRATOR"))
       return message.channel.send(
         `You do not have admin, ${message.author.username}`

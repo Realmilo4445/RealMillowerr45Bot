@@ -24,7 +24,7 @@ module.exports = {
 
     let ee = new MessageEmbed()
     ee.setAuthor("(❌)Please mention to want eject")
-    
+    .setColor(`RED`)
     if (!question) {
       return message.channel.send(ee);
     }

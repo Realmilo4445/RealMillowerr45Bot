@@ -9,9 +9,11 @@ module.exports = {
   run: async (client, message, args) => {
     if (args[0]) {
       const command = await client.commands.get(args[0]);
-
+let em = new MessageEmbed()
+.setAuthor("Unknown Command" + args[0])
+.setColor(`RED`)
       if (!command) {
-        return message.channel.send("Unknown Command: " + args[0]);
+        return message.channel.send(em);
       }
 
       let embed = new MessageEmbed()

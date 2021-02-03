@@ -8,6 +8,7 @@ module.exports = {
   run: async (client, message, args) => {
     let embed = new MessageEmbed()
     .setAuthor("(❌)You do not have enough permissions!")
+    .setColor(`RED`)
     if (!message.member.permissions.has("MANAGE_MESSAGES"))
      return message.channel.send(embed);
     let user =
@@ -16,16 +17,17 @@ module.exports = {
     
      let erambed = new MessageEmbed()
     .setAuthor("You did not mention a user, or you gave an invalid id")
-    
+    .setColor(`RED`)
     if (!user)
       return message.channel.send(erambed);
     
     let ermbed = new MessageEmbed()
     .setAuthor("(❌)You did not specify your message!")
+    .setColor(`RED`)
     
     let Ermbed = new MessageEmbed()
     .setAuthor("(❌)That user could not be DMed!")
-    
+    .setColor(`RED`)
     let sermbed = new MessageEmbed()
     .setAuthor(`Sent a message to ${user.user.tag}`)
     if (!args.slice(1).join(" "))

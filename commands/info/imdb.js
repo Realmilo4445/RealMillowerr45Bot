@@ -10,7 +10,7 @@ name: "imdb",
 
     let es = new discord.MessageEmbed()
     es.setAuthor("(❌)Please give the name of movie or series")
-    
+    .setAuthor(`RED`)
      if(!args.length) {
       return message.channel.send(es)
     }
