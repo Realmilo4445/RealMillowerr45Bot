@@ -1,3 +1,5 @@
+const 
+
 module.exports = {
   name: "unmute",
   description: "Change the bot status",
@@ -5,12 +7,14 @@ module.exports = {
   run: async (client, message, args) => {
     
     if (!message.member.hasPermission("MANAGE_ROLES")) {
+      message.delete()
       return message.channel.send(
         "Sorry but you do not have permission to unmute anyone"
       );
     }
 
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
+      message.edit()
       return message.channel.send("I do not have permission to manage roles.");
     }
     

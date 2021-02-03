@@ -6,9 +6,10 @@ module.exports = {
   usage: "warn <@metion> <reason>",
   category:"moderation",
   description: "warn all",
-  run: async (client, message, args) => {
+  run: async(client, message, args) => {
     
 if(!message.member.hasPermission("ADMINISTRATOR")) {
+  message.delete()
       return message.channel.send("You should have admin perms to use this command!")
     }
     
@@ -16,20 +17,30 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
     
      if(!user) {
        let esed = new MessageEmbed()
-       .setAuthor(`Please Mention the person to sh`)
-      return message.channel.send("Please Mention the person to who you want to warn - warn @mention <reaosn>")
+       .setAuthor(`Please Mention the person to who you want to warn - warn @mention <reason>`)
+       .setColor(`GREEN`)
+       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      return message.channel.send(esed)
     }
     
     
     const reason = args.slice(1).join(" ")
 
   if(!reason) {
-      return message.channel.send("Please provide reason to warn - warn @mention <reason>")
+      let e = new MessageEmbed()
+      .setAuthor(`Please provide reeson to warn - warn @mention <reason>`)
+      .setColor(`GREEN`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynammic: true}))
+      return message.channel.send(e)
     }
     
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
     
     if(warnings === 3) {
+      let a = new MessageEmbed()
+      .setAuthor(`**${message.mentions.users.first().username}** already reached his/her limit with 3 warnings`)
+      .setColor(`GREEN`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       return message.channel.send(`${message.mentions.users.first().username} already reached his/her limit with 3 warnings`)
     }
 
