@@ -7,25 +7,25 @@ module.exports = {
     description: 'shipping name',
     run: async (client, message, args) => {
       let es = new Discord.MessageEmbed()
-      .setAuthor("You forgot to mention someone!")
+      .setAuthor("(❌)You forgot to mention someone!")
       .setColor(`RED`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       .setTimestamp()
       
       let is = new Discord.MessageEmbed()
-      .setAuthor("You forgot to mention someone else!")
+      .setAuthor("(❌)You forgot to mention someone else!")
       .setColor(`RED`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       .setTimestamp()
       
       let us = new Discord.MessageEmbed()
-      .setAuthor(`I couldn't find someone named ${args[0]}!`)
+      .setAuthor(`(❌)I couldn't find someone named ${args[0]}!`)
       .setColor(`RED`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       .setTimestamp()
       
       let as = new Discord.MessageEmbed()
-      .setAuthor(`I couldn't find someone named ${args[1]}!`)
+      .setAuthor(`(❌)I couldn't find someone named ${args[1]}!`)
       .setColor(`RED`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
       .setTimestamp()

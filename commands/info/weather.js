@@ -7,16 +7,22 @@ module.exports = {
   description: "Get the weather of anywhere",
   category: "info",
   usage: "weather <>",
-  run: (client, message, args) => {
+  run: async(client, message, args) => {
     
+    let es = new discord.MessageEmbed()
+    .setAuthor(`(❌)Please give the weather location`)
+    .setColor(`RED`)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+    .setTimestamp()
     
+    let us = new discord.MessageEmbed()
+    .setAuthor(`(❌)Unable To Get the data of Given Location`)
     if(!args.length) {
-      return message.channel.send("Please give the weather location")
+      return message.channel.send(es)
     }
     
  weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) {
 try {
- 
 let embed = new discord.MessageEmbed()
 .setTitle(`Weather - ${result[0].location.name}`)
 .setColor("#ff2050")
