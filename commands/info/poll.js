@@ -3,21 +3,24 @@ module.exports = {
   name: "poll",
   description: "Create a simple yes or no poll",
   usage: "poll ",
-  category: "fun",
+  category: "moderation",
   run: async (client, message, args) => {
     let emb = new Discord.MessageEmbed()
-    .setAuthor()
-    
+    .setAuthor(`You dont have admin permission, ${message.author.username}`)
+    .setColor(`RED`)
+    let et = new Discord.
+    let as = new Discord.MessageEmbed()
+    .setAuthor(`You did not mention / give id of your channel! use !channel <channel> to show your channel id!`)
     if (!message.member.permissions.has("ADMINISTRATOR"))
       return message.channel.send(
-        `You do not have admin, ${message.author.username}`
+        emb
       );
     const channel =
       message.mentions.channels.first() ||
       message.guild.channels.cache.get(args[0]);
     if (!channel) {
       return message.channel.send(
-        `You did not mention / give the id of your channel!`
+        as
       );
     }
     let question = message.content
