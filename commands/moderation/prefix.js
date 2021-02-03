@@ -36,9 +36,12 @@ module.exports = {
       db.delete(`prefix_${message.guild.id}`)
      return await message.channel.send(dj)
     }
-    let embed
+    let embed = new MessageEmbed()
+    .setAuthor(`Seted Bot Prefix to ${args[0]}`)
+    .setColor(`GREEN`)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
         db.set(`prefix_${message.guild.id}`, args[0])
-  await message.channel.send(`Seted Bot Prefix to ${args[0]}`)
+  await message.channel.send(embed)
 
   }
 }
