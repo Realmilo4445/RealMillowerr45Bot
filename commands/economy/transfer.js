@@ -18,11 +18,7 @@ let  e = db.fetch(`money_${message.guild.id}_${message.author.id}`)
 let user = message.mentions.users.first().username
 if(!user) return message.channel.send("Please mention people for transfer!")
 
-        if(message.content.includes('-')) return message.reply("(:x:)Please !");
-
- 
-
-        if(e > 100) return message.reply("(:x:)You can't transfer more than 100 moneys!");
+        if(message.content.includes('-')) return message.reply("(:x:)Please dont transfer minus money!")
 
         
 
