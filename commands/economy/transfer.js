@@ -15,10 +15,8 @@ aliases: ["trans"],
    run: async(client, message, args) => {
      let es = args[1]
 let given = db.fetch(`money_${message.author.id}`)
-let user = message.mentions.users.first().username
+let user = message.mentions.users.first()
 if(!user) return message.channel.send("Please mention people for transfer!")
-
-        if(given < 0) return message.reply("(:x:)You dont have money to transfer!");
 
 let embed = new Discord.MessageEmbed()
 embed.setDescription(`Successfully transfered ${es} money(s) to ${user}!`)
