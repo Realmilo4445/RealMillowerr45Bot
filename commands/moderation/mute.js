@@ -56,8 +56,10 @@ module.exports = {
     
     user.roles.add(muterole)
     let embed = new Discord.MessageEmbed()
-    .setAuthor(`You muted **${message.mentions.users.first().username}** For \```)
-await message.channel.send(`You muted **${message.mentions.users.first().username}** For \`${reason}\``)
+    .setAuthor(`You muted **${message.mentions.users.first().username}** For \`${reason}\``)
+    .setColor(`GREEN`)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+await message.channel.send(embed)
     
     user.send(`You are muted in **${message.guild.name}** For \`${reason}\``)
     
