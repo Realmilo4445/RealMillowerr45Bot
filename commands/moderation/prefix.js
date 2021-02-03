@@ -12,7 +12,7 @@ module.exports = {
     if(!message.member.hasPermission("ADMINISTRATOR")) { return message.channel.send("(❌)You are not allowed or do not have permission to change prefix")    
     
    if(!args[0]) {
-      let
+      let a = new MessageEmbed()
       return message.channel.send("Please give the prefix that you want to set")
     }
     
