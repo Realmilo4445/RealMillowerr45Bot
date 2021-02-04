@@ -13,7 +13,7 @@ module.exports = {
      if(warnings === null) warnings = 0;
     
     let embed = new MessageEmbed()
-    .setAuthor(`**${user}** have **${warnings}** warning(s)`)
+    .setAuthor(`${user} have ${warnings} warning(s)`)
     .setColor(`GREEN`)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
      message.channel.send(embed)
