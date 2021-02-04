@@ -3,8 +3,9 @@ const Discord = require('discord.js');
 const { COLOR } = require('../.././config.json')
 
 module.exports = {
-    name: "bal",
+    name: "balance",
     category: "economy",
+    aliases: ["bal"],
     usage: "balance",
     description: "Your balance",
 

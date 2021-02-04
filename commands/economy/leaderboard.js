@@ -1,4 +1,4 @@
-const db = require('quick.db')
+
 const Discord = require('discord.js')
 
 module.exports = {
@@ -7,6 +7,7 @@ module.exports = {
   usage: 'leaderboard',
   aliases: ['lb'],
   run: async(client, message, args) => {
+    let db = require('quick.db')
     let lb = db.all().filter(a => a.ID.startsWith('money_')).sort((a, b) => b.data - a.data)
     
     let i = 0
@@ -14,7 +15,7 @@ module.exports = {
     let txt = ""
     
     for(i in lb) {
-txt += `${place} <@${lb[i].ID      txt += `${place++}. <@${lb[i].NAME.split('_')[1]}> - ${lb[i].data}$\n`
+txt += `${place++} <@${lb[i].ID      txt += `${place++}. <@${lb[i].NAME.split('_')[1]}> - ${lb[i].data}$\n`
     }
     
     let embed = new Discord.MessageEmbed()
