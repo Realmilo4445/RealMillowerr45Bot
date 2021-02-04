@@ -14,7 +14,7 @@ module.exports = {
     let txt = ""
     
     for(i in lb) {
-      txt += `${place++}. <@${lb[i].NAME.split('_')[1]}> - ${lb[i].data}$\n`
+txt += `${place} <@${lb[i].ID      txt += `${place++}. <@${lb[i].NAME.split('_')[1]}> - ${lb[i].data}$\n`
     }
     
     let embed = new Discord.MessageEmbed()

@@ -20,7 +20,7 @@ module.exports = {
       if (!message.mentions.users.first) return message.channel.send("(:x:)Invalid ID of the user.")
 
 
-      user = message.mentions.members.first() || await message.guild.members.fetch(message.mentions.users.first()).catch(err => { return message.channel.send(":x: Unable to find this Person") })
+      user = message.mentions.members.first() || message.mentions.members.first().id || await message.guild.members.fetch(message.mentions.users.first()).catch(err => { return message.channel.send(":x: Unable to find this Person") })
     }
 
     if (!user) {
