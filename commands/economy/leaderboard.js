@@ -13,12 +13,12 @@ module.exports = {
     let place = 0
     let txt = ""
     
-    if(i in lb) {
+    for(i in lb) {
       txt += `${place++}. <@${lb[i].ID.split('_')[1]}> - ${lb[i].data}`
     }
     
     let embed = new Discord.MessageEmbed()
-    .addField(txt)
+    .setAuthor(txt)
     .setFooter(message.guild.name)
     message.channel.send(embed)
   }
