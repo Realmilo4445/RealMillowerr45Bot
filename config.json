@@ -2,4 +2,13 @@
   "token":"NzczNzYxMzI2ODU4MjQwMDIw.X6N7ZA.q8CvPEUtBqkweKuhO3uxcIZOLjk",
   "DEFAULT_PREFIX":"<",
   "COLOR": "RED"
+  {
+    "ownerID" : "739071498160963654",
+    "PREFIX": "<", 
+    "TOKEN": "NzczNzYxMzI2ODU4MjQwMDIw.X6N7ZA.q8CvPEUtBqkweKuhO3uxcIZOLjk", 
+    "YOUTUBE_API_KEY": "AIzaSyDZ_0dZRlntXOJ9Lsq1ulW6GjPp62csbfg",
+    "QUEUE_LIMIT": 0,
+    "COLOR": "BLUE" 
+
+
 }
