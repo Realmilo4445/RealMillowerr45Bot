@@ -8,28 +8,24 @@ module.exports = {
   run: async (client, message, args) => {
     
      if (!message.member.hasPermission("MANAGE_ROLES")) {
-       message.delete()
       return message.channel.send(
         "(❌)Sorry but you do not have permission to unmute anyone"
       );
     }
 
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-      message.delete()
       return message.channel.send("(❌)I do not have permission to manage roles.");
     }
     
     const user = message.mentions.members.first();
 
     if (!user) {
-      message.delete()
       return message.channel.send(
         "(❌)Please mention the member to who you want to unmute"
       );
     }
  
     if(user.id === message.author.id) {
-      message.delete()
       return message.channel.send("(❌)I won't mute you -_-");
     }
     
@@ -37,7 +33,6 @@ module.exports = {
     
     
     if(!reason) {
-      message.delete()
       return message.channel.send("(❌)Please Give the reason to mute the member")
     }
     
@@ -46,7 +41,6 @@ module.exports = {
     
     
       if(!muterole) {
-      message.delete()
       return message.channel.send("(❌)This server do not have role with name `Muted`")
     }
     
