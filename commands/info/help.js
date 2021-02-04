@@ -29,7 +29,7 @@ let em = new MessageEmbed()
       const commands = await client.commands;
 
       let emx = new MessageEmbed()
-        .setDescription(`**Prefix = <**`)
+        .setDescription(`**Prefix = !r**`)
         .setColor("RED")
         .setFooter(client.user.username, client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL());
