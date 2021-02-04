@@ -25,19 +25,12 @@ if (author !== null && timeout - (Date.now() - author) > 0) {
     message.channel.send(timeEmbed)
   } else {
 
-let moneyEmbed = new Discord.RichEmbed()
-  .setDescription(`(❌)You need at least 200 coins in your wallet to rob someone`);
-
-if (author2 < 200) {
-    return message.channel.send(moneyEmbed)
-
-}
 let moneyEmbed2 = new Discord.RichEmbed()
   .setDescription(`(❌)${user.user.username} does not have anything you can rob`);
 if (targetuser < 0) {
     return message.channel.send(moneyEmbed2)
 }
-
+    
 let random = Math.floor(Math.random()*15) + 1;
 
 let vip = await db.fetch(`bronze_${user.id}`)
