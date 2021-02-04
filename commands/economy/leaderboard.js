@@ -14,7 +14,12 @@ module.exports = {
     let txt = ""
     
     if(i in lb) {
-      txt += `${place}. <@${lb[i].ID.split('_')[1}>`
+      txt += `${place++}. <@${lb[i].ID.split('_')[1]}> - ${lb[i].data}`
     }
+    
+    let embed = new Discord.MessageEmbed()
+    .addField(txt)
+    .setFooter(message.guild.name)
+    .setThumbnail(message.guild.iconURL())
   }
 }
