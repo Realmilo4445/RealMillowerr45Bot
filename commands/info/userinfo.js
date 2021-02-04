@@ -12,15 +12,15 @@ module.exports = {
 
     let user;
 
-    if (!args[0]) {
+    if (!message.mentions.users.first()) {
       user = message.member;
     } else {
 
 
-      if (isNaN(args[0])) return message.channel.send("(:x:)Invalid ID of the user.")
+      if (!message.mentions.users.first) return message.channel.send("(:x:)Invalid ID of the user.")
 
 
-      user = message.mentions.members.first() || await message.guild.members.fetch(args.length).catch(err => { return message.channel.send(":x: Unable to find this Person") })
+      user = message.mentions.members.first() || await message.guild.members.fetch(message.mentions.users.first()).catch(err => { return message.channel.send(":x: Unable to find this Person") })
     }
 
     if (!user) {
