@@ -36,7 +36,7 @@ client.on("ready", () => {
   //When bot is ready
   console.log("I am Reday to Go");
   client.user.setUsername('RealMillowerr45'); // sets the bots name
-  let server = client.guilds.cache.size;
+  const server = client.guilds.cache.size;
   client.user.setPresence({
     activity: {
       name: `${server} Fun Servers || ${DEFAULT_PREFIX}help or ${DEFAULT_PREFIX}helpmusic`,
