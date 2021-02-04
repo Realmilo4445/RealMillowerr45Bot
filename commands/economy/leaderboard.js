@@ -7,19 +7,22 @@ module.exports = {
   usage: 'leaderboard',
   aliases: ['lb'],
   run: async(client, message, args) => {
-    let lb = db.all().filter(a => a.ID.startsWith('money_')).sort((a, b) => b.data - a.data)
+    let money = db.startsWith(`money_${message.guild.id}`, { sort: '.data'})
+    let content = "";
+
+    for (let i = 0; i < money.length; i++) {
+        let user = client.users.get(money[i].ID.split('_')[2]).username
+
+      
+
+        content += `${i+1}. ${user} ~ ${money[i].data}\n`
     
-    let i = 0
-    let place = 1
-    let txt = ""
-    
-    for(i in lb) { 
-      txt += `${place++}. <@${lb[i].ID.split('_')[1]}> - ${lb[i].data}$\n`
-    }
-    
-    let embed = new Discord.MessageEmbed()
-    .setAuthor(txt)
-    .setFooter(message.guild.name)
+      }
+
+    const embed = new Discord.RichEmbed()
+    .setDescription(`**${message.guild.name}'s Coin Leaderboard**\n\n${content}`)
+    .setColor("#FFFFFF")
+
     message.channel.send(embed)
   }
 }
