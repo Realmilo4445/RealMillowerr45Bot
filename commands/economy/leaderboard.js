@@ -20,6 +20,6 @@ module.exports = {
     let embed = new Discord.MessageEmbed()
     .addField(txt)
     .setFooter(message.guild.name)
-    .setThumbnail(message.guild.iconURL())
+    message.channel.send(embed)
   }
 }
