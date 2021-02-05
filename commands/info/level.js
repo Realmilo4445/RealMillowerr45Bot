@@ -35,9 +35,9 @@ module.exports = {
     const {level, remxp, levelxp} = getInfo(xp);
     if(xp === 0) return message.channel.send(h)
     
-    const five = message.guild.roles.cache.find(r => r.name === 'level 5')
-    
-    if(level === 5) { user.roles.add() }
+    const five = message.guild.roles.cache.find(r => (r.name === 'level 5') || (r.name === 'level 5+'))
+    if(!five) return message.channel.send(`(❌)Cannot find role with name 'level 5'!`)
+    if(level === 5) { user.roles.add(five) }
     
     let embed = new discord.MessageEmbed()
     .setAuthor(user.username, message.guild.iconURL())

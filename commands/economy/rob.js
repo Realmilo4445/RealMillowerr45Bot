@@ -21,15 +21,9 @@ if (author !== null && timeout - (Date.now() - author) > 0) {
     let time = ms(timeout - (Date.now() - author));
 
     let timeEmbed = new Discord.MessageEmbed()
-    .setDescription(`(❌) You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
+    .setDescription(`<:Cross:618736602901905418> You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
-
-let moneyEmbed2 = new Discord.MessageEmbed()
-  .setDescription(`(❌)${user.user.username} does not have anything you can rob`);
-if (targetuser < 0) {
-    return message.channel.send(moneyEmbed2)
-}
     
 let random = Math.floor(Math.random()*15) + 1;
 
@@ -38,7 +32,7 @@ if(vip === true) random = Math.floor(Math.random() * 200) + 1;
 if (vip === null) random = Math.floor(Math.random() * 100) + 1;
 
 let embed = new Discord.MessageEmbed()
-.setDescription(`(✅) You robbed ${user} and got away with ${random} coins`)
+.setDescription(`(✅) You robbed ${user} and got away with ${random} moneys`)
 message.channel.send(embed)
 
 db.subtract(`money_${message.guild.id}_${user.id}`, random)
