@@ -35,6 +35,10 @@ module.exports = {
     const {level, remxp, levelxp} = getInfo(xp);
     if(xp === 0) return message.channel.send(h)
     
+    const five = message.guild.roles.cache.find(r => r.name === 'level 5')
+    
+    if(level === 5) { user.roles.add() }
+    
     let embed = new discord.MessageEmbed()
     .setAuthor(user.username, message.guild.iconURL())
     .setColor("#ff2050")

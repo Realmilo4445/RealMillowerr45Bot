@@ -25,7 +25,7 @@ class Util {
   }
 
   static addexp(message) {
-    let toadd = Math.floor(Math.random() * 50 + 50);
+    let toadd = Math.floor(Math.random() * 10 + 10);
     let oldxp = db.get(`xp_${message.author.id}_${message.guild.id}`);
     let oldlvl = Util.getLevel(oldxp);
     let newxp = (oldxp = toadd);
