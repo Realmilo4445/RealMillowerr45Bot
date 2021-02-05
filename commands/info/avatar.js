@@ -7,14 +7,14 @@ module.exports = {
   aliases: ['av'],
   category: 'info',
   run: async(client, message, args) => {
-    let user  = message.mentions.users.first() || message.author || message.guild.members.cache.get(args[0])
+    let user  = message.mentions.users.first() || message.author
     if(!user) {
     return message.channel.send(`(❌)Please mention the person to show the person avatar!`)
   }
     
     let Embed = new Discord.MessageEmbed()
     .setAuthor(user.tag)
-    .setImage(user.displayAvatarURL({dynamic: true}))
+    .setImage(user.displayAvatarURL({size: 4076, dynamic: true}))
     message.channel.send(Embed)
   }
 }

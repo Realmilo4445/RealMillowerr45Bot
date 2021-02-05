@@ -20,12 +20,12 @@ let timeout = 600000;
 if (author !== null && timeout - (Date.now() - author) > 0) {
     let time = ms(timeout - (Date.now() - author));
 
-    let timeEmbed = new Discord.RichEmbed()
+    let timeEmbed = new Discord.MessageEmbed()
     .setDescription(`(❌) You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
 
-let moneyEmbed2 = new Discord.RichEmbed()
+let moneyEmbed2 = new Discord.MessageEmbed()
   .setDescription(`(❌)${user.user.username} does not have anything you can rob`);
 if (targetuser < 0) {
     return message.channel.send(moneyEmbed2)
@@ -37,7 +37,7 @@ let vip = await db.fetch(`bronze_${user.id}`)
 if(vip === true) random = Math.floor(Math.random() * 200) + 1;
 if (vip === null) random = Math.floor(Math.random() * 100) + 1;
 
-let embed = new Discord.RichEmbed()
+let embed = new Discord.MessageEmbed()
 .setDescription(`(✅) You robbed ${user} and got away with ${random} coins`)
 message.channel.send(embed)
 
